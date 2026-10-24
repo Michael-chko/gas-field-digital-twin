@@ -12,6 +12,8 @@ dependencies = [
     "catboost>=1.2",
     "optuna>=3.6",
     "scikit-learn>=1.4",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
     "numpy>=1.26",
     "pandas>=2.2",
     "pyyaml>=6.0",
@@ -19,7 +21,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+dev = ["pytest>=8", "httpx>=0.27"]
 
 [project.scripts]
 field-twin-generate = "field_twin.simulator:main"
@@ -28,6 +30,8 @@ field-twin-journal = "field_twin.journal:main"
 field-twin-quality = "field_twin.quality:main"
 field-twin-run = "field_twin.cycle:main"
 field-twin-hydrates = "field_twin.hydrates:main"
+field-twin-serve = "field_twin.api:main"
+field-twin-playback = "field_twin.playback:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

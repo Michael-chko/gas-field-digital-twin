@@ -1,3 +1,45 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><title>Экран главного инженера</title></head>
-<body><p>Экран появится на этапе 5 (М7).</p></body></html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Экран главного инженера</title>
+<link rel="stylesheet" href="/web/style.css">
+</head>
+<body data-role="chief_engineer">
+<header>
+  <h1>Экран главного инженера</h1>
+  <span class="now" id="now">…</span>
+  <span class="badge stale" id="conn"></span>
+  <span class="spacer"></span>
+  <button id="sound-toggle">Включить звук</button>
+  <a href="/operator">Экран оператора</a>
+</header>
+<audio id="alarm-sound" src="/alarm.wav" preload="auto"></audio>
+<main>
+  <section class="wide">
+    <h2>Рекомендации и уведомления</h2>
+    <p class="muted">Рекомендации расчётных ядер (П12), ресурс оборудования и газопроводов (П2–П11),
+      расхождение моделей (П15), стык с заводом (П16). Решение принимает главный инженер и вводит его в АСУ.</p>
+    <div class="scroll"><table><tbody id="events"></tbody></table></div>
+  </section>
+  <section>
+    <h2>Основания на мерзлоте</h2>
+    <table id="geotech"></table>
+  </section>
+  <section>
+    <h2>Даты последних замеров</h2>
+    <table id="last"></table>
+  </section>
+  <section>
+    <h2>Свежесть данных по потокам</h2>
+    <table id="freshness"></table>
+  </section>
+  <section>
+    <h2>Оборудование и газопроводы</h2>
+    <div id="groups"></div>
+  </section>
+</main>
+<script src="/web/app.js"></script>
+</body>
+</html>

@@ -310,10 +310,18 @@ class Generator:
         d = self.cfg["defects"]["hydrates"]
         sd = self.streams["absorber"]
         obj, plant = d["object"], "UKPG-1V"
-        for _ in range(d["episodes"]):
+        for k in range(d["episodes"]):
             length = self._steps(sd, obj, d["hours"])
             recover = self._steps(sd, obj, 1)
-            s = self._window(sd, obj, length + recover, margin=10)
+            if d.get("start_hours") is not None and k == 0:
+                # Фиксированное начало эпизода (для проигрывания архива и тестов).
+                s = self._steps(sd, obj, d["start_hours"])
+                if s + length + recover > len(sd.times[obj]):
+                    self.skipped[sd.name] = self.skipped.get(sd.name, 0) + 1
+                    continue
+                sd.busy[obj][s : s + length + recover] = True
+            else:
+                s = self._window(sd, obj, length + recover, margin=10)
             if s is None:
                 continue
             sd.busy[plant][s : s + length + recover] = True

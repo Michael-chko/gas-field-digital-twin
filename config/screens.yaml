@@ -1,0 +1,45 @@
+# Экраны оператора пульта и главного инженера (М7; Сафронова; Аксютин и соавторы).
+# Какие сигналы показывать в таблицах «в реальном времени». Мнемосхемы должны повторять
+# мнемосхемы подключаемой АСУ (Куник и соавторы) — до их получения показываются таблицы.
+
+operator:
+  title: Экран оператора пульта
+  groups:
+    - title: Абсорбер А-1
+      stream: absorber
+      object_id: A-1
+      parameters: [Q_gas, KRU, L_cube, T_gas_absorber, Q_cond]
+    - title: Абсорбер А-2
+      stream: absorber
+      object_id: A-2
+      parameters: [Q_gas, KRU, L_cube, T_gas_absorber, Q_cond]
+    - title: УКПГ-1В — общие параметры
+      stream: absorber
+      object_id: UKPG-1V
+      parameters: [T_cond_irrigation, L_E101.1, L_E101.2, Q_sikgk]
+    - title: Подача метанола
+      stream: methanol
+      parameters: [Q_methanol]
+    - title: Сепаратор SEP-1
+      stream: gathering
+      object_id: SEP-1
+      parameters: [P_in, P_out, Q_sep]
+  # Уведомления оператору: П1, П13, П14 и сигнализация АСУ (раздельно).
+  recipients: [operator]
+
+chief_engineer:
+  title: Экран главного инженера
+  groups:
+    - title: ДКС
+      stream: dks
+      parameters: [P_in, P_out, Q, N_power, n_speed]
+    - title: ГТУ Т-32
+      stream: gtu
+      parameters: [T_exhaust, N_power, efficiency, surge_margin]
+    - title: Газопроводы
+      stream: pipelines
+      parameters: [gas_velocity, safe_life_years]
+    - title: Состав газа на выходе
+      stream: gas_composition
+      parameters: [C5plus, methane]
+  recipients: [chief_engineer]

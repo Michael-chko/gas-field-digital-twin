@@ -1,3 +1,54 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><title>Экран оператора</title></head>
-<body><p>Экран появится на этапе 5 (М7).</p></body></html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Экран оператора</title>
+<link rel="stylesheet" href="/web/style.css">
+</head>
+<body data-role="operator">
+<header>
+  <h1>Экран оператора пульта</h1>
+  <span class="now" id="now">…</span>
+  <span class="badge stale" id="conn"></span>
+  <span class="spacer"></span>
+  <button id="sound-toggle">Включить звук</button>
+  <button id="sound-ack">Квитировать звук</button>
+  <a href="/chief">Экран главного инженера</a>
+</header>
+<audio id="alarm-sound" src="/alarm.wav" preload="auto"></audio>
+<main>
+  <section id="alert"></section>
+  <section>
+    <h2>Модель гидратов (М3)</h2>
+    <table><tr><th>Абсорбер</th><th class="num">Вероятность</th><th class="num">Сигналов за 20 мин</th></tr>
+    <tbody id="hydrates"></tbody></table>
+    <p class="muted">Предупреждение — при 3 и более сигналах за 20 минут (П1). Решение принимает оператор.</p>
+  </section>
+  <section>
+    <h2>Свежесть данных по потокам</h2>
+    <table id="freshness"></table>
+  </section>
+  <section class="wide">
+    <h2>Уведомления двойника</h2>
+    <div class="scroll"><table><tbody id="events"></tbody></table></div>
+  </section>
+  <section class="wide">
+    <h2>Технологическая сигнализация АСУ ТП</h2>
+    <p class="muted">Хранится и показывается отдельно от уведомлений двойника.</p>
+    <div class="scroll"><table><tbody id="asu"></tbody></table></div>
+  </section>
+  <section>
+    <h2>Данные в реальном времени</h2>
+    <div id="groups"></div>
+  </section>
+  <section>
+    <h2>Основания на мерзлоте</h2>
+    <table id="geotech"></table>
+    <h2 style="margin-top:14px">Даты последних замеров</h2>
+    <table id="last"></table>
+  </section>
+</main>
+<script src="/web/app.js"></script>
+</body>
+</html>

@@ -108,6 +108,13 @@ CREATE TABLE IF NOT EXISTS quality_exclusions (
     created_at TEXT NOT NULL
 );
 
+-- Снимок состояния для экранов (М7): пишется циклом двойника, читается сервером.
+CREATE TABLE IF NOT EXISTS screen_state (
+    id INTEGER PRIMARY KEY,
+    now_utc TEXT NOT NULL,
+    state_json TEXT NOT NULL
+);
+
 -- Периоды, размеченные человеком (например, гидратообразование для М3).
 CREATE TABLE IF NOT EXISTS period_labels (
     id INTEGER PRIMARY KEY,
@@ -127,8 +134,10 @@ def connect(path: str | Path) -> sqlite3.Connection:
     """Открыть (и при необходимости создать) базу двойника."""
     if str(path) != ":memory:":
         Path(path).parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(str(path))
+    conn = sqlite3.connect(str(path), check_same_thread=False, timeout=30)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
+    if str(path) != ":memory:":
+        conn.execute("PRAGMA journal_mode = WAL")   # проигрывание пишет, сервер экранов читает
     conn.executescript(SCHEMA)
     return conn
