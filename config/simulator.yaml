@@ -1,0 +1,107 @@
+# Генератор синтетических данных (ТЗ, «Технические решения прототипа»).
+# Значения ниже — синтетика для отладки, а не данные промысла и не пороги.
+# Направления изменений и интервалы взяты из источников; величины выбраны в прототипе.
+
+seed: 42
+start: '2026-07-01T00:00:00+05:00'   # бесснежный сезон: есть радарные замеры
+days: 3
+source_utc_offset: '+05:00'          # время на стороне промысла (Ямал)
+
+# Интервалы потоков, которые в источниках не указаны (interval: null в tags.yaml).
+synthetic_intervals:
+  wells: 1h
+  dks: 1h
+  gtu: 1h
+  pipelines: 1d
+  gas_composition: 1h
+
+# Базовые значения и шум: "<stream>.<parameter>": [base, sd]
+baselines:
+  absorber.Q_gas: [450, 3]
+  absorber.KRU: [50, 1]
+  absorber.L_cube: [50, 0.8]
+  absorber.T_gas_absorber: [-25, 0.2]
+  absorber.Q_cond: [20, 0.3]
+  absorber.T_cond_irrigation: [-28, 0.2]
+  absorber.T_heat_exchanger_1: [-10, 0.2]
+  absorber.T_heat_exchanger_2: [-18, 0.2]
+  absorber.T_heat_exchanger_3: [-25, 0.2]
+  absorber.L_E101.1: [55, 0.5]
+  absorber.L_E101.2: [55, 0.5]
+  absorber.Q_sikgk: [35, 0.4]
+  methanol.Q_methanol: [150, 3]
+  gathering.P: [7.5, 0.03]
+  gathering.Q: [120, 1.5]
+  gathering.T: [12, 0.2]
+  gathering.P_in: [7.4, 0.03]
+  gathering.P_out: [7.2, 0.03]
+  gathering.Q_sep: [300, 3]
+  wells.P_wellhead: [8.0, 0.02]
+  wells.P_bottomhole: [10.0, 0.02]
+  wells.Q_gas: [500, 5]
+  wells.Q_liquid: [2.0, 0.1]
+  wells.water_cut: [5.0, 0.3]
+  cluster.Q_plume_total: [2000, 20]
+  cluster.P_zpa_inlet: [7.6, 0.03]
+  cluster.P_buffer: [8.0, 0.03]
+  cluster.T_buffer: [15, 0.3]
+  cluster.Q_well: [500, 5]
+  dks.P_in: [3.0, 0.02]
+  dks.P_out: [7.5, 0.03]
+  dks.Q: [300, 3]
+  dks.N_power: [16, 0.2]
+  dks.n_speed: [5000, 20]
+  gtu.T_exhaust: [510, 3]
+  gtu.N_power: [32, 0.2]
+  gtu.efficiency: [36, 0.2]
+  gtu.surge_margin: [17, 0.3]
+  geotech.settlement: [10, 0.2]
+  geotech.settlement_unevenness: [0.5, 0.02]
+  geotech.horizontal_shift: [3, 0.1]
+  geotech.tilt: [0.3, 0.01]
+  geotech_radar.settlement: [10, 0.5]
+  pipelines.safe_life_years: [12, 0]
+  pipelines.gas_velocity: [12, 0.5]
+  ecp.current: [5, 0.2]
+  ecp.voltage: [20, 0.5]
+  ecp.potential: [-1.1, 0.03]
+  gas_composition.C5plus: [1.0, 0.05]
+  gas_composition.methane: [97, 0.1]
+
+# Дефекты (ТЗ, «Входные данные»).
+defects:
+  downtime:                 # простои с нулевым расходом (Шевченко, Рычков)
+    streams: [gathering, absorber, dks]
+    per_stream: 2
+    hours: [2, 8]
+    zero_flow_pressure_points: 3   # аномальное давление при нулевом расходе внутри простоя
+  # Поток без признака состояния оборудования: в архивах его нет (Шевченко, Рычков).
+  no_equipment_state_streams: [gathering]
+  faulty_sensor:            # сбойные датчики: «залипание» или выбросы
+    streams: [gathering, absorber, wells]
+    per_stream: 1
+    hours: [1, 4]
+  non_numeric:              # нечисловые значения (Шевченко, Рычков)
+    streams: [gathering, absorber, wells]
+    per_stream: 5
+    tokens: ['#N/A', 'Bad', '---', 'I/O Timeout']
+  gaps:                     # пропуски (Печко и соавторы)
+    streams: [wells]
+    complete_rows_share: 0.14      # строк без пропусков «чуть менее 15 %»
+    single_gap_share: 0.8          # доля строк с пропуском, где не хватает одного параметра
+    main_parameter: water_cut      # «чаще всего пропущена обводнённость»
+  pressure_noise:           # шум в рядах давления (Савченко и соавторы)
+    streams: [wells]
+    parameters: [P_wellhead, P_bottomhole]
+    sd: 0.03
+    outliers_per_object: 2
+  well_stops:               # технологические остановки с ростом давления (Савченко и соавторы)
+    stops: 2                       # длинные остановки
+    short_stops: 1                 # короче минимальной длительности — отрицательный пример
+    min_hours: 4                   # 4 ч — высокопроницаемые объекты (Савченко и соавторы)
+    pressure_rise_mpa: 1.5
+  hydrates:                 # эпизоды гидратов по признакам из статьи Сафроновой
+    object: A-2
+    episodes: 1
+    hours: 6
+  format_errors: 5          # строки с ошибками формата для проверки приёма (М1)

@@ -1,0 +1,13 @@
+timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
+2026-07-01T00:00:00+05:00,ecp,ECP-C1,current,4.66388,А,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-C1,voltage,18.4753,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-C1,potential,-1.05456,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-C2,current,5.18253,А,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-C2,voltage,20.3967,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-C2,potential,-1.09209,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-D1,current,4.93158,А,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-D1,voltage,20.8452,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-D1,potential,-1.04901,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-P1,current,4.9385,А,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-P1,voltage,20.1047,В,good,run
+2026-07-01T00:00:00+05:00,ecp,ECP-P1,potential,-1.15234,В,good,run

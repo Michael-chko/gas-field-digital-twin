@@ -1,0 +1,158 @@
+# Словарь параметров цифрового двойника (ТЗ, раздел «Входные данные» и модуль М12).
+#
+# Сигнал = поток (stream) + объект двойника (object_id) + параметр (parameter).
+# Пока владелец АСУ ТП не передал реальный перечень параметров, имя сигнала АСУ
+# строится как "<stream>.<object_id>.<parameter>" (см. gateway/tag_dictionary.py).
+#
+# interval  — период обновления потока по таблице «Входные данные» ТЗ;
+#             null — в источниках не указан (генератор берёт значение из config/simulator.yaml).
+# kind      — роль параметра для очистки (М2): flow, pressure, temperature, level, valve, other.
+#             По kind=flow модуль М2 выделяет простои при отсутствии признака состояния
+#             (Шевченко, Рычков).
+# unit      — единицы измерения в источниках не заданы, приняты в прототипе.
+# setpoints — предупредительные и аварийные уставки. В источниках их нет; задаёт владелец
+#             АСУ ТП при составлении перечня параметров (Куник и соавторы). Пока null.
+# objects   — объекты потока; у параметра можно переопределить список objects.
+#             Объект может быть строкой или словарём {id, attrs}.
+
+streams:
+
+  absorber:
+    title: Абсорбер низкотемпературной абсорбции
+    interval: 2min            # «около 2 мин» (Сафронова)
+    source: Сафронова, обозначения как в таблице 2 статьи
+    objects: [A-1, A-2]
+    parameters:
+      Q_gas:             {unit: тыс. м3/ч, kind: flow,        title: Расход осушенного газа на выходе}
+      KRU:               {unit: '%',       kind: valve,       title: Открытие клапана-регулятора уровня в кубе}
+      L_cube:            {unit: '%',       kind: level,       title: Уровень в кубе}
+      T_gas_absorber:    {unit: °C,        kind: temperature, title: Температура газа на выходе}
+      Q_cond:            {unit: м3/ч,      kind: flow,        title: Расход орошения по абсорберу}
+      T_cond_irrigation: {unit: °C,        kind: temperature, title: Температура конденсата орошения, objects: [UKPG-1V]}
+      T_heat_exchanger_1: {unit: °C,       kind: temperature, title: Температура теплообменника 1, objects: [UKPG-1V]}
+      T_heat_exchanger_2: {unit: °C,       kind: temperature, title: Температура теплообменника 2, objects: [UKPG-1V]}
+      T_heat_exchanger_3: {unit: °C,       kind: temperature, title: Температура теплообменника 3, objects: [UKPG-1V]}
+      L_E101.1:          {unit: '%',       kind: level,       title: Уровень в ёмкости товарного конденсата Е-101.1, objects: [UKPG-1V]}
+      L_E101.2:          {unit: '%',       kind: level,       title: Уровень в ёмкости товарного конденсата Е-101.2, objects: [UKPG-1V]}
+      Q_sikgk:           {unit: м3/ч,      kind: flow,        title: Расход конденсата через СИКГК, objects: [UKPG-1V]}
+
+  methanol:
+    title: Точки подачи метанола
+    interval: 2min            # «как у абсорбера» (оценка целостности данных)
+    source: Оценка целостности данных; Истомин и соавторы
+    objects: [M-1, M-2, M-3]
+    parameters:
+      Q_methanol: {unit: кг/ч, kind: flow, title: Расход метанола в точке подачи}
+
+  gathering:
+    title: Сборная сеть и входы УКПГ
+    interval: 5min            # Шевченко, Рычков
+    source: Шевченко, Рычков
+    objects: [N-01, N-02, N-03, N-04, N-05, N-06]
+    parameters:
+      P:     {unit: МПа,       kind: pressure,    title: Давление в узле}
+      Q:     {unit: тыс. м3/ч, kind: flow,        title: Расход в узле}
+      T:     {unit: °C,        kind: temperature, title: Температура в узле}
+      P_in:  {unit: МПа,       kind: pressure,    title: Давление на входе сепаратора,  objects: [SEP-1]}
+      P_out: {unit: МПа,       kind: pressure,    title: Давление на выходе сепаратора, objects: [SEP-1]}
+      Q_sep: {unit: тыс. м3/ч, kind: flow,        title: Расход через сепаратор,        objects: [SEP-1]}
+
+  wells:
+    title: Скважины
+    interval: null            # не указан (Соломахин, Плосков и соавторы; Савченко и соавторы)
+    source: Соломахин, Плосков и соавторы; Савченко и соавторы
+    objects: [W-101, W-102, W-103, W-104, W-105, W-106]
+    parameters:
+      P_wellhead:   {unit: МПа,         kind: pressure, title: Устьевое давление}
+      P_bottomhole: {unit: МПа,         kind: pressure, title: Забойное давление}
+      Q_gas:        {unit: тыс. м3/сут, kind: flow,     title: Дебит газа}
+      Q_liquid:     {unit: м3/сут,      kind: flow,     title: Расход выносимой жидкости}
+      # Обводнённость: в таблице «Входные данные» нет, но ТЗ требует воспроизводить пропуски,
+      # «чаще всего пропущена обводнённость» (Печко и соавторы).
+      water_cut:    {unit: '%',         kind: other,    title: Обводнённость}
+
+  cluster:
+    title: Шлейфы и скважины куста
+    interval: 1d              # Чудин
+    source: Чудин
+    objects: [K-1]
+    parameters:
+      Q_plume_total: {unit: тыс. м3/сут, kind: flow,        title: Суммарный расход газа по шлейфу}
+      P_zpa_inlet:   {unit: МПа,         kind: pressure,    title: Давление на входе в здание переключающей арматуры}
+      P_buffer:      {unit: МПа,         kind: pressure,    title: Буферное давление скважины, objects: [W-101, W-102, W-103, W-104]}
+      T_buffer:      {unit: °C,          kind: temperature, title: Буферная температура скважины, objects: [W-101, W-102, W-103, W-104]}
+      Q_well:        {unit: тыс. м3/сут, kind: flow,        title: Дебит скважины, objects: [W-101, W-102, W-103, W-104]}
+
+  dks:
+    title: Дожимная компрессорная станция
+    interval: null            # не указан (Чудин)
+    source: Чудин
+    objects: [DKS-1]
+    parameters:
+      P_in:    {unit: МПа,       kind: pressure, title: Давление на входе компрессора}
+      P_out:   {unit: МПа,       kind: pressure, title: Давление на выходе компрессора}
+      Q:       {unit: тыс. м3/ч, kind: flow,     title: Расход}
+      N_power: {unit: МВт,       kind: other,    title: Мощность}
+      n_speed: {unit: об/мин,    kind: other,    title: Скорость вращения}
+
+  gtu:
+    title: Газотурбинная установка Т-32
+    interval: null            # не указан (Невский завод)
+    source: Невский завод
+    objects: [GTU-T32-1]
+    parameters:
+      T_exhaust:    {unit: °C,  kind: temperature, title: Температура газа за турбиной}
+      N_power:      {unit: МВт, kind: other,       title: Мощность}
+      efficiency:   {unit: '%', kind: other,       title: Коэффициент полезного действия}
+      surge_margin: {unit: '%', kind: other,       title: Запас газодинамической устойчивости осевого компрессора}
+
+  geotech:
+    title: Основания на мерзлоте — контактные датчики
+    interval: 30min           # «датчики — выгрузка каждые 30 мин» (Затырко и соавторы)
+    source: Затырко и соавторы
+    objects: [GP-01, GP-02, GP-03, GP-04]
+    parameters:
+      settlement:            {unit: мм,   kind: other, title: Осадка}
+      settlement_unevenness: {unit: мм/м, kind: other, title: Неравномерность осадки}
+      horizontal_shift:      {unit: мм,   kind: other, title: Горизонтальное смещение}
+      tilt:                  {unit: мм/м, kind: other, title: Наклон}
+
+  geotech_radar:
+    title: Основания на мерзлоте — спутниковый радар
+    interval: null            # 9–15 раз за бесснежный сезон (Затырко и соавторы)
+    source: Затырко и соавторы
+    objects: [GP-01, GP-02, GP-03, GP-04]
+    parameters:
+      settlement: {unit: мм, kind: other, title: Осадка по радарной съёмке}
+
+  pipelines:
+    title: Газопроводы
+    interval: null            # по графику обследований (Харионовский и соавторы; Долгов, Пожидаев)
+    source: Харионовский и соавторы; Долгов, Пожидаев
+    objects: [PL-01, PL-02, PL-03]
+    parameters:
+      safe_life_years: {unit: лет, kind: other, title: Расчётный срок безопасной эксплуатации участка}
+      gas_velocity:    {unit: м/с, kind: other, title: Скорость газа}
+
+  ecp:
+    title: Электрохимическая защита
+    interval: null            # по типу установки (Запевалов и соавторы), см. config/thresholds.yaml, П11
+    source: Запевалов и соавторы
+    objects:
+      - {id: ECP-C1, attrs: {install_type: cathodic}}
+      - {id: ECP-C2, attrs: {install_type: cathodic}}
+      - {id: ECP-D1, attrs: {install_type: drainage}}
+      - {id: ECP-P1, attrs: {install_type: protector}}
+    parameters:
+      current:   {unit: А, kind: other, title: Ток}
+      voltage:   {unit: В, kind: other, title: Напряжение}
+      potential: {unit: В, kind: other, title: Средний защитный потенциал}
+
+  gas_composition:
+    title: Состав газа на выходе подготовки
+    interval: null            # измерение на потоке в материалах не описано
+    source: Продольный разбор; Прокопов, Истомин; Скоробогатова
+    objects: [UKPG-1V-OUT]
+    parameters:
+      C5plus:  {unit: г/м3,  kind: other, title: Остаток тяжёлых углеводородов C5+}
+      methane: {unit: '% мол.', kind: other, title: Метан}

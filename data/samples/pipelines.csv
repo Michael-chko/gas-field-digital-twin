@@ -1,0 +1,7 @@
+timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
+2026-07-01T00:00:00+05:00,pipelines,PL-01,safe_life_years,12.0853,лет,good,run
+2026-07-01T00:00:00+05:00,pipelines,PL-01,gas_velocity,12.3271,м/с,good,run
+2026-07-01T00:00:00+05:00,pipelines,PL-02,safe_life_years,11.9485,лет,good,run
+2026-07-01T00:00:00+05:00,pipelines,PL-02,gas_velocity,11.5587,м/с,good,run
+2026-07-01T00:00:00+05:00,pipelines,PL-03,safe_life_years,11.955,лет,good,run
+2026-07-01T00:00:00+05:00,pipelines,PL-03,gas_velocity,11.7183,м/с,good,run

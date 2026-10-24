@@ -1,0 +1,15 @@
+timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
+2026-07-01T00:00:00+05:00,cluster,K-1,Q_plume_total,2043.18,тыс. м3/сут,good,run
+2026-07-01T00:00:00+05:00,cluster,K-1,P_zpa_inlet,7.65768,МПа,good,run
+2026-07-01T00:00:00+05:00,cluster,W-101,P_buffer,8.07425,МПа,good,run
+2026-07-01T00:00:00+05:00,cluster,W-101,T_buffer,15.2972,°C,good,run
+2026-07-01T00:00:00+05:00,cluster,W-101,Q_well,515.364,тыс. м3/сут,good,run
+2026-07-01T00:00:00+05:00,cluster,W-102,P_buffer,7.93184,МПа,good,run
+2026-07-01T00:00:00+05:00,cluster,W-102,T_buffer,15.0835,°C,good,run
+2026-07-01T00:00:00+05:00,cluster,W-102,Q_well,501.217,тыс. м3/сут,good,run
+2026-07-01T00:00:00+05:00,cluster,W-103,P_buffer,7.96613,МПа,good,run
+2026-07-01T00:00:00+05:00,cluster,W-103,T_buffer,14.6598,°C,good,run
+2026-07-01T00:00:00+05:00,cluster,W-103,Q_well,507.92,тыс. м3/сут,good,run
+2026-07-01T00:00:00+05:00,cluster,W-104,P_buffer,7.93988,МПа,good,run
+2026-07-01T00:00:00+05:00,cluster,W-104,T_buffer,14.5724,°C,good,run
+2026-07-01T00:00:00+05:00,cluster,W-104,Q_well,477.631,тыс. м3/сут,good,run

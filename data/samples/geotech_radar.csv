@@ -1,0 +1,5 @@
+timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
+2026-07-01T06:00:00+05:00,geotech_radar,GP-01,settlement,9.11616,мм,good,run
+2026-07-01T06:00:00+05:00,geotech_radar,GP-02,settlement,9.70997,мм,good,run
+2026-07-01T06:00:00+05:00,geotech_radar,GP-03,settlement,10.5459,мм,good,run
+2026-07-01T06:00:00+05:00,geotech_radar,GP-04,settlement,9.90581,мм,good,run
