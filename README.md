@@ -6,7 +6,9 @@
 читает: решение принимает человек и вводит его в АСУ.
 
 Исходные материалы — в [`docs/`](docs/): ТЗ, отчёт «Датчики, модели и уведомления цифрового
-месторождения» и ссылка на продольный разбор.
+месторождения» и ссылка на продольный разбор. Соответствие критериям приёмки ТЗ и тестам —
+[`docs/acceptance.md`](docs/acceptance.md); что осталось без ответа в источниках —
+[`docs/open_questions.md`](docs/open_questions.md).
 
 ## Состояние работ
 
@@ -21,28 +23,73 @@
 | 7 | Внешние ядра с заглушкой (М9), адаптер HYSYS, П12 | готов |
 | 8 | Остановки скважин (М10), стык с заводом (М11), П16 | готов |
 | 9 | Имитатор АСУ ТП и шлюз (М12) | готов |
-| 10 | README: установка и запуск без интернета | — |
+| 10 | README: установка и запуск без интернета | готов |
+
+## Быстрый старт
+
+```bash
+pip install -r requirements-dev.txt && pip install -e .
+pytest                                # 206 тестов, около полутора минут
+./scripts/demo.sh                     # Windows: powershell -File scripts\demo.ps1
+```
+
+Демонстрация обучает модели на синтетике и проигрывает двое суток данных с экранами:
+откройте http://127.0.0.1:8000/operator и http://127.0.0.1:8000/chief и нажмите «Включить звук».
 
 ## Установка
 
-Нужен Python 3.12 или новее. Работает под Windows и Linux.
+Нужен Python 3.12 или 3.13, 64-разрядный. Проверено под Linux; под Windows — те же пакеты
+(у всех зависимостей есть готовые колёса для Windows x64). ТЗ требует работу под Windows и
+РЕД ОС «Муром» без доступа в интернет (Запевалов и соавторы).
+
+### С интернетом
+
+Linux:
 
 ```bash
-python -m venv .venv
-# Linux:   source .venv/bin/activate
-# Windows: .venv\Scripts\activate
-pip install -e ".[dev]"
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements-dev.txt
+pip install -e .
 ```
 
-Без интернета: на машине с интернетом скачайте колёса и перенесите папку `wheels/`:
+Windows (PowerShell):
 
-```bash
-pip download -d wheels ".[dev]"                      # на машине с интернетом
-pip install --no-index --find-links wheels -e ".[dev]"   # на машине без интернета
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+pip install -e .
 ```
 
-Колёса нужно скачивать под ту же ОС и версию Python, что и на целевой машине
-(`pip download --platform win_amd64 --python-version 3.12 --only-binary=:all: ...`).
+### Без интернета
+
+1. На машине **с интернетом** скачайте колёса в папку `wheels/` проекта:
+
+   ```bash
+   ./scripts/download_wheels.sh                               # для той же ОС и версии Python
+   PLATFORM=win_amd64 PY=3.12 ./scripts/download_wheels.sh    # для Windows x64, Python 3.12
+   PLATFORM=manylinux2014_x86_64 PY=3.12 ./scripts/download_wheels.sh   # для Linux x64 (РЕД ОС)
+   ```
+
+   Набор колёс около 215 МБ. Версии зафиксированы в `requirements.txt` и `requirements-dev.txt`.
+2. Перенесите папку проекта вместе с `wheels/` на целевую машину.
+3. На машине **без интернета**:
+
+   ```bash
+   ./scripts/install_offline.sh                                       # Linux, РЕД ОС
+   powershell -ExecutionPolicy Bypass -File scripts\install_offline.ps1   # Windows
+   ```
+
+   Скрипт создаёт `.venv`, ставит зависимости только из `wheels/` (`--no-index`) и сам проект.
+4. Проверка: `pytest`. Тест `tests/test_offline.py` дополнительно прогоняет всю цепочку с запретом
+   любых сетевых соединений, кроме локальных.
+
+Установка из `wheels/` в чистое окружение с заблокированной сетью проверена: все тесты проходят.
+Экраны не загружают ничего из интернета: стили, скрипты и звуковой сигнал лежат в `web/`.
+
+Для адаптера HYSYS на Windows дополнительно нужен `pywin32` (`pip install pywin32` или его колесо
+в `wheels/`) и установленный Aspen HYSYS — см. [`docs/hysys.md`](docs/hysys.md).
 
 ## Запуск
 
@@ -139,7 +186,13 @@ pytest
 | `config/thresholds.yaml` | пороги правил П1–П16 с источниками; `null` — порога нет в источниках |
 | `config/quality.yaml` | приём (разделитель, кодировка, часовой пояс) и параметры очистки |
 | `config/anomaly_reasons.yaml` | справочник причин аномалий для журнала |
-| `config/simulator.yaml` | синтетика: базовые значения, интервалы, дефекты |
+| `config/simulator.yaml` | синтетика: базовые значения, интервалы, дефекты, события для правил |
+| `config/models.yaml` | М3 (гидраты), М4 (Чудин), М10 (остановки скважин) |
+| `config/screens.yaml` | что показывать на экранах оператора и главного инженера |
+| `config/cores.yaml` | внешние расчётные ядра (М9): какие классы подключены |
+| `config/hysys.yaml` | соответствие сигналов двойника и потоков модели HYSYS |
+| `config/plant_link.yaml` | стык с заводом (М11): источники данных и окна снабжения |
+| `config/gateway.yaml` | шлюз АСУ (М12): серверы OPC UA, MQTT, буфер, проверка выполнения |
 
 Пороги и параметры меняются в конфигурации без правки кода. Другая папка конфигурации —
 через `--config` или переменную `FIELD_TWIN_CONFIG`.
