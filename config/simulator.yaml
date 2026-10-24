@@ -15,6 +15,28 @@ synthetic_intervals:
   pipelines: 1d
   gas_composition: 1h
 
+# История редких замеров: радар (тренд осадки) и ручные замеры ЭХЗ (П11), сутки до start.
+history_days:
+  geotech_radar: 400
+  ecp: 200
+
+# События для пороговых правил П2–П11: величины — синтетика, пороги — config/thresholds.yaml.
+rule_events:
+  geotech_levels:                    # П2: доля от предельного значения точки
+    - {object_id: GP-02, parameter: horizontal_shift, ratio: 0.8}    # жёлтый
+    - {object_id: GP-01, parameter: tilt, ratio: 1.1}                # красный
+  settlement_trend:                  # П3: скорость осадки, мм/год
+    - {object_id: GP-03, mm_per_year: 25}
+  unevenness:                        # П4: неравномерность осадки, мм/м
+    - {object_id: GP-04, value: 2.5}
+  gas_velocity: {object_id: PL-02, value: 22, hours: 24}   # П5, м/с
+  exhaust: {value: 620, hours: 3}                          # П6, °C
+  power_degradation: {pct: 12}                              # П7: снижение мощности за период, %
+  surge_margin: {value: 12, hours: 2}                      # П8, %
+  safe_life: {object_id: PL-03, value: 4}                  # П9, лет
+  ecp_zero: {object_id: ECP-C2, parameter: current}        # П10: ток равен нулю
+  ecp_overdue: {object_id: ECP-D1, last_days_before_end: 20}   # П11: дренажная, норма 4 раза в месяц
+
 # Базовые значения и шум: "<stream>.<parameter>": [base, sd]
 baselines:
   absorber.Q_gas: [450, 3]

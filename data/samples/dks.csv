@@ -22,6 +22,7 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T04:00:00+05:00,dks,DKS-1,P_in,3.03964,МПа,good,run
 2026-07-01T04:00:00+05:00,dks,DKS-1,P_out,7.52482,МПа,good,run
 2026-07-01T04:00:00+05:00,dks,DKS-1,Q,296.354,тыс. м3/ч,good,run
+2026-07-01T04:00:00+05:00,dks,DKS-1,N_power,15.627,МВт,ok?,run
 2026-07-01T04:00:00+05:00,dks,DKS-1,N_power,15.627,МВт,good,run
 2026-07-01T04:00:00+05:00,dks,DKS-1,n_speed,4928.19,об/мин,good,run
 2026-07-01T05:00:00+05:00,dks,DKS-1,P_in,3.06383,МПа,good,run
@@ -29,61 +30,61 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T05:00:00+05:00,dks,DKS-1,Q,299.723,тыс. м3/ч,good,run
 2026-07-01T05:00:00+05:00,dks,DKS-1,N_power,15.5779,МВт,good,run
 2026-07-01T05:00:00+05:00,dks,DKS-1,n_speed,4991.58,об/мин,good,run
-2026-07-01T06:00:00+05:00,dks,DKS-1,P_in,3.0525,МПа,good,run
-2026-07-01T06:00:00+05:00,dks,DKS-1,P_out,7.53555,МПа,good,run
-2026-07-01T06:00:00+05:00,dks,DKS-1,Q,304.024,тыс. м3/ч,good,run
-2026-07-01T06:00:00+05:00,dks,DKS-1,N_power,15.7841,МВт,good,run
-2026-07-01T06:00:00+05:00,dks,DKS-1,n_speed,4986.94,об/мин,good,run
-2026-07-01T07:00:00+05:00,dks,DKS-1,P_in,3.08789,МПа,good,run
-2026-07-01T07:00:00+05:00,dks,DKS-1,P_out,7.54559,МПа,good,run
-2026-07-01T07:00:00+05:00,dks,DKS-1,Q,302.894,тыс. м3/ч,good,run
-2026-07-01T07:00:00+05:00,dks,DKS-1,N_power,15.8252,МВт,good,run
-2026-07-01T07:00:00+05:00,dks,DKS-1,n_speed,4957.63,об/мин,good,run
-2026-07-01T08:00:00+05:00,dks,DKS-1,P_in,3.09238,МПа,good,run
-2026-07-01T08:00:00+05:00,dks,DKS-1,P_out,7.56911,МПа,good,run
-2026-07-01T08:00:00+05:00,dks,DKS-1,Q,302.401,тыс. м3/ч,good,run
-2026-07-01T08:00:00+05:00,dks,DKS-1,N_power,15.1965,МВт,good,run
-2026-07-01T08:00:00+05:00,dks,DKS-1,n_speed,4983.4,об/мин,good,run
+2026-07-01T06:00:00+05:00,dks,DKS-1,P_in,15.2625,МПа,good,stop
+2026-07-01T06:00:00+05:00,dks,DKS-1,P_out,7.53555,МПа,good,stop
+2026-07-01T06:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
+2026-07-01T06:00:00+05:00,dks,DKS-1,N_power,15.7841,МВт,good,stop
+2026-07-01T06:00:00+05:00,dks,DKS-1,n_speed,4986.94,об/мин,good,stop
+2026-07-01T07:00:00+05:00,dks,DKS-1,P_in,3.08789,МПа,good,stop
+2026-07-01T07:00:00+05:00,dks,DKS-1,P_out,-7.54559,МПа,good,stop
+2026-07-01T07:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
+2026-07-01T07:00:00+05:00,dks,DKS-1,N_power,15.8252,МВт,good,stop
+2026-07-01T07:00:00+05:00,dks,DKS-1,n_speed,4957.63,об/мин,good,stop
+2026-07-01T08:00:00+05:00,dks,DKS-1,P_in,15.4619,МПа,good,stop
+2026-07-01T08:00:00+05:00,dks,DKS-1,P_out,7.56911,МПа,good,stop
+2026-07-01T08:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
+2026-07-01T08:00:00+05:00,dks,DKS-1,N_power,15.1965,МВт,good,stop
+2026-07-01T08:00:00+05:00,dks,DKS-1,n_speed,4983.4,об/мин,good,stop
 2026-07-01T09:00:00+05:00,dks,DKS-1,P_in,3.04422,МПа,good,run
 2026-07-01T09:00:00+05:00,dks,DKS-1,P_out,7.49344,МПа,good,run
 2026-07-01T09:00:00+05:00,dks,DKS-1,Q,304.635,тыс. м3/ч,good,run
 2026-07-01T09:00:00+05:00,dks,DKS-1,N_power,15.6448,МВт,good,run
 2026-07-01T09:00:00+05:00,dks,DKS-1,n_speed,4978.62,об/мин,good,run
-2026-07-01T10:00:00+05:00,dks,DKS-1,P_in,3.05175,МПа,good,stop
-2026-07-01T10:00:00+05:00,dks,DKS-1,P_out,37.1805,МПа,good,stop
-2026-07-01T10:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
-2026-07-01T10:00:00+05:00,dks,DKS-1,N_power,15.1589,МВт,good,stop
-2026-07-01T10:00:00+05:00,dks,DKS-1,n_speed,5009.86,об/мин,good,stop
-2026-07-01T11:00:00+05:00,dks,DKS-1,P_in,-3.12093,МПа,good,stop
-2026-07-01T11:00:00+05:00,dks,DKS-1,P_out,7.48325,МПа,good,stop
-2026-07-01T11:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
-2026-07-01T11:00:00+05:00,dks,DKS-1,N_power,15.5183,МВт,good,stop
-2026-07-01T11:00:00+05:00,dks,DKS-1,n_speed,4988.71,об/мин,good,stop
-2026-07-01T12:00:00+05:00,dks,DKS-1,P_in,3.09756,МПа,good,stop
-2026-07-01T12:00:00+05:00,dks,DKS-1,P_out,37.4712,МПа,good,stop
-2026-07-01T12:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
-2026-07-01T12:00:00+05:00,dks,DKS-1,N_power,15.8942,МВт,good,stop
-2026-07-01T12:00:00+05:00,dks,DKS-1,n_speed,4992.49,об/мин,good,stop
+2026-07-01T10:00:00+05:00,dks,DKS-1,P_in,3.05175,МПа,good,run
+2026-07-01T10:00:00+05:00,dks,DKS-1,P_out,7.43609,МПа,good,run
+2026-07-01T10:00:00+05:00,dks,DKS-1,Q,308.117,тыс. м3/ч,good,run
+2026-07-01T10:00:00+05:00,dks,DKS-1,N_power,15.1589,МВт,good,run
+2026-07-01T10:00:00+05:00,dks,DKS-1,n_speed,5009.86,об/мин,good,run
+2026-07-01T11:00:00+05:00,dks,DKS-1,P_in,3.12093,МПа,good,run
+2026-07-01T11:00:00+05:00,dks,DKS-1,P_out,7.48325,МПа,good,run
+2026-07-01T11:00:00+05:00,dks,DKS-1,Q,305.507,тыс. м3/ч,good,run
+2026-07-01T11:00:00+05:00,dks,DKS-1,N_power,15.5183,МВт,good,run
+2026-07-01T11:00:00+05:00,dks,DKS-1,n_speed,4988.71,об/мин,good,run
+2026-07-01T12:00:00+05:00,dks,DKS-1,P_in,3.09756,МПа,good,run
+2026-07-01T12:00:00+05:00,dks,DKS-1,P_out,7.49424,МПа,good,run
+2026-07-01T12:00:00+05:00,dks,DKS-1,Q,304.523,тыс. м3/ч,good,run
+2026-07-01T12:00:00+05:00,dks,DKS-1,N_power,15.8942,МВт,good,run
+2026-07-01T12:00:00+05:00,dks,DKS-1,n_speed,4992.49,об/мин,good,run
 2026-07-01T13:00:00+05:00,dks,DKS-1,P_in,3.05033,МПа,good,stop
 2026-07-01T13:00:00+05:00,dks,DKS-1,P_out,7.49026,МПа,good,stop
 2026-07-01T13:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
 2026-07-01T13:00:00+05:00,dks,DKS-1,N_power,16.3394,МВт,good,stop
 2026-07-01T13:00:00+05:00,dks,DKS-1,n_speed,4986.09,об/мин,good,stop
 2026-07-01T14:00:00+05:00,dks,DKS-1,P_in,3.03912,МПа,good,stop
-2026-07-01T14:00:00+05:00,dks,DKS-1,P_out,7.48148,МПа,good,stop
+2026-07-01T14:00:00+05:00,dks,DKS-1,P_out,37.4074,МПа,good,stop
 2026-07-01T14:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
 2026-07-01T14:00:00+05:00,dks,DKS-1,N_power,15.7619,МВт,good,stop
 2026-07-01T14:00:00+05:00,dks,DKS-1,n_speed,4954.61,об/мин,good,stop
-2026-07-01T15:00:00+05:00,dks,DKS-1,P_in,3.06825,МПа,good,run
-2026-07-01T15:00:00+05:00,dks,DKS-1,P_out,7.53576,МПа,good,run
-2026-07-01T15:00:00+05:00,dks,DKS-1,Q,301.882,тыс. м3/ч,good,run
-2026-07-01T15:00:00+05:00,dks,DKS-1,N_power,15.6378,МВт,good,run
-2026-07-01T15:00:00+05:00,dks,DKS-1,n_speed,5005.46,об/мин,good,run
-2026-07-01T16:00:00+05:00,dks,DKS-1,P_in,3.03388,МПа,good,run
-2026-07-01T16:00:00+05:00,dks,DKS-1,P_out,7.50274,МПа,good,run
-2026-07-01T16:00:00+05:00,dks,DKS-1,Q,298.731,тыс. м3/ч,good,run
-2026-07-01T16:00:00+05:00,dks,DKS-1,N_power,15.8622,МВт,good,run
-2026-07-01T16:00:00+05:00,dks,DKS-1,n_speed,4982.99,об/мин,good,run
+2026-07-01T15:00:00+05:00,dks,DKS-1,P_in,-3.06825,МПа,good,stop
+2026-07-01T15:00:00+05:00,dks,DKS-1,P_out,7.53576,МПа,good,stop
+2026-07-01T15:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
+2026-07-01T15:00:00+05:00,dks,DKS-1,N_power,15.6378,МВт,good,stop
+2026-07-01T15:00:00+05:00,dks,DKS-1,n_speed,5005.46,об/мин,good,stop
+2026-07-01T16:00:00+05:00,dks,DKS-1,P_in,15.1694,МПа,good,stop
+2026-07-01T16:00:00+05:00,dks,DKS-1,P_out,7.50274,МПа,good,stop
+2026-07-01T16:00:00+05:00,dks,DKS-1,Q,0,тыс. м3/ч,good,stop
+2026-07-01T16:00:00+05:00,dks,DKS-1,N_power,15.8622,МВт,good,stop
+2026-07-01T16:00:00+05:00,dks,DKS-1,n_speed,4982.99,об/мин,good,stop
 2026-07-01T17:00:00+05:00,dks,DKS-1,P_in,3.04259,МПа,good,run
 2026-07-01T17:00:00+05:00,dks,DKS-1,P_out,7.50511,МПа,good,run
 2026-07-01T17:00:00+05:00,dks,DKS-1,Q,294.372,тыс. м3/ч,good,run
@@ -118,5 +119,4 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T23:00:00+05:00,dks,DKS-1,P_out,7.56768,МПа,good,run
 2026-07-01T23:00:00+05:00,dks,DKS-1,Q,289.787,тыс. м3/ч,good,run
 2026-07-01T23:00:00+05:00,dks,DKS-1,N_power,15.9726,МВт,good,run
-2026-07-01T23:00:00+05:00,dks,DKS-1,n_speed,4934.33,об/мин,ok?,run
 2026-07-01T23:00:00+05:00,dks,DKS-1,n_speed,4934.33,об/мин,good,run

@@ -218,10 +218,12 @@ class QualityPipeline:
 
         base = numeric & ~df["f_nonphysical"] & ~df["f_downtime"] & ~df["f_excluded"]
         stats = self._outliers(df, numeric, base)
-        zfp_excluded = set((self.s.get("zero_flow_pressure") or {}).get("exclude_streams") or [])
+        zfp = self.s.get("zero_flow_pressure") or {}
+        zfp_excluded = set(zfp.get("exclude_streams") or [])
+        zfp_sigma = float(zfp.get("sigma", self.sigma))
         df["f_zero_flow_pressure"] = (
             (df["kind"] == "pressure") & df["f_downtime"] & numeric & ~df["stream"].isin(zfp_excluded)
-            & (df["f_nonphysical"] | (df["_z"].abs() > self.sigma))
+            & (df["f_nonphysical"] | (df["_z"].abs() > zfp_sigma))
         )
         report.smoothing_enabled = self._smoothing(df, base)
         good = base & ~df["f_outlier"] & ~df["f_smooth_removed"]

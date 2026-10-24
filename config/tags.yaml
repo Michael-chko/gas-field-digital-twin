@@ -110,7 +110,14 @@ streams:
     title: Основания на мерзлоте — контактные датчики
     interval: 30min           # «датчики — выгрузка каждые 30 мин» (Затырко и соавторы)
     source: Затырко и соавторы
-    objects: [GP-01, GP-02, GP-03, GP-04]
+    # Предельные значения по каждому параметру каждого пункта контроля (Затырко и соавторы).
+    # Для конкретных сооружений в материалах их нет («Открытые вопросы») — значения ниже ПРИМЕРНЫЕ,
+    # кроме неравномерности осадки 2 мм/м (предел по нормативной документации, Затырко и соавторы).
+    objects:
+      - {id: GP-01, attrs: {limits: {settlement: 40, settlement_unevenness: 2, horizontal_shift: 20, tilt: 2}}}
+      - {id: GP-02, attrs: {limits: {settlement: 40, settlement_unevenness: 2, horizontal_shift: 20, tilt: 2}}}
+      - {id: GP-03, attrs: {limits: {settlement: 40, settlement_unevenness: 2, horizontal_shift: 20, tilt: 2}}}
+      - {id: GP-04, attrs: {limits: {settlement: 40, settlement_unevenness: 2, horizontal_shift: 20, tilt: 2}}}
     parameters:
       settlement:            {unit: мм,   kind: other, title: Осадка}
       settlement_unevenness: {unit: мм/м, kind: other, title: Неравномерность осадки}

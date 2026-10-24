@@ -1,7 +1,10 @@
 """М6. Пороговые правила (ТЗ, «Правила уведомлений»). Пороги — в config/thresholds.yaml.
 
-Этап 2: П13 «Устаревшие данные» и П14 «Расхождение связанных датчиков».
-П2–П11 — этап 3, П12 — этап 7, П15 — этап 6, П16 — этап 8.
+П2–П4 — по оценке геотехники (М5), П5–П11 — по рядам очищенных значений (М2),
+П13 и П14 — по отчёту о качестве. П1 — модуль notify (М7), П12 — внешние ядра (М9),
+П15 — модели М4, П16 — стык с заводом (М11).
+
+Правила по рядам срабатывают в начале эпизода нарушения, а не на каждой точке.
 """
 
 from __future__ import annotations
@@ -27,6 +30,12 @@ class RuleEvent:
     payload: dict[str, Any] = field(default_factory=dict)
 
 
+def recipient(code: str, thresholds: dict[str, Any]) -> str:
+    """Адресат правила; «configurable» — настраиваемый (ТЗ: для П2–П11 получатель настраивается)."""
+    r = thresholds[code].get("recipient", "configurable")
+    return thresholds.get("configurable_recipient", "chief_engineer") if r == "configurable" else r
+
+
 def check_p13(report: QualityReport, thresholds: dict[str, Any]) -> list[RuleEvent]:
     """П13: поток не обновлялся дольше двух своих интервалов (оценка целостности данных)."""
     rule = thresholds["П13"]
@@ -35,7 +44,7 @@ def check_p13(report: QualityReport, thresholds: dict[str, Any]) -> list[RuleEve
         if not f.stale:
             continue
         events.append(RuleEvent(
-            code="П13", ts=report.now, stream=f.stream, object_id=None, recipient=rule["recipient"],
+            code="П13", ts=report.now, stream=f.stream, object_id=None, recipient=recipient("П13", thresholds),
             message=(f"Поток «{f.stream}» не обновлялся {_td(f.age)} при интервале {_td(f.interval)}"
                      + (" (интервал оценён по данным)" if f.interval_estimated else "")),
             payload={"last_ts": f.last_ts.isoformat(), "age_s": f.age.total_seconds(),
@@ -82,13 +91,181 @@ def check_p14(data: pd.DataFrame, settings: dict[str, Any], thresholds: dict[str
             continue
         obj = w.a.split(".", 1)[0]
         events.append(RuleEvent(
-            code="П14", ts=w.end, stream=w.stream, object_id=obj, recipient=rule["recipient"],
+            code="П14", ts=w.end, stream=w.stream, object_id=obj, recipient=recipient("П14", thresholds),
             message=f"Расхождение датчиков {w.a} и {w.b}: корреляция {w.pearson:.2f} < {thr} "
                     f"за {w.start:%Y-%m-%d %H:%M}–{w.end:%H:%M} UTC",
             payload={"a": w.a, "b": w.b, "pearson": w.pearson, "threshold": thr, "n": int(w.n),
                      "start": w.start.isoformat(), "end": w.end.isoformat()},
         ))
     return events
+
+
+# ---------- П2–П4: геотехника (М5) ----------
+
+def check_geotech(assessment, thresholds: dict[str, Any], now: pd.Timestamp) -> list[RuleEvent]:
+    from field_twin.geotech import RED, TITLES, YELLOW
+
+    events = []
+    for p in assessment.parameters:
+        if p.color in (YELLOW, RED):
+            events.append(RuleEvent(
+                "П2", now, "geotech", p.object_id,
+                f"Основание {p.object_id}: {p.parameter} = {p.value:.3g} ({p.ratio:.0%} предела {p.limit:g}) — {TITLES[p.color]}",
+                recipient("П2", thresholds),
+                {"parameter": p.parameter, "value": p.value, "limit": p.limit, "ratio": p.ratio, "color": p.color,
+                 "measured_at": p.ts.isoformat()}))
+    max_rate = thresholds["П3"]["max_mm_per_year"]
+    max_unev = thresholds["П4"]["max_mm_per_m"]
+    for o in assessment.objects:
+        if o.rate_mm_per_year is not None and o.rate_mm_per_year > max_rate:
+            events.append(RuleEvent(
+                "П3", now, "geotech", o.object_id,
+                f"Основание {o.object_id}: скорость вертикального смещения {o.rate_mm_per_year:.1f} мм/год > {max_rate}",
+                recipient("П3", thresholds), {"rate_mm_per_year": o.rate_mm_per_year, "span_days": o.trend_span_days}))
+        if o.unevenness is not None and o.unevenness > max_unev:
+            events.append(RuleEvent(
+                "П4", now, "geotech", o.object_id,
+                f"Основание {o.object_id}: неравномерность осадки {o.unevenness:.2f} мм/м > {max_unev}",
+                recipient("П4", thresholds), {"unevenness": o.unevenness}))
+    return events
+
+
+# ---------- П5–П11: ряды очищенных значений ----------
+
+def _good(data: pd.DataFrame, stream: str, parameter: str | None = None) -> pd.DataFrame:
+    m = (data["stream"] == stream) & data["value_clean"].notna() & ~data["f_downtime"]
+    if parameter:
+        m &= data["parameter"] == parameter
+    return data[m].sort_values("ts")
+
+
+def episodes(mask: pd.Series) -> list[tuple[int, int]]:
+    """Непрерывные участки True: список (первая, последняя позиция)."""
+    out, start = [], None
+    arr = mask.to_numpy()
+    for i, v in enumerate(arr):
+        if v and start is None:
+            start = i
+        elif not v and start is not None:
+            out.append((start, i - 1))
+            start = None
+    if start is not None:
+        out.append((start, len(arr) - 1))
+    return out
+
+
+def _series_rule(data, thresholds, code, stream, parameter, violated, describe) -> list[RuleEvent]:
+    events = []
+    sub = _good(data, stream, parameter)
+    for obj, s in sub.groupby("object_id"):
+        s = s.reset_index(drop=True)
+        mask = violated(s["value_clean"])
+        for a, b in episodes(mask):
+            seg = s.iloc[a : b + 1]
+            v = float(seg["value_clean"].iloc[0])
+            events.append(RuleEvent(
+                code, seg["ts"].iloc[0], stream, obj, describe(obj, v), recipient(code, thresholds),
+                {"parameter": parameter, "value": v, "episode_start": seg["ts"].iloc[0].isoformat(),
+                 "episode_end": seg["ts"].iloc[-1].isoformat(), "points": len(seg)}))
+    return events
+
+
+def check_p5(data, th):
+    lim = th["П5"]["max_m_per_s"]
+    return _series_rule(data, th, "П5", "pipelines", "gas_velocity", lambda v: v > lim,
+                        lambda o, v: f"Газопровод {o}: скорость газа {v:.1f} м/с > {lim} м/с")
+
+
+def check_p6(data, th):
+    lim = th["П6"]["max_c"]
+    return _series_rule(data, th, "П6", "gtu", "T_exhaust", lambda v: v > lim,
+                        lambda o, v: f"ГТУ {o}: температура за турбиной {v:.0f} °C > {lim} °C")
+
+
+def check_p8(data, th):
+    lo, hi = th["П8"]["surge_margin_min_pct"], th["П8"]["surge_margin_max_pct"]
+    return _series_rule(data, th, "П8", "gtu", "surge_margin", lambda v: (v < lo) | (v > hi),
+                        lambda o, v: f"ГТУ {o}: запас газодинамической устойчивости {v:.1f} % вне {lo}–{hi} %")
+
+
+def check_p9(data, th):
+    lim = th["П9"]["min_years"]
+    return _series_rule(data, th, "П9", "pipelines", "safe_life_years", lambda v: v < lim,
+                        lambda o, v: f"Газопровод {o}: срок безопасной эксплуатации {v:g} лет < {lim}")
+
+
+def check_p10(data, th):
+    """Ток или средний защитный потенциал близок или равен нулю (Запевалов и соавторы).
+
+    «Близок» в источнике не определено: без near_zero_abs срабатывает только равенство нулю.
+    """
+    near = th["П10"].get("near_zero_abs") or 0.0
+    out = []
+    for p in ("current", "potential"):
+        out += _series_rule(data, th, "П10", "ecp", p, lambda v: v.abs() <= near,
+                            lambda o, v, p=p: f"ЭХЗ {o}: {'ток' if p == 'current' else 'средний защитный потенциал'} "
+                                              f"{v:g} — установка не работает")
+    return out
+
+
+def check_p7(data, th):
+    """Ухудшение ГТУ за межремонтный период: мощность −4 %, КПД −2 % (Невский завод)."""
+    rule = th["П7"]
+    win = pd.Timedelta(hours=rule.get("baseline_hours", 24))
+    events = []
+    for param, lim, title in (("N_power", rule["max_power_drop_pct"], "мощность"),
+                              ("efficiency", rule["max_efficiency_drop_pct"], "КПД")):
+        sub = _good(data, "gtu", param)
+        for obj, s in sub.groupby("object_id"):
+            s = s.set_index("ts")["value_clean"]
+            step = s.index.to_series().diff().median() if len(s) > 1 else pd.Timedelta(0)
+            # текущее окно не должно перекрываться с базовым
+            first_cur = s.index.min() + 2 * win - step
+            if s.index.max() < first_cur:
+                continue
+            base = s[s.index < s.index.min() + win].mean()
+            cur = s.rolling(win).mean()
+            cur = cur[cur.index >= first_cur]
+            drop = (base - cur) / base * 100
+            for a, b in episodes(drop > lim):
+                t = drop.index[a]
+                events.append(RuleEvent(
+                    "П7", t, "gtu", obj, f"ГТУ {obj}: {title} снизилась на {drop.iloc[a]:.1f} % > {lim} % от начала периода",
+                    recipient("П7", th), {"parameter": param, "drop_pct": float(drop.iloc[a]), "baseline": float(base),
+                                          "current": float(cur.iloc[a])}))
+    return events
+
+
+def check_p11(data, th, tags, now: pd.Timestamp) -> list[RuleEvent]:
+    """Пропуск обслуживания ЭХЗ: замеры реже нормы для типа установки (Запевалов и соавторы).
+
+    Норма «N раз за период» проверяется как «с последнего замера прошло больше period/N».
+    """
+    norms = th["П11"]["min_measurements"]
+    ecp = data[data["stream"] == "ecp"]
+    events = []
+    for sig in tags.stream_signals("ecp"):
+        if sig.parameter != "current":
+            continue
+        kind = sig.object_attrs.get("install_type")
+        norm = norms.get(kind)
+        if not norm:
+            continue
+        allowed = pd.Timedelta(days=norm["period_days"] / norm["count"])
+        last = ecp[ecp["object_id"] == sig.object_id]["ts"].max()
+        if pd.isna(last) or now - last > allowed:
+            age = "замеров нет" if pd.isna(last) else f"последний замер {last:%Y-%m-%d}, {(now - last).days} сут назад"
+            events.append(RuleEvent(
+                "П11", now, "ecp", sig.object_id,
+                f"ЭХЗ {sig.object_id} ({kind}): {age}; норма — {norm['count']} раз за {norm['period_days']} сут",
+                recipient("П11", th), {"install_type": kind, "last": None if pd.isna(last) else last.isoformat(),
+                                       "allowed_days": allowed.total_seconds() / 86400}))
+    return events
+
+
+def check_series_rules(data, th, tags, now) -> list[RuleEvent]:
+    return check_p5(data, th) + check_p6(data, th) + check_p7(data, th) + check_p8(data, th) + \
+        check_p9(data, th) + check_p10(data, th) + check_p11(data, th, tags, now)
 
 
 def log_events(journal, events: list[RuleEvent], shadow: bool = False) -> list[int]:

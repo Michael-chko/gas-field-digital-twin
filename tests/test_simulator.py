@@ -138,7 +138,7 @@ def test_format_errors_recorded(truth):
 
 
 def test_radar_only_in_snowless_season(tmp_path):
-    winter = generate(tmp_path / "w", days=1, seed=1, start="2026-01-10T00:00:00+05:00")
+    winter = generate(tmp_path / "w", days=1, seed=1, start="2026-01-10T00:00:00+05:00", history_days={})
     rows = list(csv.reader(open(winter.files["geotech_radar"], encoding="utf-8")))
     assert len(rows) == 1  # только заголовок: зимой радара нет
 

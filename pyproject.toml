@@ -23,6 +23,7 @@ field-twin-generate = "field_twin.simulator:main"
 field-twin-ingest = "field_twin.ingest:main"
 field-twin-journal = "field_twin.journal:main"
 field-twin-quality = "field_twin.quality:main"
+field-twin-run = "field_twin.cycle:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

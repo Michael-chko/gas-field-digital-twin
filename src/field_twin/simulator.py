@@ -76,23 +76,30 @@ class Generator:
     # ---------- базовые ряды ----------
 
     def _times(self, stream: str, obj: str, attrs: dict[str, Any]) -> list[datetime]:
+        # Радар и ручные замеры ЭХЗ редки: для тренда осадки и проверки П11 нужна история.
+        hist = timedelta(days=float(self.cfg.get("history_days", {}).get(stream, 0)))
         if stream == "geotech_radar":
-            return self._radar_times()
+            return self._radar_times(self.start - hist)
         if stream == "ecp":
             step = timedelta(days=ECP_SCHEDULE_DAYS[attrs["install_type"]])
-            return _regular(self.start, self.end, step)
+            times = _regular(self.start - hist, self.end, step)
+            ov = (self.cfg.get("rule_events") or {}).get("ecp_overdue") or {}
+            if ov.get("object_id") == obj:
+                cutoff = self.end - timedelta(days=ov["last_days_before_end"])
+                times = [t for t in times if t <= cutoff]
+            return times
         step = self.tags.stream_interval(stream) or parse_interval(self.cfg["synthetic_intervals"][stream])
         return _regular(self.start, self.end, step)
 
-    def _radar_times(self) -> list[datetime]:
+    def _radar_times(self, since: datetime) -> list[datetime]:
         out = []
-        for year in range(self.start.year, self.end.year + 1):
-            s = self.start.replace(year=year, month=RADAR_SEASON[0], day=1, hour=0, minute=0, second=0)
-            e = self.start.replace(year=year, month=RADAR_SEASON[1], day=30, hour=0, minute=0, second=0)
+        for year in range(since.year, self.end.year + 1):
+            s = since.replace(year=year, month=RADAR_SEASON[0], day=1, hour=0, minute=0, second=0)
+            e = since.replace(year=year, month=RADAR_SEASON[1], day=30, hour=0, minute=0, second=0)
             step = (e - s) / RADAR_PER_SEASON
             t = s
             while t <= e:
-                if self.start <= t < self.end:
+                if since <= t < self.end:
                     out.append(t)
                 t += step
         return out
@@ -326,6 +333,79 @@ class Generator:
             t = sd.times[obj]
             self._rec("hydrate_episode", sd, obj, start=t[s], end=t[s + length - 1], recovered=t[s + length + recover - 1])
 
+    def _limit(self, obj: str, param: str) -> float:
+        sig = self.tags.get("geotech", obj, param)
+        return float(sig.object_attrs["limits"][param])
+
+    def _hold(self, sd: StreamData, obj: str, hours: float | None) -> tuple[int, int] | None:
+        """Окно для события правила; hours=None — до конца данных."""
+        n = len(sd.times[obj])
+        if hours is None:
+            s = int(n * 0.6)
+            sd.busy[obj][s:] = True
+            return s, n
+        length = self._steps(sd, obj, hours)
+        s = self._window(sd, obj, length, margin=2 if n > length + 6 else 0)
+        return None if s is None else (s, s + length)
+
+    def add_rule_events(self) -> None:
+        """События для пороговых правил П2–П11 (величины — синтетика, пороги — из config/thresholds.yaml)."""
+        ev = self.cfg.get("rule_events") or {}
+        geo, radar = self.streams["geotech"], self.streams["geotech_radar"]
+        for it in ev.get("geotech_levels", []):
+            obj, p = it["object_id"], it["parameter"]
+            w = self._hold(geo, obj, None)
+            v = geo.values[(obj, p)]
+            v[w[0] : w[1]] = self._limit(obj, p) * it["ratio"] + self.rng.normal(0, 0.002, w[1] - w[0])
+            self._rec("rule_event", geo, obj, rule="П2", parameter=p, ratio=it["ratio"], start=geo.times[obj][w[0]])
+        for it in ev.get("settlement_trend", []):
+            obj, rate = it["object_id"], it["mm_per_year"]
+            for sd in (geo, radar):
+                years = np.array([(t - self.start).total_seconds() / (365.25 * 86400) for t in sd.times[obj]])
+                sd.values[(obj, "settlement")] += rate * years
+            self._rec("rule_event", geo, obj, rule="П3", parameter="settlement", mm_per_year=rate)
+        for it in ev.get("unevenness", []):
+            obj = it["object_id"]
+            w = self._hold(geo, obj, None)
+            geo.values[(obj, "settlement_unevenness")][w[0] : w[1]] = it["value"]
+            self._rec("rule_event", geo, obj, rule="П4", parameter="settlement_unevenness", value=it["value"],
+                      start=geo.times[obj][w[0]])
+        simple = [("gas_velocity", "pipelines", "gas_velocity", "П5"), ("exhaust", "gtu", "T_exhaust", "П6"),
+                  ("surge_margin", "gtu", "surge_margin", "П8")]
+        for key, stream, p, rule in simple:
+            it = ev.get(key)
+            if not it:
+                continue
+            sd = self.streams[stream]
+            obj = it.get("object_id") or next(iter(sd.signals))
+            w = self._hold(sd, obj, it.get("hours"))
+            if w is None:
+                continue
+            sd.values[(obj, p)][w[0] : w[1]] = it["value"]
+            t = sd.times[obj]
+            self._rec("rule_event", sd, obj, rule=rule, parameter=p, value=it["value"], start=t[w[0]], end=t[w[1] - 1])
+        if ev.get("safe_life"):
+            it, sd = ev["safe_life"], self.streams["pipelines"]
+            sd.values[(it["object_id"], "safe_life_years")][:] = it["value"]
+            self._rec("rule_event", sd, it["object_id"], rule="П9", parameter="safe_life_years", value=it["value"])
+        if ev.get("power_degradation"):
+            it, sd = ev["power_degradation"], self.streams["gtu"]
+            obj = next(iter(sd.signals))
+            v = sd.values[(obj, "N_power")]
+            v *= np.linspace(1.0, 1.0 - it["pct"] / 100.0, len(v))
+            self._rec("rule_event", sd, obj, rule="П7", parameter="N_power", pct=it["pct"])
+        if ev.get("ecp_zero"):
+            it, sd = ev["ecp_zero"], self.streams["ecp"]
+            obj, p = it["object_id"], it["parameter"]
+            if not sd.times[obj]:
+                return
+            sd.values[(obj, p)][-1] = 0.0
+            self._rec("rule_event", sd, obj, rule="П10", parameter=p, ts=sd.times[obj][-1])
+        if ev.get("ecp_overdue"):
+            it, sd = ev["ecp_overdue"], self.streams["ecp"]
+            times = sd.times[it["object_id"]]
+            self._rec("rule_event", sd, it["object_id"], rule="П11", last=times[-1] if times else None)
+
     def add_gaps(self) -> None:
         d = self.cfg["defects"]["gaps"]
         for stream in d["streams"]:
@@ -420,6 +500,7 @@ class Generator:
         self.build_baseline()
         # Порядок важен: окна дефектов не пересекаются (маска busy).
         self.add_hydrates()
+        self.add_rule_events()
         self.add_well_stops()
         self.add_downtime()
         self.add_decorrelation()

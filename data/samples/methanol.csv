@@ -477,7 +477,6 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T05:16:00+05:00,methanol,M-2,Q_methanol,156.386,кг/ч,good,run
 2026-07-01T05:16:00+05:00,methanol,M-3,Q_methanol,153.084,кг/ч,good,run
 2026-07-01T05:18:00+05:00,methanol,M-1,Q_methanol,151.698,кг/ч,good,run
-2026-07-01T05:18:00,methanol,M-2,Q_methanol,157.671,кг/ч,good,run
 2026-07-01T05:18:00+05:00,methanol,M-2,Q_methanol,157.671,кг/ч,good,run
 2026-07-01T05:18:00+05:00,methanol,M-3,Q_methanol,154.399,кг/ч,good,run
 2026-07-01T05:20:00+05:00,methanol,M-1,Q_methanol,147.893,кг/ч,good,run
@@ -532,6 +531,7 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T05:52:00+05:00,methanol,M-2,Q_methanol,151.34,кг/ч,good,run
 2026-07-01T05:52:00+05:00,methanol,M-3,Q_methanol,149.31,кг/ч,good,run
 2026-07-01T05:54:00+05:00,methanol,M-1,Q_methanol,148.809,кг/ч,good,run
+2026-07-01T05:54:00,methanol,M-2,Q_methanol,159.699,кг/ч,good,run
 2026-07-01T05:54:00+05:00,methanol,M-2,Q_methanol,159.699,кг/ч,good,run
 2026-07-01T05:54:00+05:00,methanol,M-3,Q_methanol,152.975,кг/ч,good,run
 2026-07-01T05:56:00+05:00,methanol,M-1,Q_methanol,155.274,кг/ч,good,run

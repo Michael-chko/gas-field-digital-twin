@@ -135,15 +135,16 @@ def test_three_criteria_per_parameter(cleaned):
     pin = crit[(crit.object_id == "SEP-1") & (crit.parameter == "P_in")].iloc[0]
     assert pin["pearson_with"] == "SEP-1.P_out" and pin["pearson"] > 0.5
     assert crit["share_within_3sigma"].dropna().between(0.9, 1).all()
-    # Для рядов из одного замера критерий не вычисляется.
-    radar = crit[crit.stream == "geotech_radar"]
-    assert radar["share_within_3sigma"].isna().all()
+    # Для постоянного ряда (нулевое отклонение) критерий не вычисляется.
+    life = crit[crit.parameter == "safe_life_years"]
+    assert life["share_within_3sigma"].isna().all()
 
 
 def test_monthly_means(cleaned):
     m = cleaned.monthly
     # Данные начинаются 2026-07-01 00:00 +05:00 = 2026-06-30 19:00 UTC.
-    assert set(m.month) == {"2026-06", "2026-07"}
+    assert set(m[m.stream == "absorber"].month) == {"2026-06", "2026-07"}
+    assert len(set(m[m.stream == "geotech_radar"].month)) > 3   # история радарных замеров
     row = m[(m.stream == "absorber") & (m.object_id == "A-1") & (m.parameter == "Q_gas") & (m.month == "2026-07")].iloc[0]
     assert 400 < row["mean"] < 500 and row["n"] > 1000
 
