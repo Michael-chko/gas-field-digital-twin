@@ -36,6 +36,7 @@ rule_events:
   safe_life: {object_id: PL-03, value: 4}                  # П9, лет
   ecp_zero: {object_id: ECP-C2, parameter: current}        # П10: ток равен нулю
   ecp_overdue: {object_id: ECP-D1, last_days_before_end: 20}   # П11: дренажная, норма 4 раза в месяц
+  c5plus: {value: 1.8, hours: 3}                           # П16: остаток C5+, г/м³ (порог задаёт пользователь)
 
 # Базовые значения и шум: "<stream>.<parameter>": [base, sd]
 baselines:

@@ -61,7 +61,15 @@ streams:
     title: Скважины
     interval: null            # не указан (Соломахин, Плосков и соавторы; Савченко и соавторы)
     source: Соломахин, Плосков и соавторы; Савченко и соавторы
-    objects: [W-101, W-102, W-103, W-104, W-105, W-106]
+    # permeability — проницаемость объекта для М10: high — минимальная длительность остановки 4 ч,
+    # low — 12 ч (Савченко и соавторы). Классы скважин в материалах не даны — условные.
+    objects:
+      - {id: W-101, attrs: {permeability: high}}
+      - {id: W-102, attrs: {permeability: high}}
+      - {id: W-103, attrs: {permeability: high}}
+      - {id: W-104, attrs: {permeability: high}}
+      - {id: W-105, attrs: {permeability: low}}
+      - {id: W-106, attrs: {permeability: high}}
     parameters:
       P_wellhead:   {unit: МПа,         kind: pressure, title: Устьевое давление}
       P_bottomhole: {unit: МПа,         kind: pressure, title: Забойное давление}

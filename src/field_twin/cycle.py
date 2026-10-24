@@ -13,7 +13,7 @@ from typing import Any
 
 import pandas as pd
 
-from field_twin import chudin_models, config, geotech, hydrates, notify, quality, rules, storage
+from field_twin import chudin_models, config, geotech, hydrates, notify, plant_link, quality, rules, stops, storage
 from field_twin.config import ROOT
 from field_twin.cores import base as cores_base
 from field_twin.gateway.tag_dictionary import TagDictionary
@@ -29,6 +29,8 @@ class CycleResult:
     notifications: list[notify.Notification] = field(default_factory=list)
     model_errors: list[dict[str, Any]] = field(default_factory=list)
     core_results: list[Any] = field(default_factory=list)
+    well_stops: list[Any] = field(default_factory=list)
+    plant_message: Any = None
     run_id: int | None = None
     journal_ids: list[int] = field(default_factory=list)
 
@@ -72,6 +74,9 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
             cm, chudin_models.daily_table(q.data, "dks", cs["step"]), chudin_models.daily_table(q.data, "cluster", cs["step"]))
         p15 = rules.check_p15(res.model_errors, th, now)
         res.events = events = sorted(events + p15, key=lambda e: (e.ts, e.code))
+    # М10: технологические остановки скважин; М11: сообщение для завода.
+    res.well_stops = stops.find_stops(q.data, tags, stops.settings(config_dir))
+    res.plant_message = plant_link.build_message(q.data, now, config_dir)
     # М9 и П12: внешние расчётные ядра из config/cores.yaml.
     if cores is None:
         cores = cores_base.load_cores(config.load_yaml("cores.yaml", config_dir))
@@ -80,6 +85,7 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
         res.events = events = sorted(events + rules.check_p12(res.core_results, th, now), key=lambda e: (e.ts, e.code))
     if save:
         res.run_id = quality.save(conn, q)
+        stops.save_stops(conn, res.well_stops)
     if log:
         j = Journal(conn, config_dir=config_dir)
         if events:
@@ -156,6 +162,7 @@ class CycleRunner:
             res.journal_ids += notify.log_notifications(self.journal, new_notes)
             res.notifications = new_notes
         res.events = new_events
+        stops.save_stops(self.conn, res.well_stops)
         write_screen_state(self.conn, res, self.tags, self.screens)
         self.cycles += 1
         return res
@@ -257,6 +264,11 @@ def main(argv: list[str] | None = None) -> int:
         for n in res.notifications:
             snd = "со звуком" if n.sound else "без звука (теневой режим)"
             print(f"  П1 {n.ts:%Y-%m-%d %H:%M} {n.object_id} {snd}; от первого срабатывания модели {n.delay}")
+    cand = [w for w in res.well_stops if w.candidate]
+    print(f"\nМ10: остановок скважин {len(res.well_stops)}, кандидатов для оценки пластового давления {len(cand)}")
+    for w in res.well_stops:
+        print(f"  {w.object_id} {w.start:%Y-%m-%d %H:%M}–{w.end:%H:%M} UTC, {w.hours:g} ч (мин. {w.min_hours:g}), "
+              f"рост давления {'монотонный' if w.monotonic else 'нет'}{' — кандидат' if w.candidate else ''}")
     print(f"\nСрабатывания правил: {len(res.events)}")
     for e in res.events:
         print(f"  {e.code:4} {e.ts:%Y-%m-%d %H:%M} → {e.recipient}: {e.message}")

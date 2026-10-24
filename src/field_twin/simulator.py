@@ -402,7 +402,7 @@ class Generator:
             self._rec("rule_event", geo, obj, rule="П4", parameter="settlement_unevenness", value=it["value"],
                       start=geo.times[obj][w[0]])
         simple = [("gas_velocity", "pipelines", "gas_velocity", "П5"), ("exhaust", "gtu", "T_exhaust", "П6"),
-                  ("surge_margin", "gtu", "surge_margin", "П8")]
+                  ("surge_margin", "gtu", "surge_margin", "П8"), ("c5plus", "gas_composition", "C5plus", "П16")]
         for key, stream, p, rule in simple:
             it = ev.get(key)
             if not it:

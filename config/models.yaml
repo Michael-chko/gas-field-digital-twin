@@ -40,3 +40,10 @@ chudin:                         # М4, Чудин; адаптация и свя�
   # не моделируются) — решение прототипа.
   dks_flow_factor: 3.6
   model_path: data/models/chudin.joblib
+
+stops:                          # М10, Савченко и соавторы
+  stream: wells
+  rate_parameter: Q_gas         # для газовых скважин — нулевой дебит (в статье — нулевой ток насоса)
+  pressure_parameter: P_wellhead
+  min_hours: {high: 4, low: 12} # минимальная длительность остановки по проницаемости — Савченко и соавторы
+  use_smoothed: true            # брать сглаженное давление М2, если сглаживание включено

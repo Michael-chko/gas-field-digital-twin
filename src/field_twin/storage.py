@@ -108,6 +108,21 @@ CREATE TABLE IF NOT EXISTS quality_exclusions (
     created_at TEXT NOT NULL
 );
 
+-- М10: технологические остановки скважин — кандидаты для оценки пластового давления.
+CREATE TABLE IF NOT EXISTS well_stops (
+    id INTEGER PRIMARY KEY,
+    object_id TEXT NOT NULL,
+    start_utc TEXT NOT NULL,
+    end_utc TEXT NOT NULL,
+    hours REAL NOT NULL,
+    min_hours REAL NOT NULL,
+    pressure_rise REAL,
+    monotonic INTEGER NOT NULL,
+    candidate INTEGER NOT NULL,
+    found_at TEXT NOT NULL,
+    UNIQUE (object_id, start_utc)
+);
+
 -- Снимок состояния для экранов (М7): пишется циклом двойника, читается сервером.
 CREATE TABLE IF NOT EXISTS screen_state (
     id INTEGER PRIMARY KEY,

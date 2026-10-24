@@ -263,9 +263,19 @@ def check_p11(data, th, tags, now: pd.Timestamp) -> list[RuleEvent]:
     return events
 
 
+def check_p16(data, th):
+    """Остаток C5+ выше допуска завода (продольный разбор). Порог задаёт пользователь."""
+    lim = th["П16"].get("max_c5plus_g_m3")
+    if lim is None:
+        return []
+    return _series_rule(data, th, "П16", "gas_composition", "C5plus", lambda v: v > lim,
+                        lambda o, v: f"Остаток C5+ на выходе {o}: {v:.2f} г/м³ > допуска завода {lim} г/м³ — "
+                                     f"тяжёлые компоненты вымерзают в теплообменниках сжижения")
+
+
 def check_series_rules(data, th, tags, now) -> list[RuleEvent]:
     return check_p5(data, th) + check_p6(data, th) + check_p7(data, th) + check_p8(data, th) + \
-        check_p9(data, th) + check_p10(data, th) + check_p11(data, th, tags, now)
+        check_p9(data, th) + check_p10(data, th) + check_p11(data, th, tags, now) + check_p16(data, th)
 
 
 # ---------- П15: модели М4 ----------

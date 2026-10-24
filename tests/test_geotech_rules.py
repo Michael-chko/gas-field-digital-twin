@@ -174,7 +174,8 @@ def test_cycle_finds_all_rule_events(ingested_db, truth, tmp_path):
     db = tmp_path / "c.sqlite"
     shutil.copy(ingested_db, db)
     res = run_cycle(storage.connect(db))
-    expected = [d for d in truth["defects"] if d["defect"] == "rule_event"]
+    # П16 без порога (задаёт пользователь) не срабатывает — проверяется отдельно в test_plant_stops.py
+    expected = [d for d in truth["defects"] if d["defect"] == "rule_event" and d["rule"] != "П16"]
     got = {(e.code, e.object_id) for e in res.events}
     for d in expected:
         assert (d["rule"], d["object_id"]) in got, d
