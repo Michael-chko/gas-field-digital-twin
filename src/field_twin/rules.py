@@ -284,10 +284,25 @@ def check_p15(errors: list[dict[str, Any]], th: dict[str, Any], now: pd.Timestam
         for e in errors if e["error_pct"] > lim]
 
 
+# ---------- П12: рекомендации внешних ядер (М9) ----------
+
+def check_p12(core_results, th: dict[str, Any], now: pd.Timestamp) -> list[RuleEvent]:
+    """Ядро предложило изменение управляющих воздействий или перераспределение потоков
+    (Войтенков): система предлагает вариант, решение за человеком."""
+    events = []
+    for r in core_results:
+        for rec in r.recommendations:
+            events.append(RuleEvent(
+                "П12", now, None, rec.object_id, f"[{r.core}] {rec.title}. {rec.message}", recipient("П12", th),
+                {"parameter": f"{r.core}:{rec.key}", "core": r.core, "title": rec.title,
+                 "changes": [c.__dict__ for c in rec.changes], "expected_effect": rec.expected_effect}))
+    return events
+
+
 def log_events(journal, events: list[RuleEvent], shadow: bool = False) -> list[int]:
-    """Записать срабатывания в журнал (М8)."""
+    """Записать срабатывания в журнал (М8). Рекомендации ядер — вид recommendation."""
     return [
-        journal.log_event("rule", code=e.code, message=e.message, ts=e.ts.to_pydatetime(), stream=e.stream,
+        journal.log_event("recommendation" if e.code == "П12" else "rule", code=e.code, message=e.message, ts=e.ts.to_pydatetime(), stream=e.stream,
                           object_id=e.object_id, payload={**e.payload, "recipient": e.recipient}, shadow=shadow)
         for e in events
     ]

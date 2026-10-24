@@ -15,6 +15,7 @@ import pandas as pd
 
 from field_twin import chudin_models, config, geotech, hydrates, notify, quality, rules, storage
 from field_twin.config import ROOT
+from field_twin.cores import base as cores_base
 from field_twin.gateway.tag_dictionary import TagDictionary
 from field_twin.journal import Journal
 
@@ -27,6 +28,7 @@ class CycleResult:
     hydrate_predictions: pd.DataFrame | None = None
     notifications: list[notify.Notification] = field(default_factory=list)
     model_errors: list[dict[str, Any]] = field(default_factory=list)
+    core_results: list[Any] = field(default_factory=list)
     run_id: int | None = None
     journal_ids: list[int] = field(default_factory=list)
 
@@ -34,7 +36,8 @@ class CycleResult:
 def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow: bool = False,
               config_dir: str | Path | None = None, log: bool = True, save: bool = True,
               hydrate_model: hydrates.HydrateModel | str | Path | None = None,
-              chudin_model: chudin_models.ChudinModels | str | Path | None = None) -> CycleResult:
+              chudin_model: chudin_models.ChudinModels | str | Path | None = None,
+              cores: list[cores_base.CoreAdapter] | None = None) -> CycleResult:
     tags = TagDictionary.load(config_dir)
     th = config.thresholds(config_dir)
     pipe = quality.QualityPipeline(tags=tags, thresholds=th, config_dir=config_dir)
@@ -69,6 +72,12 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
             cm, chudin_models.daily_table(q.data, "dks", cs["step"]), chudin_models.daily_table(q.data, "cluster", cs["step"]))
         p15 = rules.check_p15(res.model_errors, th, now)
         res.events = events = sorted(events + p15, key=lambda e: (e.ts, e.code))
+    # М9 и П12: внешние расчётные ядра из config/cores.yaml.
+    if cores is None:
+        cores = cores_base.load_cores(config.load_yaml("cores.yaml", config_dir))
+    if cores:
+        res.core_results = cores_base.run_cores(cores, cores_base.core_input(q.data, now))
+        res.events = events = sorted(events + rules.check_p12(res.core_results, th, now), key=lambda e: (e.ts, e.code))
     if save:
         res.run_id = quality.save(conn, q)
     if log:
@@ -81,7 +90,7 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
     return res
 
 
-STATE_RULES = {"П2", "П3", "П4", "П11", "П13", "П15"}   # срабатывают на состояние «сейчас», а не на эпизод
+STATE_RULES = {"П2", "П3", "П4", "П11", "П12", "П13", "П15"}   # срабатывают на состояние «сейчас», а не на эпизод
 
 
 def _event_key(e: rules.RuleEvent) -> tuple:
@@ -102,6 +111,7 @@ class CycleRunner:
                  hydrate_model: hydrates.HydrateModel | str | Path | None = None,
                  chudin_model: chudin_models.ChudinModels | str | Path | None = None):
         self.chudin = chudin_model
+        self.cores = cores_base.load_cores(config.load_yaml("cores.yaml", config_dir))
         self.conn, self.config_dir, self.shadow = conn, config_dir, shadow
         self.model = hydrate_model   # False — без модели гидратов
         if self.model not in (None, False) and not isinstance(self.model, hydrates.HydrateModel):
@@ -117,7 +127,7 @@ class CycleRunner:
     def step(self, now: pd.Timestamp | None = None) -> CycleResult:
         res = run_cycle(self.conn, now=now, shadow=self.shadow, config_dir=self.config_dir, log=False,
                         save=False, hydrate_model=self.model if self.model is not None else False,
-                        chudin_model=self.chudin if self.chudin is not None else False)
+                        chudin_model=self.chudin if self.chudin is not None else False, cores=self.cores)
         new_events, active = [], set()
         for e in res.events:
             k = _event_key(e)

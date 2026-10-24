@@ -1,0 +1,55 @@
+# Адаптер Aspen HYSYS (М9): соответствие «сигнал двойника ↔ объект и свойство модели HYSYS».
+# Имена потоков ниже взяты со схемы завода (подготовка ПГ, сжижение, аммиак, карбамид) или
+# условные — СВЕРИТЬ с моделью: в HYSYS имя видно в окне потока (Worksheet → Name).
+# collection: MaterialStreams | EnergyStreams; property — свойство COM-объекта HYSYS;
+# unit — единицы, в которых HYSYS принимает или отдаёт значение (SetValue/GetValue).
+
+case_path: C:/models/plant.hsc     # файл модели на машине с HYSYS
+visible: false                     # показывать окно HYSYS при расчёте
+solve_timeout_s: 120
+
+# Что двойник передаёт в модель: последние очищенные значения промысла.
+inputs:
+  - signal: gathering.SEP-1.Q_sep              # расход газа на завод, тыс. м³/ч
+    collection: MaterialStreams
+    name: Feed                                 # «вход газа» на схеме — сверить имя
+    property: StdGasFlow
+    unit: STD_m3/h
+    scale: 1000                                # тыс. м³/ч → м³/ч
+  - signal: gathering.SEP-1.P_out              # давление газа, МПа
+    collection: MaterialStreams
+    name: Feed
+    property: Pressure
+    unit: kPa
+    scale: 1000                                # МПа → кПа
+  - signal: absorber.A-1.T_gas_absorber        # температура газа после подготовки, °C
+    collection: MaterialStreams
+    name: Feed
+    property: Temperature
+    unit: C
+    scale: 1
+
+# Что двойник читает из модели после расчёта.
+outputs:
+  lng_t_h:      {collection: MaterialStreams, name: LNG,  property: MassFlow, unit: tonne/h}   # «СПГ»
+  nh3_t_h:      {collection: MaterialStreams, name: NH3,  property: MassFlow, unit: tonne/h}
+  urea_t_h:     {collection: MaterialStreams, name: Urea, property: MassFlow, unit: tonne/h}
+  lng_feed_t_h: {collection: MaterialStreams, name: "ПГ на сжижение", property: MassFlow, unit: tonne/h}
+
+# Мощности компрессоров сжижения (энергопотоки Q-xxx на схеме), кВт — сверить имена.
+compressor_power:
+  K-100: {collection: EnergyStreams, name: Q-100, property: HeatFlow, unit: kW}
+  K-101: {collection: EnergyStreams, name: Q-101, property: HeatFlow, unit: kW}
+  K-102: {collection: EnergyStreams, name: Q-102, property: HeatFlow, unit: kW}
+  K-104: {collection: EnergyStreams, name: Q-104, property: HeatFlow, unit: kW}
+  K-105: {collection: EnergyStreams, name: Q-105, property: HeatFlow, unit: kW}
+  K-106: {collection: EnergyStreams, name: Q-106, property: HeatFlow, unit: kW}
+  K-107: {collection: EnergyStreams, name: Q-107, property: HeatFlow, unit: kW}
+
+# Рекомендации по результатам расчёта (продольный разбор, «целевые уведомления»).
+recommendations:
+  specific_energy:
+    # Удельный расход энергии на тонну СПГ, кВт·ч/т. Базовое значение и допустимый рост задаёт
+    # пользователь; пока null — рекомендация не формируется.
+    baseline_kwh_t: null
+    max_increase_pct: null

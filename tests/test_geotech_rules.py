@@ -181,7 +181,7 @@ def test_cycle_finds_all_rule_events(ingested_db, truth, tmp_path):
     # лишних срабатываний П2–П11 нет
     want = {(d["rule"], d["object_id"]) for d in expected}
     want |= {("П2", d["object_id"]) for d in expected if d["rule"] == "П4"}   # 2,5 мм/м — ещё и красный класс
-    assert {k for k in got if k[0] not in ("П13", "П14")} == want
+    assert {k for k in got if k[0] not in ("П12", "П13", "П14")} == want
     assert len(res.journal_ids) == len(res.events)
 
 

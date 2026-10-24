@@ -1,0 +1,20 @@
+# Внешние расчётные ядра (М9). Ядро подключается строкой class "модуль:Класс" — замена ядра
+# не требует правки остального кода. enabled: false — ядро описано, но не вызывается.
+
+cores:
+  - name: stub
+    class: field_twin.cores.stub:StubCore
+    enabled: true
+    options:
+      # Заглушка отдаёт рекомендации по синтетическим данным (ТЗ, М9). Пороги — синтетика.
+      imbalance_pct: 3          # перекос расхода газа между абсорберами А-1 и А-2, %
+      level_drop_pct: 10        # снижение уровня в кубе от рабочего, % — признак гидратов (Сафронова)
+  - name: aerosim
+    class: field_twin.cores.aerosim:AerosimCore
+    enabled: false              # после получения лицензии и описания программного интерфейса
+  - name: tnavigator
+    class: field_twin.cores.tnavigator:TNavigatorCore
+    enabled: false
+  - name: hysys
+    class: field_twin.cores.hysys:HysysCore
+    enabled: false              # Windows + лицензия Aspen HYSYS; настройки — config/hysys.yaml
