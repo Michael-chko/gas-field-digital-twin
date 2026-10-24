@@ -71,6 +71,43 @@ CREATE TABLE IF NOT EXISTS journal_decisions (
     comment TEXT
 );
 
+-- М2: результаты контроля качества. Исходные записи не меняются.
+CREATE TABLE IF NOT EXISTS quality_runs (
+    id INTEGER PRIMARY KEY,
+    started_at TEXT NOT NULL,
+    now_utc TEXT,
+    report_json TEXT
+);
+
+CREATE TABLE IF NOT EXISTS clean_values (
+    measurement_id INTEGER NOT NULL REFERENCES measurements(id),
+    run_id INTEGER NOT NULL REFERENCES quality_runs(id),
+    value_clean REAL,                 -- NULL: пропуск, нечисловое, нефизичное или исключённое
+    value_smooth REAL,                -- значение сглаживающего полинома (если включено)
+    equipment_state TEXT,
+    equipment_state_source TEXT,      -- input | derived
+    flags TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (run_id, measurement_id)
+);
+
+CREATE TABLE IF NOT EXISTS monthly_means (
+    run_id INTEGER NOT NULL REFERENCES quality_runs(id),
+    stream TEXT NOT NULL,
+    object_id TEXT NOT NULL,
+    parameter TEXT NOT NULL,
+    month TEXT NOT NULL,              -- ГГГГ-ММ (СТО Газпром 2-3.3-1203-2020)
+    mean REAL,
+    n INTEGER NOT NULL
+);
+
+-- Выбросы, исключение которых подтвердил пользователь (Шевченко, Рычков; Печко и соавторы).
+CREATE TABLE IF NOT EXISTS quality_exclusions (
+    measurement_id INTEGER PRIMARY KEY REFERENCES measurements(id),
+    user_name TEXT NOT NULL,
+    comment TEXT,
+    created_at TEXT NOT NULL
+);
+
 -- Периоды, размеченные человеком (например, гидратообразование для М3).
 CREATE TABLE IF NOT EXISTS period_labels (
     id INTEGER PRIMARY KEY,

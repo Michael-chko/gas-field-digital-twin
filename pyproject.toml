@@ -22,6 +22,7 @@ dev = ["pytest>=8"]
 field-twin-generate = "field_twin.simulator:main"
 field-twin-ingest = "field_twin.ingest:main"
 field-twin-journal = "field_twin.journal:main"
+field-twin-quality = "field_twin.quality:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

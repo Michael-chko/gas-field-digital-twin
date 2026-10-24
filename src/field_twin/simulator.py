@@ -118,6 +118,14 @@ class Generator:
                     daily = 1.5 * noise * np.sin(2 * math.pi * hours / 24 + phase)
                     sd.values[(obj, sig.parameter)] = base + daily + self.rng.normal(0, noise, n) if noise else np.full(n, base)
             self.streams[stream] = sd
+        # Связанные датчики повторяют ведущий с поправкой: графики давления на входе и выходе
+        # сепаратора должны быть схожи (Шевченко, Рычков).
+        for key, c in (self.cfg.get("coupled") or {}).items():
+            stream, obj, param = key.split(".", 2)
+            lead_obj, lead_param = c["follows"].split(".", 1)
+            sd = self.streams[stream]
+            lead = sd.values[(lead_obj, lead_param)]
+            sd.values[(obj, param)] = lead + c["offset"] + self.rng.normal(0, c["sd"], len(lead))
 
     # ---------- дефекты ----------
 
@@ -213,6 +221,39 @@ class Generator:
                 if i % 2 == 0:
                     sd.quality.setdefault((obj, p), {})[s] = "bad"
                 self._rec("non_numeric", sd, obj, parameter=p, ts=sd.times[obj][s], token=token)
+
+    # Нефизичное значение по роли параметра: нули давления (Савченко и соавторы),
+    # уровень и открытие клапана вне 0–100 %, отрицательный расход, температура ниже абсолютного нуля.
+    NONPHYSICAL = {"pressure": 0.0, "level": 130.0, "valve": -5.0, "flow": -10.0, "temperature": -300.0}
+
+    def add_nonphysical(self) -> None:
+        d = self.cfg["defects"]["nonphysical"]
+        for stream in d["streams"]:
+            sd = self.streams[stream]
+            for _ in range(d["per_stream"]):
+                obj = str(self.rng.choice(list(sd.signals)))
+                params = [p for p in sd.params(obj) if self._kind(sd, obj, p) in self.NONPHYSICAL]
+                s = self._window(sd, obj, 1, margin=1) if params else None
+                if s is None:
+                    continue
+                p = str(self.rng.choice(params))
+                val = self.NONPHYSICAL[self._kind(sd, obj, p)]
+                sd.values[(obj, p)][s] = val
+                self._rec("nonphysical", sd, obj, parameter=p, ts=sd.times[obj][s], value=val)
+
+    def add_decorrelation(self) -> None:
+        """Связанный датчик на время перестаёт повторять ведущий — для проверки П14."""
+        d = self.cfg["defects"]["decorrelation"]
+        sd = self.streams[d["stream"]]
+        obj, p = d["object_id"], d["parameter"]
+        length = self._steps(sd, obj, d["hours"])
+        s = self._window(sd, obj, length, margin=5)
+        if s is None:
+            return
+        v = sd.values[(obj, p)]
+        v[s : s + length] = float(np.median(v)) + self.rng.normal(0, d["sd"], length)
+        t = sd.times[obj]
+        self._rec("decorrelation", sd, obj, parameter=p, start=t[s], end=t[s + length - 1])
 
     def add_pressure_noise(self) -> None:
         d = self.cfg["defects"]["pressure_noise"]
@@ -381,7 +422,9 @@ class Generator:
         self.add_hydrates()
         self.add_well_stops()
         self.add_downtime()
+        self.add_decorrelation()
         self.add_faulty_sensors()
+        self.add_nonphysical()
         self.add_non_numeric()
         self.add_pressure_noise()
         self.add_gaps()

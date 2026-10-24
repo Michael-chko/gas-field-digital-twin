@@ -141,3 +141,34 @@ def test_radar_only_in_snowless_season(tmp_path):
     winter = generate(tmp_path / "w", days=1, seed=1, start="2026-01-10T00:00:00+05:00")
     rows = list(csv.reader(open(winter.files["geotech_radar"], encoding="utf-8")))
     assert len(rows) == 1  # только заголовок: зимой радара нет
+
+
+def test_coupled_sensors_follow_lead(samples, truth):
+    # Давления на входе и выходе сепаратора схожи (Шевченко, Рычков).
+    df = read(samples, "gathering")
+    w = df[df.object_id == "SEP-1"].pivot_table(index="ts", columns="parameter", values="v")
+    bad = [d for d in truth["defects"] if d["stream"] == "gathering" and d.get("object_id") == "SEP-1"]
+    for d in bad:   # без внедрённых дефектов
+        if "start" in d:
+            w = w[~w.index.to_series().between(pd.Timestamp(d["start"]), pd.Timestamp(d["end"]))]
+        elif "ts" in d:
+            w = w.drop(pd.Timestamp(d["ts"]), errors="ignore")
+    assert w["P_in"].corr(w["P_out"]) > 0.5
+    assert (w["P_in"] - w["P_out"]).median() == pytest.approx(0.2, abs=0.02)
+
+
+def test_decorrelation_episode(samples, truth):
+    d = defects(truth, "decorrelation")[0]
+    df = read(samples, "gathering")
+    w = df[df.object_id == "SEP-1"].pivot_table(index="ts", columns="parameter", values="v")
+    inside = w.loc[pd.Timestamp(d["start"]) : pd.Timestamp(d["end"])]
+    assert abs(inside["P_in"].corr(inside["P_out"])) < 0.5
+
+
+def test_nonphysical_values(samples, truth):
+    found = defects(truth, "nonphysical")
+    assert len(found) >= 6
+    for d in found:
+        df = read(samples, d["stream"])
+        row = df[(df.object_id == d["object_id"]) & (df.parameter == d["parameter"]) & (df.ts == pd.Timestamp(d["ts"]))]
+        assert row["v"].iloc[0] == d["value"]

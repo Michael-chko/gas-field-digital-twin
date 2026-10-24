@@ -68,8 +68,21 @@ baselines:
   gas_composition.C5plus: [1.0, 0.05]
   gas_composition.methane: [97, 0.1]
 
+# Связанные датчики: "<stream>.<object>.<parameter>" повторяет follows с поправкой offset и шумом sd.
+coupled:
+  gathering.SEP-1.P_out: {follows: SEP-1.P_in, offset: -0.2, sd: 0.005}
+
 # Дефекты (ТЗ, «Входные данные»).
 defects:
+  nonphysical:              # нефизичные значения (Савченко и соавторы)
+    streams: [gathering, absorber, wells]
+    per_stream: 3
+  decorrelation:            # расхождение связанных датчиков — для П14 (Шевченко, Рычков)
+    stream: gathering
+    object_id: SEP-1
+    parameter: P_out
+    hours: 6
+    sd: 0.03
   downtime:                 # простои с нулевым расходом (Шевченко, Рычков)
     streams: [gathering, absorber, dks]
     per_stream: 2
@@ -87,7 +100,7 @@ defects:
     tokens: ['#N/A', 'Bad', '---', 'I/O Timeout']
   gaps:                     # пропуски (Печко и соавторы)
     streams: [wells]
-    complete_rows_share: 0.14      # строк без пропусков «чуть менее 15 %»
+    complete_rows_share: 0.14      # строк без пропусков «чуть менее 15 %» — среди строк без других дефектов
     single_gap_share: 0.8          # доля строк с пропуском, где не хватает одного параметра
     main_parameter: water_cut      # «чаще всего пропущена обводнённость»
   pressure_noise:           # шум в рядах давления (Савченко и соавторы)

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T10:42:11.932567+00:00",
+ "generated_at": "2026-10-24T11:20:16.295235+00:00",
  "seed": 42,
  "start": "2026-07-01T00:00:00+05:00",
  "end": "2026-07-02T00:00:00+05:00",
@@ -25,29 +25,29 @@
    "defect": "hydrate_episode",
    "stream": "absorber",
    "object_id": "A-2",
-   "start": "2026-07-01T11:38:00+05:00",
-   "end": "2026-07-01T17:36:00+05:00",
-   "recovered": "2026-07-01T18:36:00+05:00"
+   "start": "2026-07-01T12:44:00+05:00",
+   "end": "2026-07-01T18:42:00+05:00",
+   "recovered": "2026-07-01T19:42:00+05:00"
   },
   {
    "defect": "well_stop",
    "stream": "wells",
-   "object_id": "W-106",
-   "start": "2026-07-01T07:00:00+05:00",
-   "end": "2026-07-01T17:00:00+05:00",
-   "steps": 11,
-   "hours": 11.0,
+   "object_id": "W-104",
+   "start": "2026-07-01T09:00:00+05:00",
+   "end": "2026-07-01T18:00:00+05:00",
+   "steps": 10,
+   "hours": 10.0,
    "long_enough": true,
    "min_hours": 4
   },
   {
    "defect": "well_stop",
    "stream": "wells",
-   "object_id": "W-103",
-   "start": "2026-07-01T08:00:00+05:00",
-   "end": "2026-07-01T18:00:00+05:00",
-   "steps": 11,
-   "hours": 11.0,
+   "object_id": "W-105",
+   "start": "2026-07-01T05:00:00+05:00",
+   "end": "2026-07-01T10:00:00+05:00",
+   "steps": 6,
+   "hours": 6.0,
    "long_enough": true,
    "min_hours": 4
   },
@@ -55,8 +55,8 @@
    "defect": "well_stop",
    "stream": "wells",
    "object_id": "W-101",
-   "start": "2026-07-01T07:00:00+05:00",
-   "end": "2026-07-01T08:00:00+05:00",
+   "start": "2026-07-01T14:00:00+05:00",
+   "end": "2026-07-01T15:00:00+05:00",
    "steps": 2,
    "hours": 2.0,
    "long_enough": false,
@@ -65,94 +65,94 @@
   {
    "defect": "downtime",
    "stream": "gathering",
-   "object_id": "N-02",
-   "start": "2026-07-01T09:05:00+05:00",
-   "end": "2026-07-01T13:20:00+05:00",
-   "steps": 52,
+   "object_id": "N-03",
+   "start": "2026-07-01T15:45:00+05:00",
+   "end": "2026-07-01T17:45:00+05:00",
+   "steps": 25,
    "equipment_state_in_file": false
   },
   {
    "defect": "zero_flow_pressure",
    "stream": "gathering",
-   "object_id": "N-02",
+   "object_id": "N-03",
    "parameter": "P",
-   "ts": "2026-07-01T10:40:00+05:00",
-   "value": 37.3316
+   "ts": "2026-07-01T16:40:00+05:00",
+   "value": 37.923
   },
   {
    "defect": "zero_flow_pressure",
    "stream": "gathering",
-   "object_id": "N-02",
+   "object_id": "N-03",
    "parameter": "P",
-   "ts": "2026-07-01T11:20:00+05:00",
-   "value": -7.4773
+   "ts": "2026-07-01T17:00:00+05:00",
+   "value": -7.5411
   },
   {
    "defect": "zero_flow_pressure",
    "stream": "gathering",
-   "object_id": "N-02",
+   "object_id": "N-03",
    "parameter": "P",
-   "ts": "2026-07-01T12:25:00+05:00",
-   "value": 37.0155
+   "ts": "2026-07-01T17:30:00+05:00",
+   "value": 38.0451
   },
   {
    "defect": "downtime",
    "stream": "gathering",
    "object_id": "SEP-1",
-   "start": "2026-07-01T16:55:00+05:00",
-   "end": "2026-07-01T23:30:00+05:00",
-   "steps": 80,
+   "start": "2026-07-01T16:25:00+05:00",
+   "end": "2026-07-01T18:45:00+05:00",
+   "steps": 29,
    "equipment_state_in_file": false
-  },
-  {
-   "defect": "zero_flow_pressure",
-   "stream": "gathering",
-   "object_id": "SEP-1",
-   "parameter": "P_out",
-   "ts": "2026-07-01T19:55:00+05:00",
-   "value": 36.0462
-  },
-  {
-   "defect": "zero_flow_pressure",
-   "stream": "gathering",
-   "object_id": "SEP-1",
-   "parameter": "P_out",
-   "ts": "2026-07-01T21:30:00+05:00",
-   "value": -7.1913
   },
   {
    "defect": "zero_flow_pressure",
    "stream": "gathering",
    "object_id": "SEP-1",
    "parameter": "P_in",
-   "ts": "2026-07-01T22:35:00+05:00",
-   "value": 36.8356
+   "ts": "2026-07-01T16:30:00+05:00",
+   "value": 36.8703
+  },
+  {
+   "defect": "zero_flow_pressure",
+   "stream": "gathering",
+   "object_id": "SEP-1",
+   "parameter": "P_in",
+   "ts": "2026-07-01T16:55:00+05:00",
+   "value": -7.3275
+  },
+  {
+   "defect": "zero_flow_pressure",
+   "stream": "gathering",
+   "object_id": "SEP-1",
+   "parameter": "P_in",
+   "ts": "2026-07-01T18:05:00+05:00",
+   "value": 36.6466
   },
   {
    "defect": "downtime",
    "stream": "absorber",
    "object_id": "A-1",
-   "start": "2026-07-01T09:34:00+05:00",
-   "end": "2026-07-01T12:18:00+05:00",
-   "steps": 83,
+   "start": "2026-07-01T06:44:00+05:00",
+   "end": "2026-07-01T13:40:00+05:00",
+   "steps": 209,
    "equipment_state_in_file": true
   },
   {
    "defect": "downtime",
    "stream": "absorber",
-   "object_id": "A-2",
-   "start": "2026-07-01T01:52:00+05:00",
-   "end": "2026-07-01T06:10:00+05:00",
-   "steps": 130,
+   "object_id": "A-1",
+   "start": "2026-07-01T17:28:00+05:00",
+   "end": "2026-07-01T23:14:00+05:00",
+   "steps": 174,
    "equipment_state_in_file": true
   },
   {
    "defect": "downtime",
    "stream": "dks",
    "object_id": "DKS-1",
-   "start": "2026-07-01T09:00:00+05:00",
-   "end": "2026-07-01T15:00:00+05:00",
-   "steps": 7,
+   "start": "2026-07-01T10:00:00+05:00",
+   "end": "2026-07-01T14:00:00+05:00",
+   "steps": 5,
    "equipment_state_in_file": true
   },
   {
@@ -168,217 +168,257 @@
    "stream": "dks",
    "object_id": "DKS-1",
    "parameter": "P_in",
-   "ts": "2026-07-01T13:00:00+05:00",
-   "value": -3.0503
-  },
-  {
-   "defect": "zero_flow_pressure",
-   "stream": "dks",
-   "object_id": "DKS-1",
-   "parameter": "P_in",
-   "ts": "2026-07-01T14:00:00+05:00",
-   "value": 15.1956
-  },
-  {
-   "defect": "downtime",
-   "stream": "dks",
-   "object_id": "DKS-1",
-   "start": "2026-07-01T02:00:00+05:00",
-   "end": "2026-07-01T05:00:00+05:00",
-   "steps": 4,
-   "equipment_state_in_file": true
+   "ts": "2026-07-01T11:00:00+05:00",
+   "value": -3.1209
   },
   {
    "defect": "zero_flow_pressure",
    "stream": "dks",
    "object_id": "DKS-1",
    "parameter": "P_out",
-   "ts": "2026-07-01T02:00:00+05:00",
-   "value": 37.7351
+   "ts": "2026-07-01T12:00:00+05:00",
+   "value": 37.4712
   },
   {
-   "defect": "zero_flow_pressure",
-   "stream": "dks",
-   "object_id": "DKS-1",
-   "parameter": "P_in",
-   "ts": "2026-07-01T03:00:00+05:00",
-   "value": -3.0505
-  },
-  {
-   "defect": "zero_flow_pressure",
-   "stream": "dks",
-   "object_id": "DKS-1",
-   "parameter": "P_in",
-   "ts": "2026-07-01T05:00:00+05:00",
-   "value": 15.3192
+   "defect": "decorrelation",
+   "stream": "gathering",
+   "object_id": "SEP-1",
+   "parameter": "P_out",
+   "start": "2026-07-01T08:15:00+05:00",
+   "end": "2026-07-01T14:10:00+05:00"
   },
   {
    "defect": "faulty_sensor",
    "stream": "gathering",
-   "object_id": "N-06",
-   "parameter": "P",
+   "object_id": "SEP-1",
+   "parameter": "P_in",
    "mode": "stuck",
-   "start": "2026-07-01T07:30:00+05:00",
-   "end": "2026-07-01T08:55:00+05:00"
+   "start": "2026-07-01T03:00:00+05:00",
+   "end": "2026-07-01T05:35:00+05:00"
   },
   {
    "defect": "faulty_sensor",
    "stream": "absorber",
    "object_id": "UKPG-1V",
-   "parameter": "T_heat_exchanger_1",
+   "parameter": "L_E101.1",
    "mode": "stuck",
-   "start": "2026-07-01T04:14:00+05:00",
-   "end": "2026-07-01T08:04:00+05:00"
+   "start": "2026-07-01T07:28:00+05:00",
+   "end": "2026-07-01T10:10:00+05:00"
   },
   {
    "defect": "faulty_sensor",
    "stream": "wells",
-   "object_id": "W-106",
-   "parameter": "P_bottomhole",
+   "object_id": "W-105",
+   "parameter": "P_wellhead",
    "mode": "stuck",
-   "start": "2026-07-01T03:00:00+05:00",
-   "end": "2026-07-01T04:00:00+05:00"
+   "start": "2026-07-01T13:00:00+05:00",
+   "end": "2026-07-01T14:00:00+05:00"
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "gathering",
+   "object_id": "N-06",
+   "parameter": "Q",
+   "ts": "2026-07-01T07:35:00+05:00",
+   "value": -10.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "gathering",
+   "object_id": "N-02",
+   "parameter": "Q",
+   "ts": "2026-07-01T04:50:00+05:00",
+   "value": -10.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "gathering",
+   "object_id": "SEP-1",
+   "parameter": "P_in",
+   "ts": "2026-07-01T07:10:00+05:00",
+   "value": 0.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "absorber",
+   "object_id": "A-1",
+   "parameter": "KRU",
+   "ts": "2026-07-01T17:02:00+05:00",
+   "value": -5.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "absorber",
+   "object_id": "UKPG-1V",
+   "parameter": "T_heat_exchanger_3",
+   "ts": "2026-07-01T03:58:00+05:00",
+   "value": -300.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "absorber",
+   "object_id": "UKPG-1V",
+   "parameter": "Q_sikgk",
+   "ts": "2026-07-01T05:00:00+05:00",
+   "value": -10.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "wells",
+   "object_id": "W-106",
+   "parameter": "P_wellhead",
+   "ts": "2026-07-01T06:00:00+05:00",
+   "value": 0.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "wells",
+   "object_id": "W-101",
+   "parameter": "P_wellhead",
+   "ts": "2026-07-01T09:00:00+05:00",
+   "value": 0.0
+  },
+  {
+   "defect": "nonphysical",
+   "stream": "wells",
+   "object_id": "W-106",
+   "parameter": "Q_liquid",
+   "ts": "2026-07-01T19:00:00+05:00",
+   "value": -10.0
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "gathering",
+   "object_id": "N-02",
+   "parameter": "Q",
+   "ts": "2026-07-01T16:30:00+05:00",
+   "token": "#N/A"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "gathering",
+   "object_id": "N-02",
+   "parameter": "P",
+   "ts": "2026-07-01T12:45:00+05:00",
+   "token": "Bad"
   },
   {
    "defect": "non_numeric",
    "stream": "gathering",
    "object_id": "SEP-1",
    "parameter": "Q_sep",
-   "ts": "2026-07-01T01:40:00+05:00",
-   "token": "#N/A"
+   "ts": "2026-07-01T16:00:00+05:00",
+   "token": "---"
   },
   {
    "defect": "non_numeric",
    "stream": "gathering",
    "object_id": "N-03",
-   "parameter": "T",
-   "ts": "2026-07-01T00:00:00+05:00",
-   "token": "Bad"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "gathering",
-   "object_id": "N-06",
-   "parameter": "Q",
-   "ts": "2026-07-01T17:15:00+05:00",
-   "token": "---"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "gathering",
-   "object_id": "N-06",
    "parameter": "P",
-   "ts": "2026-07-01T03:10:00+05:00",
+   "ts": "2026-07-01T04:45:00+05:00",
    "token": "I/O Timeout"
   },
   {
    "defect": "non_numeric",
    "stream": "gathering",
-   "object_id": "N-04",
-   "parameter": "Q",
-   "ts": "2026-07-01T17:30:00+05:00",
+   "object_id": "N-05",
+   "parameter": "P",
+   "ts": "2026-07-01T23:20:00+05:00",
    "token": "#N/A"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "absorber",
-   "object_id": "A-2",
-   "parameter": "L_cube",
-   "ts": "2026-07-01T01:24:00+05:00",
-   "token": "#N/A"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "absorber",
-   "object_id": "A-2",
-   "parameter": "Q_cond",
-   "ts": "2026-07-01T21:38:00+05:00",
-   "token": "Bad"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "absorber",
-   "object_id": "UKPG-1V",
-   "parameter": "L_E101.1",
-   "ts": "2026-07-01T20:08:00+05:00",
-   "token": "---"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "absorber",
-   "object_id": "A-1",
-   "parameter": "T_gas_absorber",
-   "ts": "2026-07-01T02:44:00+05:00",
-   "token": "I/O Timeout"
   },
   {
    "defect": "non_numeric",
    "stream": "absorber",
    "object_id": "UKPG-1V",
    "parameter": "Q_sikgk",
-   "ts": "2026-07-01T08:42:00+05:00",
+   "ts": "2026-07-01T06:18:00+05:00",
+   "token": "#N/A"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "absorber",
+   "object_id": "A-1",
+   "parameter": "KRU",
+   "ts": "2026-07-01T06:34:00+05:00",
+   "token": "Bad"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "absorber",
+   "object_id": "A-1",
+   "parameter": "L_cube",
+   "ts": "2026-07-01T01:38:00+05:00",
+   "token": "---"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "absorber",
+   "object_id": "UKPG-1V",
+   "parameter": "L_E101.1",
+   "ts": "2026-07-01T19:48:00+05:00",
+   "token": "I/O Timeout"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "absorber",
+   "object_id": "UKPG-1V",
+   "parameter": "T_cond_irrigation",
+   "ts": "2026-07-01T22:42:00+05:00",
+   "token": "#N/A"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "wells",
+   "object_id": "W-102",
+   "parameter": "P_wellhead",
+   "ts": "2026-07-01T07:00:00+05:00",
    "token": "#N/A"
   },
   {
    "defect": "non_numeric",
    "stream": "wells",
    "object_id": "W-101",
-   "parameter": "Q_liquid",
-   "ts": "2026-07-01T06:00:00+05:00",
-   "token": "#N/A"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "wells",
-   "object_id": "W-103",
-   "parameter": "Q_liquid",
-   "ts": "2026-07-01T07:00:00+05:00",
+   "parameter": "water_cut",
+   "ts": "2026-07-01T02:00:00+05:00",
    "token": "Bad"
   },
   {
    "defect": "non_numeric",
    "stream": "wells",
-   "object_id": "W-102",
-   "parameter": "Q_gas",
-   "ts": "2026-07-01T03:00:00+05:00",
-   "token": "---"
-  },
-  {
-   "defect": "non_numeric",
-   "stream": "wells",
-   "object_id": "W-104",
-   "parameter": "P_wellhead",
+   "object_id": "W-106",
+   "parameter": "water_cut",
    "ts": "2026-07-01T13:00:00+05:00",
-   "token": "I/O Timeout"
+   "token": "---"
   },
   {
    "defect": "non_numeric",
    "stream": "wells",
    "object_id": "W-103",
    "parameter": "water_cut",
-   "ts": "2026-07-01T02:00:00+05:00",
+   "ts": "2026-07-01T10:00:00+05:00",
+   "token": "I/O Timeout"
+  },
+  {
+   "defect": "non_numeric",
+   "stream": "wells",
+   "object_id": "W-101",
+   "parameter": "Q_gas",
+   "ts": "2026-07-01T03:00:00+05:00",
    "token": "#N/A"
   },
   {
    "defect": "pressure_outlier",
    "stream": "wells",
    "object_id": "W-101",
-   "parameter": "P_bottomhole",
-   "ts": "2026-07-01T01:00:00+05:00"
+   "parameter": "P_wellhead",
+   "ts": "2026-07-01T22:00:00+05:00"
   },
   {
    "defect": "pressure_outlier",
    "stream": "wells",
    "object_id": "W-101",
    "parameter": "P_bottomhole",
-   "ts": "2026-07-01T19:00:00+05:00"
-  },
-  {
-   "defect": "pressure_outlier",
-   "stream": "wells",
-   "object_id": "W-102",
-   "parameter": "P_bottomhole",
-   "ts": "2026-07-01T01:00:00+05:00"
+   "ts": "2026-07-01T11:00:00+05:00"
   },
   {
    "defect": "pressure_outlier",
@@ -390,22 +430,29 @@
   {
    "defect": "pressure_outlier",
    "stream": "wells",
-   "object_id": "W-103",
-   "parameter": "P_wellhead",
-   "ts": "2026-07-01T01:00:00+05:00"
+   "object_id": "W-102",
+   "parameter": "P_bottomhole",
+   "ts": "2026-07-01T16:00:00+05:00"
   },
   {
    "defect": "pressure_outlier",
    "stream": "wells",
    "object_id": "W-103",
    "parameter": "P_bottomhole",
-   "ts": "2026-07-01T22:00:00+05:00"
+   "ts": "2026-07-01T14:00:00+05:00"
+  },
+  {
+   "defect": "pressure_outlier",
+   "stream": "wells",
+   "object_id": "W-103",
+   "parameter": "P_bottomhole",
+   "ts": "2026-07-01T01:00:00+05:00"
   },
   {
    "defect": "pressure_outlier",
    "stream": "wells",
    "object_id": "W-104",
-   "parameter": "P_wellhead",
+   "parameter": "P_bottomhole",
    "ts": "2026-07-01T08:00:00+05:00"
   },
   {
@@ -413,35 +460,35 @@
    "stream": "wells",
    "object_id": "W-104",
    "parameter": "P_wellhead",
-   "ts": "2026-07-01T17:00:00+05:00"
+   "ts": "2026-07-01T21:00:00+05:00"
   },
   {
    "defect": "pressure_outlier",
    "stream": "wells",
    "object_id": "W-105",
-   "parameter": "P_bottomhole",
-   "ts": "2026-07-01T14:00:00+05:00"
-  },
-  {
-   "defect": "pressure_outlier",
-   "stream": "wells",
-   "object_id": "W-105",
-   "parameter": "P_bottomhole",
-   "ts": "2026-07-01T09:00:00+05:00"
-  },
-  {
-   "defect": "pressure_outlier",
-   "stream": "wells",
-   "object_id": "W-106",
-   "parameter": "P_bottomhole",
-   "ts": "2026-07-01T20:00:00+05:00"
-  },
-  {
-   "defect": "pressure_outlier",
-   "stream": "wells",
-   "object_id": "W-106",
    "parameter": "P_wellhead",
-   "ts": "2026-07-01T00:00:00+05:00"
+   "ts": "2026-07-01T11:00:00+05:00"
+  },
+  {
+   "defect": "pressure_outlier",
+   "stream": "wells",
+   "object_id": "W-105",
+   "parameter": "P_bottomhole",
+   "ts": "2026-07-01T04:00:00+05:00"
+  },
+  {
+   "defect": "pressure_outlier",
+   "stream": "wells",
+   "object_id": "W-106",
+   "parameter": "P_bottomhole",
+   "ts": "2026-07-01T12:00:00+05:00"
+  },
+  {
+   "defect": "pressure_outlier",
+   "stream": "wells",
+   "object_id": "W-106",
+   "parameter": "P_bottomhole",
+   "ts": "2026-07-01T04:00:00+05:00"
   },
   {
    "defect": "pressure_noise",
@@ -455,577 +502,537 @@
   {
    "defect": "gaps",
    "stream": "wells",
-   "rows": 101,
-   "complete_rows": 18,
-   "single_gap_rows": 64,
-   "multi_gap_rows": 19,
+   "rows": 104,
+   "complete_rows": 17,
+   "single_gap_rows": 70,
+   "multi_gap_rows": 17,
    "cells": [
     {
      "object_id": "W-101",
      "ts": "2026-07-01T00:00:00+05:00",
      "parameters": [
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T02:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_liquid",
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T03:00:00+05:00",
-     "parameters": [
       "water_cut"
      ]
     },
     {
      "object_id": "W-101",
-     "ts": "2026-07-01T04:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T05:00:00+05:00",
-     "parameters": [
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T09:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T10:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T11:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T12:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T13:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T15:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T16:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T17:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T18:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T20:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T21:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T22:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-101",
-     "ts": "2026-07-01T23:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T00:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T04:00:00+05:00",
-     "parameters": [
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T05:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T06:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T08:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T12:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T13:00:00+05:00",
-     "parameters": [
-      "P_wellhead"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T15:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T16:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T17:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T18:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T19:00:00+05:00",
-     "parameters": [
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T20:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_wellhead",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T21:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_bottomhole",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T22:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-102",
-     "ts": "2026-07-01T23:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T03:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T04:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_wellhead"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T05:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_liquid",
-      "P_wellhead"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T06:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T19:00:00+05:00",
-     "parameters": [
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T20:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-103",
-     "ts": "2026-07-01T23:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T00:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T02:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_wellhead"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T03:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T04:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_wellhead",
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T09:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T10:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T11:00:00+05:00",
-     "parameters": [
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T12:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T14:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T15:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T16:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T19:00:00+05:00",
-     "parameters": [
-      "P_wellhead"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T20:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T21:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T22:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-104",
-     "ts": "2026-07-01T23:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T00:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_gas",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T02:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T03:00:00+05:00",
-     "parameters": [
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T06:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T07:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T08:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T10:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T11:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T12:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T13:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T15:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T16:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T17:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T18:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_bottomhole"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T19:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T20:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T21:00:00+05:00",
-     "parameters": [
-      "water_cut"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T22:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "P_wellhead",
-      "Q_liquid"
-     ]
-    },
-    {
-     "object_id": "W-105",
-     "ts": "2026-07-01T23:00:00+05:00",
-     "parameters": [
-      "water_cut",
-      "Q_liquid",
-      "Q_gas"
-     ]
-    },
-    {
-     "object_id": "W-106",
      "ts": "2026-07-01T01:00:00+05:00",
      "parameters": [
       "water_cut"
      ]
     },
     {
+     "object_id": "W-101",
+     "ts": "2026-07-01T04:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_liquid",
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T05:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T06:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_liquid"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T07:00:00+05:00",
+     "parameters": [
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T08:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T10:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T12:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T13:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T16:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T18:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole",
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T19:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T20:00:00+05:00",
+     "parameters": [
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T21:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-101",
+     "ts": "2026-07-01T23:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T00:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T02:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T03:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T04:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T05:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T06:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T08:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T09:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T10:00:00+05:00",
+     "parameters": [
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T12:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T13:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T14:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T15:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T17:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_liquid",
+      "Q_gas"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T18:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T19:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T20:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T21:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-102",
+     "ts": "2026-07-01T22:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T02:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T03:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T05:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_liquid"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T06:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T07:00:00+05:00",
+     "parameters": [
+      "Q_liquid"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T08:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T09:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T11:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_liquid"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T12:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole",
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T13:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T15:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T17:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_gas"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T19:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T20:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T22:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-103",
+     "ts": "2026-07-01T23:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T00:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T01:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T02:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T03:00:00+05:00",
+     "parameters": [
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T04:00:00+05:00",
+     "parameters": [
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T06:00:00+05:00",
+     "parameters": [
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T19:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T20:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T22:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_liquid",
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-104",
+     "ts": "2026-07-01T23:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T02:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T03:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T12:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T15:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T16:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T18:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "Q_gas",
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T19:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T21:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T22:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-105",
+     "ts": "2026-07-01T23:00:00+05:00",
+     "parameters": [
+      "P_wellhead"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T00:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole",
+      "P_wellhead"
+     ]
+    },
+    {
      "object_id": "W-106",
      "ts": "2026-07-01T02:00:00+05:00",
      "parameters": [
@@ -1034,7 +1041,74 @@
     },
     {
      "object_id": "W-106",
+     "ts": "2026-07-01T03:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-106",
      "ts": "2026-07-01T05:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T07:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T08:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T10:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T11:00:00+05:00",
+     "parameters": [
+      "water_cut",
+      "P_bottomhole",
+      "Q_gas"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T14:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T15:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T16:00:00+05:00",
+     "parameters": [
+      "water_cut"
+     ]
+    },
+    {
+     "object_id": "W-106",
+     "ts": "2026-07-01T17:00:00+05:00",
      "parameters": [
       "P_bottomhole"
      ]
@@ -1048,10 +1122,9 @@
     },
     {
      "object_id": "W-106",
-     "ts": "2026-07-01T19:00:00+05:00",
+     "ts": "2026-07-01T20:00:00+05:00",
      "parameters": [
-      "water_cut",
-      "Q_gas"
+      "water_cut"
      ]
     },
     {
@@ -1065,7 +1138,7 @@
      "object_id": "W-106",
      "ts": "2026-07-01T22:00:00+05:00",
      "parameters": [
-      "P_wellhead"
+      "water_cut"
      ]
     }
    ]
@@ -1074,37 +1147,39 @@
    "defect": "format_error",
    "stream": "absorber",
    "file": "absorber.csv",
-   "line_no": 4803,
+   "line_no": 6112,
    "expected_flag": "bad_timestamp"
   },
   {
    "defect": "format_error",
    "stream": "methanol",
    "file": "methanol.csv",
-   "line_no": 2118,
+   "line_no": 480,
    "expected_flag": "timestamp_no_tz"
   },
   {
    "defect": "format_error",
    "stream": "gathering",
    "file": "gathering.csv",
-   "line_no": 5769,
+   "line_no": 5512,
    "expected_flag": "missing_unit"
   },
   {
    "defect": "format_error",
    "stream": "wells",
    "file": "wells.csv",
-   "line_no": 696,
+   "line_no": 224,
    "expected_flag": "wrong_field_count"
   },
   {
    "defect": "format_error",
    "stream": "dks",
    "file": "dks.csv",
-   "line_no": 119,
+   "line_no": 121,
    "expected_flag": "bad_quality"
   }
  ],
- "skipped_no_window": {}
+ "skipped_no_window": {
+  "dks": 1
+ }
 }
