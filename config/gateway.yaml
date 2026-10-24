@@ -1,0 +1,24 @@
+# Шлюз связки с АСУ ТП промысла (М12). Переход с имитатора на реальную АСУ — смена адреса
+# и словаря параметров (config/tags.yaml или отдельный файл словаря), без правки кода.
+
+opcua:
+  # Основной и резервный источник: два сервера сбора, приём от двух независимых источников (Куник и соавторы).
+  sources:
+    - {name: primary, url: 'opc.tcp://127.0.0.1:4840/asu', namespace_uri: 'urn:field-twin:asu-simulator'}
+    - {name: secondary, url: 'opc.tcp://127.0.0.1:4841/asu', namespace_uri: 'urn:field-twin:asu-simulator'}
+  username: null              # учётная запись двойника — только чтение (согласовать со службой ИБ)
+  password: null
+  poll_seconds: 5
+  backfill_history: true      # после обрыва связи дочитать пропущенное из архива (HistoryRead)
+
+mqtt:                         # удалённые объекты (кусты, шельф)
+  host: 127.0.0.1
+  port: 1883
+  topic_prefix: field         # тема: <prefix>/<stream>/<object_id>/<parameter>
+  qos: 1                      # «доставить хотя бы раз»; повторы отсекает буфер
+
+buffer_path: data/gateway_buffer.sqlite   # гарантированная доставка между уровнями
+
+execution_check:              # проверка выполнения рекомендаций по данным АСУ (решение прототипа)
+  window_hours: 2             # сколько ждать изменения режима после подтверждения
+  tolerance_pct: 2            # режим считается изменённым, если значение в пределах допуска от предложенного

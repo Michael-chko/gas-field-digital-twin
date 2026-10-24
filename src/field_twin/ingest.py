@@ -72,6 +72,8 @@ class IngestReport:
     rows_by_stream: Counter = field(default_factory=Counter)
     equipment_state_column: bool = True
     missing_columns: list[str] = field(default_factory=list)
+    unbound_source_signals: list[str] = field(default_factory=list)   # есть в АСУ, нет в словаре (М12)
+    signals_without_setpoints: list[str] = field(default_factory=list)  # уставки не заполнены (М12)
     batch_id: int | None = None
 
     def to_dict(self) -> dict[str, Any]:
@@ -87,6 +89,8 @@ class IngestReport:
             "rows_by_stream": dict(self.rows_by_stream),
             "equipment_state_column": self.equipment_state_column,
             "missing_columns": self.missing_columns,
+            "unbound_source_signals": self.unbound_source_signals,
+            "signals_without_setpoints": self.signals_without_setpoints,
         }
 
     def to_text(self) -> str:
@@ -115,6 +119,16 @@ class IngestReport:
             lines.append("  сигналы без привязки в словаре:")
             for s in sorted(self.unmapped_signals)[:50]:
                 lines.append(f"    {'.'.join(s)}")
+        if self.unbound_source_signals:
+            lines.append("  сигналы источника АСУ без привязки к объекту двойника:")
+            for t in self.unbound_source_signals[:50]:
+                lines.append(f"    {t}")
+        if self.signals_without_setpoints:
+            lines.append(f"  уставки не заполнены (незаполненные сигналы словаря): {len(self.signals_without_setpoints)}")
+            for t in self.signals_without_setpoints[:20]:
+                lines.append(f"    {t}")
+            if len(self.signals_without_setpoints) > 20:
+                lines.append(f"    … ещё {len(self.signals_without_setpoints) - 20}")
         return "\n".join(lines)
 
 
@@ -222,6 +236,32 @@ class Ingestor:
                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             records,
         )
+        self._finish(report)
+        return report
+
+    def ingest_records(self, records: list[dict[str, Any]], source: str, origin: str = "asu",
+                       unbound: list[str] | None = None, without_setpoints: list[str] | None = None) -> IngestReport:
+        """Приём записей от шлюза АСУ (М12) или ручного ввода тем же путём, что и CSV."""
+        import io
+        buf = io.StringIO()
+        w = csv.writer(buf, delimiter=self.delimiter, lineterminator="\n")
+        # Столбец состояния — только если источник его передаёт (в архивах АСУ его нет; выведет М2).
+        with_state = any(r.get("equipment_state") for r in records)
+        w.writerow(REQUIRED_COLUMNS + (OPTIONAL_COLUMNS if with_state else []))
+        for r in records:
+            ts = r["ts"].isoformat() if hasattr(r["ts"], "isoformat") else str(r["ts"])
+            val = r.get("value_raw")
+            if val is None:
+                val = "" if r.get("value") is None else repr(float(r["value"]))
+            unit = r.get("unit")
+            if unit is None:
+                sig = self.tags.get(r["stream"], r["object_id"], r["parameter"])
+                unit = sig.unit if sig else ""
+            row = [ts, r["stream"], r["object_id"], r["parameter"], val, unit, r.get("quality", "good")]
+            w.writerow(row + ([r.get("equipment_state") or ""] if with_state else []))
+        report = self.ingest_lines(buf.getvalue().splitlines(), source=source, origin=origin)
+        report.unbound_source_signals = list(unbound or [])
+        report.signals_without_setpoints = list(without_setpoints or [])
         self._finish(report)
         return report
 

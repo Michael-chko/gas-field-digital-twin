@@ -13,6 +13,8 @@ dependencies = [
     "optuna>=3.6",
     "scikit-learn>=1.4",
     "fastapi>=0.110",
+    "asyncua>=1.1",
+    "paho-mqtt>=2.0",
     "uvicorn>=0.29",
     "numpy>=1.26",
     "pandas>=2.2",
@@ -21,7 +23,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "httpx>=0.27"]
+dev = ["pytest>=8", "httpx>=0.27", "amqtt>=0.11"]
+hysys = ["pywin32; platform_system == 'Windows'"]
 
 [project.scripts]
 field-twin-generate = "field_twin.simulator:main"
@@ -33,10 +36,16 @@ field-twin-hydrates = "field_twin.hydrates:main"
 field-twin-chudin = "field_twin.chudin_models:main"
 field-twin-serve = "field_twin.api:main"
 field-twin-playback = "field_twin.playback:main"
+field-twin-gateway = "field_twin.gateway.service:main"
+field-twin-asu-sim = "asu_simulator.opcua_server:main"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools]
+packages = ["field_twin", "field_twin.gateway", "field_twin.cores", "asu_simulator"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+asu_simulator = "asu_simulator"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "."]

@@ -60,8 +60,9 @@ class TagDictionary:
                         kind=str(pdef.get("kind", "other")),
                         title=str(pdef.get("title", param)),
                         interval=interval,
-                        tag=pdef.get("tag") or f"{stream}.{obj_id}.{param}",
-                        setpoints=pdef.get("setpoints"),
+                        # Имя сигнала в АСУ: tags[объект] → tag → условное «поток.объект.параметр».
+                        tag=(pdef.get("tags") or {}).get(obj_id) or pdef.get("tag") or f"{stream}.{obj_id}.{param}",
+                        setpoints=(pdef.get("setpoints_by_object") or {}).get(obj_id) or pdef.get("setpoints"),
                         object_attrs=attrs,
                     )
                     self.signals[sig.key] = sig
@@ -70,8 +71,24 @@ class TagDictionary:
     def load(cls, config_dir: Path | str | None = None) -> "TagDictionary":
         return cls(load_yaml("tags.yaml", config_dir))
 
+    @classmethod
+    def from_file(cls, path: Path | str) -> "TagDictionary":
+        """Словарь другой АСУ (переход на другой сервер — смена адреса и словаря)."""
+        import yaml
+        with open(path, encoding="utf-8") as f:
+            return cls(yaml.safe_load(f))
+
     def get(self, stream: str, object_id: str, parameter: str) -> Signal | None:
         return self.signals.get((stream, object_id, parameter))
+
+    def by_tag(self, tag: str) -> Signal | None:
+        if not hasattr(self, "_by_tag"):
+            self._by_tag = {s.tag: s for s in self.signals.values()}
+        return self._by_tag.get(tag)
+
+    def without_setpoints(self) -> list[Signal]:
+        """Сигналы, для которых владелец АСУ ещё не задал уставки (ТЗ, М12)."""
+        return [s for s in self.signals.values() if not s.setpoints]
 
     def stream_signals(self, stream: str) -> list[Signal]:
         return [s for s in self.signals.values() if s.stream == stream]
