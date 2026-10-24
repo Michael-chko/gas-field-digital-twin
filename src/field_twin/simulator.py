@@ -125,6 +125,7 @@ class Generator:
                     daily = 1.5 * noise * np.sin(2 * math.pi * hours / 24 + phase)
                     sd.values[(obj, sig.parameter)] = base + daily + self.rng.normal(0, noise, n) if noise else np.full(n, base)
             self.streams[stream] = sd
+        self._apply_physics()
         # Связанные датчики повторяют ведущий с поправкой: графики давления на входе и выходе
         # сепаратора должны быть схожи (Шевченко, Рычков).
         for key, c in (self.cfg.get("coupled") or {}).items():
@@ -133,6 +134,28 @@ class Generator:
             sd = self.streams[stream]
             lead = sd.values[(lead_obj, lead_param)]
             sd.values[(obj, param)] = lead + c["offset"] + self.rng.normal(0, c["sd"], len(lead))
+
+    def _apply_physics(self) -> None:
+        """Синтетическая физика для моделей Чудина: мощность и обороты ДКС от давлений и расхода,
+        дебиты скважин куста от буферного давления и давления на входе в ЗПА."""
+        noise = self.cfg.get("physics_noise", 0.005)
+        dks = self.streams["dks"]
+        for obj in dks.signals:
+            v = dks.values
+            n = len(v[(obj, "Q")])
+            v[(obj, "N_power")] = dks_power(v[(obj, "P_in")], v[(obj, "P_out")], v[(obj, "Q")]) * (1 + self.rng.normal(0, noise, n))
+            v[(obj, "n_speed")] = dks_speed(v[(obj, "N_power")]) * (1 + self.rng.normal(0, noise, n))
+        cl = self.streams["cluster"]
+        wells = [o for o in cl.signals if o != "K-1"]
+        pz = cl.values[("K-1", "P_zpa_inlet")]
+        total = np.zeros(len(pz))
+        for i, w in enumerate(wells):
+            pb = np.maximum(cl.values[(w, "P_buffer")], pz + 0.1)
+            cl.values[(w, "P_buffer")] = pb
+            q = well_rate(pb, pz, cl.values[(w, "T_buffer")], WELL_COEF[i % len(WELL_COEF)])
+            cl.values[(w, "Q_well")] = q * (1 + self.rng.normal(0, noise, len(q)))
+            total += cl.values[(w, "Q_well")]
+        cl.values[("K-1", "Q_plume_total")] = total * (1 + self.rng.normal(0, noise / 2, len(total)))
 
     # ---------- дефекты ----------
 
@@ -531,6 +554,72 @@ class Generator:
         with open(out_dir / "truth.json", "w", encoding="utf-8") as f:
             json.dump(truth, f, ensure_ascii=False, indent=1)
         return GenerationResult(out_dir, files, truth)
+
+
+# ---------- синтетическая физика (не из источников; нужна, чтобы нейросетям было что учить) ----------
+
+WELL_COEF = [200.0, 180.0, 220.0, 190.0]
+
+
+def dks_power(p_in, p_out, q):
+    """Мощность ДКС, МВт: политропное сжатие, показатель 0,25 — синтетика."""
+    return 0.052 * q * ((np.asarray(p_out) / np.asarray(p_in)) ** 0.25 - 1) / 0.25
+
+
+def dks_speed(power):
+    """Скорость вращения, об/мин — синтетика."""
+    return 2600 + 600 * np.sqrt(np.maximum(np.asarray(power), 0))
+
+
+def well_rate(p_buffer, p_zpa, t_buffer, coef):
+    """Дебит скважины, тыс. м³/сут, от перепада квадратов давлений — синтетика."""
+    dp2 = np.maximum(np.asarray(p_buffer) ** 2 - np.asarray(p_zpa) ** 2, 0)
+    return coef * np.sqrt(dp2) * np.sqrt(293.0 / (273.0 + np.asarray(t_buffer)))
+
+
+def chudin_daily(days: int = 400, seed: int = 0, start: str = "2025-06-01T00:00:00+00:00",
+                 noise: float = 0.005) -> "pd.DataFrame":
+    """Суточные данные ДКС и куста для обучения моделей Чудина (столбцы как у очищенных данных М2).
+
+    Давления медленно падают (истощение) и колеблются, чтобы выборка покрывала разные режимы.
+    """
+    import pandas as pd
+
+    rng = np.random.default_rng(seed)
+    t = pd.date_range(pd.Timestamp(start), periods=days, freq="1D")
+    k = np.arange(days)
+    rows = []
+
+    def add(stream, obj, param, values):
+        for ts, v in zip(t, values):
+            rows.append((stream, obj, param, ts, float(v)))
+
+    p_in = 3.2 - 0.4 * k / days + rng.normal(0, 0.12, days)
+    p_out = 7.5 + rng.normal(0, 0.25, days)
+    q = 300 + 40 * np.sin(2 * np.pi * k / 90) + rng.normal(0, 20, days)
+    n = dks_power(p_in, p_out, q) * (1 + rng.normal(0, noise, days))
+    add("dks", "DKS-1", "P_in", p_in)
+    add("dks", "DKS-1", "P_out", p_out)
+    add("dks", "DKS-1", "Q", q)
+    add("dks", "DKS-1", "N_power", n)
+    add("dks", "DKS-1", "n_speed", dks_speed(n) * (1 + rng.normal(0, noise, days)))
+    pz = 7.4 - 0.3 * k / days + rng.normal(0, 0.05, days)
+    add("cluster", "K-1", "P_zpa_inlet", pz)
+    total = np.zeros(days)
+    for i, w in enumerate(["W-101", "W-102", "W-103", "W-104"]):
+        pb = pz + 0.4 + 0.3 * np.sin(2 * np.pi * (k + 20 * i) / 120) * 0.5 + rng.normal(0, 0.06, days)
+        pb = np.maximum(pb, pz + 0.1)
+        tb = 15 + rng.normal(0, 1.0, days)
+        qw = well_rate(pb, pz, tb, WELL_COEF[i]) * (1 + rng.normal(0, noise, days))
+        total += qw
+        add("cluster", w, "P_buffer", pb)
+        add("cluster", w, "T_buffer", tb)
+        add("cluster", w, "Q_well", qw)
+    add("cluster", "K-1", "Q_plume_total", total * (1 + rng.normal(0, noise / 2, days)))
+    df = pd.DataFrame(rows, columns=["stream", "object_id", "parameter", "ts", "value_clean"])
+    df["f_downtime"] = False
+    df["f_outlier"] = False
+    return df
 
 
 def _regular(start: datetime, end: datetime, step: timedelta) -> list[datetime]:

@@ -13,7 +13,7 @@ from typing import Any
 
 import pandas as pd
 
-from field_twin import config, geotech, hydrates, notify, quality, rules, storage
+from field_twin import chudin_models, config, geotech, hydrates, notify, quality, rules, storage
 from field_twin.config import ROOT
 from field_twin.gateway.tag_dictionary import TagDictionary
 from field_twin.journal import Journal
@@ -26,13 +26,15 @@ class CycleResult:
     events: list[rules.RuleEvent] = field(default_factory=list)
     hydrate_predictions: pd.DataFrame | None = None
     notifications: list[notify.Notification] = field(default_factory=list)
+    model_errors: list[dict[str, Any]] = field(default_factory=list)
     run_id: int | None = None
     journal_ids: list[int] = field(default_factory=list)
 
 
 def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow: bool = False,
               config_dir: str | Path | None = None, log: bool = True, save: bool = True,
-              hydrate_model: hydrates.HydrateModel | str | Path | None = None) -> CycleResult:
+              hydrate_model: hydrates.HydrateModel | str | Path | None = None,
+              chudin_model: chudin_models.ChudinModels | str | Path | None = None) -> CycleResult:
     tags = TagDictionary.load(config_dir)
     th = config.thresholds(config_dir)
     pipe = quality.QualityPipeline(tags=tags, thresholds=th, config_dir=config_dir)
@@ -55,6 +57,18 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
         if len(feats):
             res.hydrate_predictions = model.predict(feats)
             res.notifications = notify.evaluate_p1(res.hydrate_predictions, th, shadow=shadow)
+    # М4 и П15: если модели Чудина обучены.
+    cs = chudin_models.settings(config_dir)
+    cm = chudin_model
+    if cm is None and (ROOT / cs["model_path"]).exists():
+        cm = ROOT / cs["model_path"]
+    if cm is not None and cm is not False:
+        if not isinstance(cm, chudin_models.ChudinModels):
+            cm = chudin_models.ChudinModels.load(cm)
+        res.model_errors = chudin_models.model_errors(
+            cm, chudin_models.daily_table(q.data, "dks", cs["step"]), chudin_models.daily_table(q.data, "cluster", cs["step"]))
+        p15 = rules.check_p15(res.model_errors, th, now)
+        res.events = events = sorted(events + p15, key=lambda e: (e.ts, e.code))
     if save:
         res.run_id = quality.save(conn, q)
     if log:
@@ -67,7 +81,7 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
     return res
 
 
-STATE_RULES = {"П2", "П3", "П4", "П11", "П13"}   # срабатывают на состояние «сейчас», а не на эпизод
+STATE_RULES = {"П2", "П3", "П4", "П11", "П13", "П15"}   # срабатывают на состояние «сейчас», а не на эпизод
 
 
 def _event_key(e: rules.RuleEvent) -> tuple:
@@ -85,7 +99,9 @@ class CycleRunner:
     """
 
     def __init__(self, conn: sqlite3.Connection, config_dir: str | Path | None = None, shadow: bool = False,
-                 hydrate_model: hydrates.HydrateModel | str | Path | None = None):
+                 hydrate_model: hydrates.HydrateModel | str | Path | None = None,
+                 chudin_model: chudin_models.ChudinModels | str | Path | None = None):
+        self.chudin = chudin_model
         self.conn, self.config_dir, self.shadow = conn, config_dir, shadow
         self.model = hydrate_model   # False — без модели гидратов
         if self.model not in (None, False) and not isinstance(self.model, hydrates.HydrateModel):
@@ -100,7 +116,8 @@ class CycleRunner:
 
     def step(self, now: pd.Timestamp | None = None) -> CycleResult:
         res = run_cycle(self.conn, now=now, shadow=self.shadow, config_dir=self.config_dir, log=False,
-                        save=False, hydrate_model=self.model if self.model is not None else False)
+                        save=False, hydrate_model=self.model if self.model is not None else False,
+                        chudin_model=self.chudin if self.chudin is not None else False)
         new_events, active = [], set()
         for e in res.events:
             k = _event_key(e)

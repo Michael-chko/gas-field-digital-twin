@@ -268,6 +268,22 @@ def check_series_rules(data, th, tags, now) -> list[RuleEvent]:
         check_p9(data, th) + check_p10(data, th) + check_p11(data, th, tags, now)
 
 
+# ---------- П15: модели М4 ----------
+
+def check_p15(errors: list[dict[str, Any]], th: dict[str, Any], now: pd.Timestamp) -> list[RuleEvent]:
+    """Ошибка модели относительно замеров выше порога — сигнал к перекалибровке
+    (Григорьев и соавторы: калибровка по промысловым замерам). Без порога правило выключено."""
+    lim = th["П15"].get("max_error_pct")
+    if lim is None:
+        return []
+    return [RuleEvent(
+        "П15", now, "dks" if e["model"] == "ДКС" else "cluster", e["output"].split(".", 1)[0],
+        f"Модель «{e['model']}» расходится с замерами по {e['output']}: {e['error_pct']:.1f} % > {lim} % "
+        f"за {e['days']} сут — перекалибровать модель или проверить датчик",
+        recipient("П15", th), {"parameter": e["output"], "error_pct": e["error_pct"], "threshold": lim, "days": e["days"]})
+        for e in errors if e["error_pct"] > lim]
+
+
 def log_events(journal, events: list[RuleEvent], shadow: bool = False) -> list[int]:
     """Записать срабатывания в журнал (М8)."""
     return [

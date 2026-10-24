@@ -30,6 +30,7 @@ field-twin-journal = "field_twin.journal:main"
 field-twin-quality = "field_twin.quality:main"
 field-twin-run = "field_twin.cycle:main"
 field-twin-hydrates = "field_twin.hydrates:main"
+field-twin-chudin = "field_twin.chudin_models:main"
 field-twin-serve = "field_twin.api:main"
 field-twin-playback = "field_twin.playback:main"
 

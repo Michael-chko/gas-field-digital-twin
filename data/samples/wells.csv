@@ -1,722 +1,722 @@
 timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
-2026-07-01T00:00:00+05:00,wells,W-101,P_wellhead,7.94528,МПа,good,run
-2026-07-01T00:00:00+05:00,wells,W-101,P_bottomhole,9.89268,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-101,P_wellhead,7.97417,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-101,P_bottomhole,#N/A,МПа,bad,run
 2026-07-01T00:00:00+05:00,wells,W-101,Q_gas,505.155,тыс. м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-101,Q_liquid,2.1162,м3/сут,good,run
-2026-07-01T00:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T00:00:00+05:00,wells,W-102,P_wellhead,8.02137,МПа,good,run
-2026-07-01T00:00:00+05:00,wells,W-102,P_bottomhole,,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-101,water_cut,4.88999,%,good,run
+2026-07-01T00:00:00+05:00,wells,W-102,P_wellhead,7.98636,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-102,P_bottomhole,9.96186,МПа,good,run
 2026-07-01T00:00:00+05:00,wells,W-102,Q_gas,500.742,тыс. м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-102,Q_liquid,2.08749,м3/сут,good,run
-2026-07-01T00:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T00:00:00+05:00,wells,W-103,P_wellhead,,МПа,good,run
-2026-07-01T00:00:00+05:00,wells,W-103,P_bottomhole,9.89998,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-102,water_cut,5.33061,%,good,run
+2026-07-01T00:00:00+05:00,wells,W-103,P_wellhead,7.91907,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-103,P_bottomhole,9.88914,МПа,good,run
 2026-07-01T00:00:00+05:00,wells,W-103,Q_gas,510.539,тыс. м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-103,Q_liquid,2.00561,м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T00:00:00+05:00,wells,W-104,P_wellhead,7.87612,МПа,good,run
-2026-07-01T00:00:00+05:00,wells,W-104,P_bottomhole,9.95925,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-104,P_wellhead,7.87836,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-104,P_bottomhole,9.94622,МПа,good,run
 2026-07-01T00:00:00+05:00,wells,W-104,Q_gas,494.66,тыс. м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-104,Q_liquid,1.96505,м3/сут,good,run
-2026-07-01T00:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T00:00:00+05:00,wells,W-105,P_wellhead,7.22747,МПа,good,run
-2026-07-01T00:00:00+05:00,wells,W-105,P_bottomhole,9.93693,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-104,water_cut,5.76067,%,good,run
+2026-07-01T00:00:00+05:00,wells,W-105,P_wellhead,8.11228,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-105,P_bottomhole,9.98121,МПа,good,run
 2026-07-01T00:00:00+05:00,wells,W-105,Q_gas,501.628,тыс. м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-105,Q_liquid,2.17347,м3/сут,good,run
-2026-07-01T00:00:00+05:00,wells,W-105,water_cut,4.52217,%,good,run
-2026-07-01T00:00:00+05:00,wells,W-106,P_wellhead,7.80727,МПа,good,run
-2026-07-01T00:00:00+05:00,wells,W-106,P_bottomhole,9.97812,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T00:00:00+05:00,wells,W-106,P_wellhead,7.87667,МПа,good,run
+2026-07-01T00:00:00+05:00,wells,W-106,P_bottomhole,9.23795,МПа,good,run
 2026-07-01T00:00:00+05:00,wells,W-106,Q_gas,492.713,тыс. м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-106,Q_liquid,2.04472,м3/сут,good,run
 2026-07-01T00:00:00+05:00,wells,W-106,water_cut,4.54358,%,good,run
-2026-07-01T01:00:00+05:00,wells,W-101,P_wellhead,7.95233,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-101,P_bottomhole,9.90631,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-101,P_wellhead,7.91286,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-101,P_bottomhole,9.90724,МПа,good,run
 2026-07-01T01:00:00+05:00,wells,W-101,Q_gas,502.725,тыс. м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-101,Q_liquid,1.94355,м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T01:00:00+05:00,wells,W-102,P_wellhead,7.99312,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-102,P_bottomhole,9.99241,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-102,Q_gas,-10,тыс. м3/сут,good,run
+2026-07-01T01:00:00+05:00,wells,W-102,P_wellhead,8.0044,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-102,P_bottomhole,9.98604,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-102,Q_gas,501.967,тыс. м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-102,Q_liquid,1.99532,м3/сут,good,run
-2026-07-01T01:00:00+05:00,wells,W-102,water_cut,5.05151,%,good,run
-2026-07-01T01:00:00+05:00,wells,W-103,P_wellhead,7.97023,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-103,P_bottomhole,9.90433,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-102,water_cut,,%,good,run
+2026-07-01T01:00:00+05:00,wells,W-103,P_wellhead,7.95421,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-103,P_bottomhole,9.93645,МПа,good,run
 2026-07-01T01:00:00+05:00,wells,W-103,Q_gas,508.131,тыс. м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-103,Q_liquid,2.12032,м3/сут,good,run
-2026-07-01T01:00:00+05:00,wells,W-103,water_cut,4.99273,%,good,run
-2026-07-01T01:00:00+05:00,wells,W-104,P_wellhead,7.76816,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-104,P_bottomhole,10.0001,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-104,Q_gas,495.019,тыс. м3/сут,good,run
+2026-07-01T01:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T01:00:00+05:00,wells,W-104,P_wellhead,7.84634,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-104,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-104,Q_liquid,1.89904,м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T01:00:00+05:00,wells,W-105,P_wellhead,8.00993,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-105,P_bottomhole,9.98429,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-105,P_wellhead,8.00447,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-105,P_bottomhole,9.95657,МПа,good,run
 2026-07-01T01:00:00+05:00,wells,W-105,Q_gas,493.024,тыс. м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-105,Q_liquid,2.14265,м3/сут,good,run
-2026-07-01T01:00:00+05:00,wells,W-105,water_cut,5.07772,%,good,run
-2026-07-01T01:00:00+05:00,wells,W-106,P_wellhead,7.85983,МПа,good,run
-2026-07-01T01:00:00+05:00,wells,W-106,P_bottomhole,10.0928,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T01:00:00+05:00,wells,W-106,P_wellhead,7.84034,МПа,good,run
+2026-07-01T01:00:00+05:00,wells,W-106,P_bottomhole,10.1171,МПа,good,run
 2026-07-01T01:00:00+05:00,wells,W-106,Q_gas,492.454,тыс. м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-106,Q_liquid,2.19038,м3/сут,good,run
 2026-07-01T01:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T02:00:00+05:00,wells,W-101,P_wellhead,7.88447,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-101,P_bottomhole,9.86207,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-101,P_wellhead,7.9776,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-101,P_bottomhole,9.84789,МПа,good,run
 2026-07-01T02:00:00+05:00,wells,W-101,Q_gas,503.009,тыс. м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-101,Q_liquid,1.95463,м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T02:00:00+05:00,wells,W-102,P_wellhead,8.00809,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-102,P_bottomhole,9.89018,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-102,P_wellhead,,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-102,P_bottomhole,9.94024,МПа,good,run
 2026-07-01T02:00:00+05:00,wells,W-102,Q_gas,508.831,тыс. м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-102,Q_liquid,2.08204,м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T02:00:00+05:00,wells,W-103,P_wellhead,7.93504,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-103,P_bottomhole,9.93605,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-103,P_wellhead,7.95119,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-103,P_bottomhole,9.92293,МПа,good,run
 2026-07-01T02:00:00+05:00,wells,W-103,Q_gas,502.665,тыс. м3/сут,good,run
-2026-07-01T02:00:00+05:00,wells,W-103,Q_liquid,,м3/сут,good,run
+2026-07-01T02:00:00+05:00,wells,W-103,Q_liquid,2.17804,м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T02:00:00+05:00,wells,W-104,P_wellhead,7.88781,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-104,P_bottomhole,9.99871,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-104,Q_gas,493.113,тыс. м3/сут,good,run
+2026-07-01T02:00:00+05:00,wells,W-104,P_wellhead,7.87445,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-104,P_bottomhole,9.9981,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-104,Q_gas,-10,тыс. м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-104,Q_liquid,1.81067,м3/сут,good,run
-2026-07-01T02:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T02:00:00+05:00,wells,W-105,P_wellhead,7.98126,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-105,P_bottomhole,9.93075,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-104,water_cut,4.67107,%,good,run
+2026-07-01T02:00:00+05:00,wells,W-105,P_wellhead,8.01178,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-105,P_bottomhole,9.90719,МПа,good,run
 2026-07-01T02:00:00+05:00,wells,W-105,Q_gas,497.614,тыс. м3/сут,good,run
 2026-07-01T02:00:00+05:00,wells,W-105,Q_liquid,2.03731,м3/сут,good,run
-2026-07-01T02:00:00+05:00,wells,W-105,water_cut,5.20142,%,good,run
-2026-07-01T02:00:00+05:00,wells,W-106,P_wellhead,7.83885,МПа,good,run
-2026-07-01T02:00:00+05:00,wells,W-106,P_bottomhole,10.0472,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T02:00:00+05:00,wells,W-106,P_wellhead,7.79889,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-106,P_bottomhole,10.0788,МПа,good,run
 2026-07-01T02:00:00+05:00,wells,W-106,Q_gas,495.011,тыс. м3/сут,good,run
-2026-07-01T02:00:00+05:00,wells,W-106,Q_liquid,-10,м3/сут,good,run
-2026-07-01T02:00:00+05:00,wells,W-106,water_cut,3.93275,%,good,run
-2026-07-01T03:00:00+05:00,wells,W-101,P_wellhead,7.94881,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-101,P_bottomhole,9.87515,МПа,good,run
+2026-07-01T02:00:00+05:00,wells,W-106,Q_liquid,2.03143,м3/сут,good,run
+2026-07-01T02:00:00+05:00,wells,W-106,water_cut,,%,good,run
+2026-07-01T03:00:00+05:00,wells,W-101,P_wellhead,7.97923,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-101,P_bottomhole,9.87933,МПа,good,run
 2026-07-01T03:00:00+05:00,wells,W-101,Q_gas,498.544,тыс. м3/сут,good,run
-2026-07-01T03:00:00+05:00,wells,W-101,Q_liquid,,м3/сут,good,run
+2026-07-01T03:00:00+05:00,wells,W-101,Q_liquid,1.92518,м3/сут,good,run
 2026-07-01T03:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T03:00:00+05:00,wells,W-102,P_wellhead,7.99378,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-102,P_bottomhole,9.92899,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-102,P_wellhead,8.04592,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-102,P_bottomhole,9.92283,МПа,good,run
 2026-07-01T03:00:00+05:00,wells,W-102,Q_gas,509.469,тыс. м3/сут,good,run
 2026-07-01T03:00:00+05:00,wells,W-102,Q_liquid,2.2127,м3/сут,good,run
-2026-07-01T03:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T03:00:00+05:00,wells,W-103,P_wellhead,8.70323,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-103,P_bottomhole,9.91005,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-103,Q_gas,503.308,тыс. м3/сут,good,run
+2026-07-01T03:00:00+05:00,wells,W-102,water_cut,4.93534,%,good,run
+2026-07-01T03:00:00+05:00,wells,W-103,P_wellhead,7.90341,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-103,P_bottomhole,9.91984,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-103,Q_gas,---,тыс. м3/сут,bad,run
 2026-07-01T03:00:00+05:00,wells,W-103,Q_liquid,1.94321,м3/сут,good,run
 2026-07-01T03:00:00+05:00,wells,W-103,water_cut,5.11525,%,good,run
-2026-07-01T03:00:00+05:00,wells,W-104,P_wellhead,8.326,МПа,good,stop
-2026-07-01T03:00:00+05:00,wells,W-104,P_bottomhole,10.4496,МПа,good,stop
-2026-07-01T03:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T03:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T03:00:00+05:00,wells,W-104,water_cut,5.10706,%,good,stop
-2026-07-01T03:00:00+05:00,wells,W-105,P_wellhead,8.05068,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-105,P_bottomhole,9.91269,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-104,P_wellhead,7.82167,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-104,P_bottomhole,9.93624,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-104,Q_gas,485.595,тыс. м3/сут,good,run
+2026-07-01T03:00:00+05:00,wells,W-104,Q_liquid,1.90767,м3/сут,good,run
+2026-07-01T03:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T03:00:00+05:00,wells,W-105,P_wellhead,8.02571,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-105,P_bottomhole,9.97871,МПа,good,run
 2026-07-01T03:00:00+05:00,wells,W-105,Q_gas,493.43,тыс. м3/сут,good,run
 2026-07-01T03:00:00+05:00,wells,W-105,Q_liquid,2.02527,м3/сут,good,run
 2026-07-01T03:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T03:00:00+05:00,wells,W-106,P_wellhead,7.84024,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-106,P_bottomhole,10.089,МПа,good,run
-2026-07-01T03:00:00+05:00,wells,W-106,Q_gas,496.481,тыс. м3/сут,good,run
-2026-07-01T03:00:00+05:00,wells,W-106,Q_liquid,2.05266,м3/сут,good,run
-2026-07-01T03:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T04:00:00+05:00,wells,W-101,P_wellhead,,МПа,good,run
-2026-07-01T04:00:00+05:00,wells,W-101,P_bottomhole,9.88549,МПа,good,run
+2026-07-01T03:00:00+05:00,wells,W-106,P_wellhead,8.37316,МПа,good,stop
+2026-07-01T03:00:00+05:00,wells,W-106,P_bottomhole,10.5815,МПа,good,stop
+2026-07-01T03:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T03:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
+2026-07-01T03:00:00+05:00,wells,W-106,water_cut,4.93033,%,good,stop
+2026-07-01T04:00:00+05:00,wells,W-101,P_wellhead,0,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-101,P_bottomhole,9.91556,МПа,good,run
 2026-07-01T04:00:00+05:00,wells,W-101,Q_gas,500.354,тыс. м3/сут,good,run
-2026-07-01T04:00:00+05:00,wells,W-101,Q_liquid,,м3/сут,good,run
-2026-07-01T04:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T04:00:00+05:00,wells,W-102,P_wellhead,8.03567,МПа,good,run
-2026-07-01T04:00:00+05:00,wells,W-102,P_bottomhole,9.9277,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-101,Q_liquid,1.88717,м3/сут,good,run
+2026-07-01T04:00:00+05:00,wells,W-101,water_cut,5.82275,%,good,run
+2026-07-01T04:00:00+05:00,wells,W-102,P_wellhead,,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-102,P_bottomhole,9.94643,МПа,good,run
 2026-07-01T04:00:00+05:00,wells,W-102,Q_gas,503.525,тыс. м3/сут,good,run
 2026-07-01T04:00:00+05:00,wells,W-102,Q_liquid,2.10233,м3/сут,good,run
 2026-07-01T04:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T04:00:00+05:00,wells,W-103,P_wellhead,7.8215,МПа,good,run
-2026-07-01T04:00:00+05:00,wells,W-103,P_bottomhole,9.93311,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-103,P_wellhead,7.88145,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-103,P_bottomhole,10.6969,МПа,good,run
 2026-07-01T04:00:00+05:00,wells,W-103,Q_gas,508.766,тыс. м3/сут,good,run
 2026-07-01T04:00:00+05:00,wells,W-103,Q_liquid,1.95578,м3/сут,good,run
-2026-07-01T04:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T04:00:00+05:00,wells,W-104,P_wellhead,8.59013,МПа,good,stop
-2026-07-01T04:00:00+05:00,wells,W-104,P_bottomhole,10.7138,МПа,good,stop
-2026-07-01T04:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T04:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T04:00:00+05:00,wells,W-104,water_cut,4.84375,%,good,stop
-2026-07-01T04:00:00+05:00,wells,W-105,P_wellhead,8.11122,МПа,good,run
-2026-07-01T04:00:00+05:00,wells,W-105,P_bottomhole,9.92459,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-103,water_cut,5.60432,%,good,run
+2026-07-01T04:00:00+05:00,wells,W-104,P_wellhead,7.84424,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-104,P_bottomhole,9.97466,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-104,Q_gas,492.474,тыс. м3/сут,good,run
+2026-07-01T04:00:00+05:00,wells,W-104,Q_liquid,1.86082,м3/сут,good,run
+2026-07-01T04:00:00+05:00,wells,W-104,water_cut,4.84375,%,good,run
+2026-07-01T04:00:00+05:00,wells,W-105,P_wellhead,8.03347,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-105,P_bottomhole,9.92329,МПа,good,run
 2026-07-01T04:00:00+05:00,wells,W-105,Q_gas,488.607,тыс. м3/сут,good,run
 2026-07-01T04:00:00+05:00,wells,W-105,Q_liquid,1.69879,м3/сут,good,run
-2026-07-01T04:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T04:00:00+05:00,wells,W-106,P_wellhead,7.82811,МПа,good,run
-2026-07-01T04:00:00+05:00,wells,W-106,P_bottomhole,10.0963,МПа,good,run
-2026-07-01T04:00:00+05:00,wells,W-106,Q_gas,#N/A,тыс. м3/сут,bad,run
-2026-07-01T04:00:00+05:00,wells,W-106,Q_liquid,2.14624,м3/сут,good,run
-2026-07-01T04:00:00+05:00,wells,W-106,water_cut,5.37114,%,good,run
-2026-07-01T05:00:00+05:00,wells,W-101,P_wellhead,,МПа
-2026-07-01T05:00:00+05:00,wells,W-101,P_wellhead,,МПа,good,run
-2026-07-01T05:00:00+05:00,wells,W-101,P_bottomhole,9.90892,МПа,good,run
+2026-07-01T04:00:00+05:00,wells,W-105,water_cut,4.91986,%,good,run
+2026-07-01T04:00:00+05:00,wells,W-106,P_wellhead,8.68572,МПа,good,stop
+2026-07-01T04:00:00+05:00,wells,W-106,P_bottomhole,10.8941,МПа,good,stop
+2026-07-01T04:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T04:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
+2026-07-01T04:00:00+05:00,wells,W-106,water_cut,5.37114,%,good,stop
+2026-07-01T05:00:00+05:00,wells,W-101,P_wellhead,7.9759,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-101,P_bottomhole,9.91098,МПа,good,run
 2026-07-01T05:00:00+05:00,wells,W-101,Q_gas,507.25,тыс. м3/сут,good,run
-2026-07-01T05:00:00+05:00,wells,W-101,Q_liquid,,м3/сут,good,run
+2026-07-01T05:00:00+05:00,wells,W-101,Q_liquid,1.85735,м3/сут,good,run
 2026-07-01T05:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T05:00:00+05:00,wells,W-102,P_wellhead,8.05958,МПа,good,run
-2026-07-01T05:00:00+05:00,wells,W-102,P_bottomhole,9.93877,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-102,P_wellhead,7.96493,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-102,P_bottomhole,9.99364,МПа,good,run
 2026-07-01T05:00:00+05:00,wells,W-102,Q_gas,505.972,тыс. м3/сут,good,run
 2026-07-01T05:00:00+05:00,wells,W-102,Q_liquid,2.023,м3/сут,good,run
 2026-07-01T05:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T05:00:00+05:00,wells,W-103,P_wellhead,7.90707,МПа,good,run
-2026-07-01T05:00:00+05:00,wells,W-103,P_bottomhole,10.0155,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-103,P_wellhead,7.91109,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-103,P_bottomhole,9.95666,МПа,good,run
 2026-07-01T05:00:00+05:00,wells,W-103,Q_gas,499.666,тыс. м3/сут,good,run
-2026-07-01T05:00:00+05:00,wells,W-103,Q_liquid,,м3/сут,good,run
-2026-07-01T05:00:00+05:00,wells,W-103,water_cut,5.51046,%,good,run
-2026-07-01T05:00:00+05:00,wells,W-104,P_wellhead,8.77754,МПа,good,stop
-2026-07-01T05:00:00+05:00,wells,W-104,P_bottomhole,10.9012,МПа,good,stop
-2026-07-01T05:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T05:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T05:00:00+05:00,wells,W-104,water_cut,4.26573,%,good,stop
-2026-07-01T05:00:00+05:00,wells,W-105,P_wellhead,8.02728,МПа,good,run
-2026-07-01T05:00:00+05:00,wells,W-105,P_bottomhole,9.9429,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-103,Q_liquid,1.78774,м3/сут,good,run
+2026-07-01T05:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T05:00:00+05:00,wells,W-104,P_wellhead,7.92502,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-104,P_bottomhole,9.9279,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-104,Q_gas,492.431,тыс. м3/сут,good,run
+2026-07-01T05:00:00+05:00,wells,W-104,Q_liquid,1.87318,м3/сут,good,run
+2026-07-01T05:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T05:00:00+05:00,wells,W-105,P_wellhead,8.03383,МПа,good,run
+2026-07-01T05:00:00+05:00,wells,W-105,P_bottomhole,0,МПа,good,run
 2026-07-01T05:00:00+05:00,wells,W-105,Q_gas,484.311,тыс. м3/сут,good,run
 2026-07-01T05:00:00+05:00,wells,W-105,Q_liquid,1.75892,м3/сут,good,run
-2026-07-01T05:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T05:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
-2026-07-01T05:00:00+05:00,wells,W-106,P_bottomhole,10.0799,МПа,good,run
-2026-07-01T05:00:00+05:00,wells,W-106,Q_gas,488.192,тыс. м3/сут,good,run
-2026-07-01T05:00:00+05:00,wells,W-106,Q_liquid,2.18551,м3/сут,good,run
-2026-07-01T05:00:00+05:00,wells,W-106,water_cut,5.41164,%,good,run
-2026-07-01T06:00:00+05:00,wells,W-101,P_wellhead,,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-101,P_bottomhole,9.93676,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-101,Q_gas,,тыс. м3/сут,good,run
+2026-07-01T05:00:00+05:00,wells,W-105,water_cut,4.94379,%,good,run
+2026-07-01T05:00:00+05:00,wells,W-106,P_wellhead,8.90748,МПа,good,stop
+2026-07-01T05:00:00+05:00,wells,W-106,P_bottomhole,11.1158,МПа,good,stop
+2026-07-01T05:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T05:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
+2026-07-01T05:00:00+05:00,wells,W-106,water_cut,5.41164,%,good,stop
+2026-07-01T06:00:00+05:00,wells,W-101,P_wellhead,7.97146,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-101,P_bottomhole,9.93039,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-101,Q_gas,505.074,тыс. м3/сут,good,run
 2026-07-01T06:00:00+05:00,wells,W-101,Q_liquid,1.8274,м3/сут,good,run
 2026-07-01T06:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T06:00:00+05:00,wells,W-102,P_wellhead,8.04909,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-102,P_bottomhole,9.93119,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-102,P_wellhead,8.05692,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-102,P_bottomhole,9.92837,МПа,good,run
 2026-07-01T06:00:00+05:00,wells,W-102,Q_gas,507.028,тыс. м3/сут,good,run
-2026-07-01T06:00:00+05:00,wells,W-102,Q_liquid,2.21362,м3/сут,good,run
-2026-07-01T06:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T06:00:00+05:00,wells,W-103,P_wellhead,8.68843,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-103,P_bottomhole,9.92551,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-102,Q_liquid,I/O Timeout,м3/сут,good,run
+2026-07-01T06:00:00+05:00,wells,W-102,water_cut,5.0758,%,good,run
+2026-07-01T06:00:00+05:00,wells,W-103,P_wellhead,7.91888,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-103,P_bottomhole,10.0118,МПа,good,run
 2026-07-01T06:00:00+05:00,wells,W-103,Q_gas,500.28,тыс. м3/сут,good,run
 2026-07-01T06:00:00+05:00,wells,W-103,Q_liquid,1.9538,м3/сут,good,run
-2026-07-01T06:00:00+05:00,wells,W-103,water_cut,5.28977,%,good,run
-2026-07-01T06:00:00+05:00,wells,W-104,P_wellhead,8.92291,МПа,good,stop
-2026-07-01T06:00:00+05:00,wells,W-104,P_bottomhole,11.0466,МПа,good,stop
-2026-07-01T06:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T06:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T06:00:00+05:00,wells,W-104,water_cut,4.40252,%,good,stop
-2026-07-01T06:00:00+05:00,wells,W-105,P_wellhead,8.06432,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-105,P_bottomhole,9.90332,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T06:00:00+05:00,wells,W-104,P_wellhead,7.87952,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-104,P_bottomhole,9.99384,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-104,Q_gas,487.8,тыс. м3/сут,good,run
+2026-07-01T06:00:00+05:00,wells,W-104,Q_liquid,1.90649,м3/сут,good,run
+2026-07-01T06:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T06:00:00+05:00,wells,W-105,P_wellhead,8.05764,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-105,P_bottomhole,10.7122,МПа,good,run
 2026-07-01T06:00:00+05:00,wells,W-105,Q_gas,494.828,тыс. м3/сут,good,run
 2026-07-01T06:00:00+05:00,wells,W-105,Q_liquid,1.80322,м3/сут,good,run
-2026-07-01T06:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T06:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-106,P_bottomhole,,МПа,good,run
-2026-07-01T06:00:00+05:00,wells,W-106,Q_gas,491.25,тыс. м3/сут,good,run
-2026-07-01T06:00:00+05:00,wells,W-106,Q_liquid,2.10934,м3/сут,good,run
-2026-07-01T06:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T07:00:00+05:00,wells,W-101,P_wellhead,7.97959,МПа,good,run
-2026-07-01T07:00:00+05:00,wells,W-101,P_bottomhole,9.93726,МПа,good,run
+2026-07-01T06:00:00+05:00,wells,W-105,water_cut,3.74281,%,good,run
+2026-07-01T06:00:00+05:00,wells,W-106,P_wellhead,9.07948,МПа,good,stop
+2026-07-01T06:00:00+05:00,wells,W-106,P_bottomhole,11.2879,МПа,good,stop
+2026-07-01T06:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T06:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
+2026-07-01T06:00:00+05:00,wells,W-106,water_cut,4.92835,%,good,stop
+2026-07-01T07:00:00+05:00,wells,W-101,P_wellhead,7.9943,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-101,P_bottomhole,9.98337,МПа,good,run
 2026-07-01T07:00:00+05:00,wells,W-101,Q_gas,505.837,тыс. м3/сут,good,run
 2026-07-01T07:00:00+05:00,wells,W-101,Q_liquid,1.81039,м3/сут,good,run
 2026-07-01T07:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T07:00:00+05:00,wells,W-102,P_wellhead,8.07669,МПа,good,run
-2026-07-01T07:00:00+05:00,wells,W-102,P_bottomhole,9.93915,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-102,P_wellhead,8.06278,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-102,P_bottomhole,9.89012,МПа,good,run
 2026-07-01T07:00:00+05:00,wells,W-102,Q_gas,506.731,тыс. м3/сут,good,run
-2026-07-01T07:00:00+05:00,wells,W-102,Q_liquid,2.28986,м3/сут,good,run
-2026-07-01T07:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T07:00:00+05:00,wells,W-103,P_wellhead,7.8825,МПа,good,run
-2026-07-01T07:00:00+05:00,wells,W-103,P_bottomhole,9.92972,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-102,Q_liquid,,м3/сут,good,run
+2026-07-01T07:00:00+05:00,wells,W-102,water_cut,4.46463,%,good,run
+2026-07-01T07:00:00+05:00,wells,W-103,P_wellhead,7.86156,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-103,P_bottomhole,10.7852,МПа,good,run
 2026-07-01T07:00:00+05:00,wells,W-103,Q_gas,505.04,тыс. м3/сут,good,run
 2026-07-01T07:00:00+05:00,wells,W-103,Q_liquid,1.97065,м3/сут,good,run
-2026-07-01T07:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T07:00:00+05:00,wells,W-104,P_wellhead,9.04168,МПа,good,stop
-2026-07-01T07:00:00+05:00,wells,W-104,P_bottomhole,11.1653,МПа,good,stop
-2026-07-01T07:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T07:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T07:00:00+05:00,wells,W-104,water_cut,4.42756,%,good,stop
-2026-07-01T07:00:00+05:00,wells,W-105,P_wellhead,Bad,МПа,good,run
-2026-07-01T07:00:00+05:00,wells,W-105,P_bottomhole,9.90652,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-103,water_cut,5.38139,%,good,run
+2026-07-01T07:00:00+05:00,wells,W-104,P_wellhead,,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-104,P_bottomhole,9.94475,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-104,Q_gas,490.62,тыс. м3/сут,good,run
+2026-07-01T07:00:00+05:00,wells,W-104,Q_liquid,1.83108,м3/сут,good,run
+2026-07-01T07:00:00+05:00,wells,W-104,water_cut,4.42756,%,good,run
+2026-07-01T07:00:00+05:00,wells,W-105,P_wellhead,8.13556,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-105,P_bottomhole,9.94977,МПа,good,run
 2026-07-01T07:00:00+05:00,wells,W-105,Q_gas,493.886,тыс. м3/сут,good,run
 2026-07-01T07:00:00+05:00,wells,W-105,Q_liquid,2.06588,м3/сут,good,run
-2026-07-01T07:00:00+05:00,wells,W-105,water_cut,5.0215,%,good,run
-2026-07-01T07:00:00+05:00,wells,W-106,P_wellhead,7.83443,МПа,good,run
-2026-07-01T07:00:00+05:00,wells,W-106,P_bottomhole,10.0779,МПа,good,run
-2026-07-01T07:00:00+05:00,wells,W-106,Q_gas,500.495,тыс. м3/сут,good,run
-2026-07-01T07:00:00+05:00,wells,W-106,Q_liquid,2.13701,м3/сут,good,run
-2026-07-01T07:00:00+05:00,wells,W-106,water_cut,4.77651,%,good,run
-2026-07-01T08:00:00+05:00,wells,W-101,P_wellhead,8.00776,МПа,good,run
-2026-07-01T08:00:00+05:00,wells,W-101,P_bottomhole,9.94929,МПа,good,run
+2026-07-01T07:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T07:00:00+05:00,wells,W-106,P_wellhead,9.22003,МПа,good,stop
+2026-07-01T07:00:00+05:00,wells,W-106,P_bottomhole,11.4284,МПа,good,stop
+2026-07-01T07:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T07:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
+2026-07-01T07:00:00+05:00,wells,W-106,water_cut,4.77651,%,good,stop
+2026-07-01T08:00:00+05:00,wells,W-101,P_wellhead,7.14463,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-101,P_bottomhole,9.93188,МПа,good,run
 2026-07-01T08:00:00+05:00,wells,W-101,Q_gas,495.023,тыс. м3/сут,good,run
 2026-07-01T08:00:00+05:00,wells,W-101,Q_liquid,2.00543,м3/сут,good,run
-2026-07-01T08:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T08:00:00+05:00,wells,W-102,P_wellhead,,МПа,good,run
-2026-07-01T08:00:00+05:00,wells,W-102,P_bottomhole,9.97707,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-101,water_cut,5.60496,%,good,run
+2026-07-01T08:00:00+05:00,wells,W-102,P_wellhead,8.01296,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-102,P_bottomhole,9.90217,МПа,good,run
 2026-07-01T08:00:00+05:00,wells,W-102,Q_gas,511.437,тыс. м3/сут,good,run
 2026-07-01T08:00:00+05:00,wells,W-102,Q_liquid,2.26546,м3/сут,good,run
 2026-07-01T08:00:00+05:00,wells,W-102,water_cut,4.92637,%,good,run
-2026-07-01T08:00:00+05:00,wells,W-103,P_wellhead,7.87977,МПа,good,run
-2026-07-01T08:00:00+05:00,wells,W-103,P_bottomhole,9.97442,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-103,P_wellhead,7.84437,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-103,P_bottomhole,9.92368,МПа,good,run
 2026-07-01T08:00:00+05:00,wells,W-103,Q_gas,512.045,тыс. м3/сут,good,run
-2026-07-01T08:00:00+05:00,wells,W-103,Q_liquid,1.81187,м3/сут,good,run
-2026-07-01T08:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T08:00:00+05:00,wells,W-104,P_wellhead,9.1421,МПа,good,stop
-2026-07-01T08:00:00+05:00,wells,W-104,P_bottomhole,11.2657,МПа,good,stop
-2026-07-01T08:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T08:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T08:00:00+05:00,wells,W-104,water_cut,5.0716,%,good,stop
-2026-07-01T08:00:00+05:00,wells,W-105,P_wellhead,8.89849,МПа,good,run
-2026-07-01T08:00:00+05:00,wells,W-105,P_bottomhole,9.95483,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-103,Q_liquid,,м3/сут,good,run
+2026-07-01T08:00:00+05:00,wells,W-103,water_cut,5.2292,%,good,run
+2026-07-01T08:00:00+05:00,wells,W-104,P_wellhead,,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-104,Q_gas,498.174,тыс. м3/сут,good,run
+2026-07-01T08:00:00+05:00,wells,W-104,Q_liquid,1.85262,м3/сут,good,run
+2026-07-01T08:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T08:00:00+05:00,wells,W-105,P_wellhead,8.09143,МПа,good,run
+2026-07-01T08:00:00+05:00,wells,W-105,P_bottomhole,9.89608,МПа,good,run
 2026-07-01T08:00:00+05:00,wells,W-105,Q_gas,494.896,тыс. м3/сут,good,run
 2026-07-01T08:00:00+05:00,wells,W-105,Q_liquid,1.79314,м3/сут,good,run
-2026-07-01T08:00:00+05:00,wells,W-105,water_cut,4.63752,%,good,run
-2026-07-01T08:00:00+05:00,wells,W-106,P_wellhead,8.78696,МПа,good,stop
-2026-07-01T08:00:00+05:00,wells,W-106,P_bottomhole,11.0484,МПа,good,stop
+2026-07-01T08:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T08:00:00+05:00,wells,W-106,P_wellhead,9.33885,МПа,good,stop
+2026-07-01T08:00:00+05:00,wells,W-106,P_bottomhole,11.5472,МПа,good,stop
 2026-07-01T08:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T08:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
 2026-07-01T08:00:00+05:00,wells,W-106,water_cut,5.46861,%,good,stop
-2026-07-01T09:00:00+05:00,wells,W-101,P_wellhead,8.00746,МПа,good,run
-2026-07-01T09:00:00+05:00,wells,W-101,P_bottomhole,9.9525,МПа,good,run
-2026-07-01T09:00:00+05:00,wells,W-101,Q_gas,497.372,тыс. м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-101,P_wellhead,7.98581,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-101,P_bottomhole,9.89728,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-101,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T09:00:00+05:00,wells,W-101,Q_liquid,1.8917,м3/сут,good,run
-2026-07-01T09:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T09:00:00+05:00,wells,W-102,P_wellhead,8.08425,МПа,good,run
-2026-07-01T09:00:00+05:00,wells,W-102,P_bottomhole,10.6996,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-101,water_cut,5.62702,%,good,run
+2026-07-01T09:00:00+05:00,wells,W-102,P_wellhead,8.05683,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-102,P_bottomhole,9.90797,МПа,good,run
 2026-07-01T09:00:00+05:00,wells,W-102,Q_gas,501.304,тыс. м3/сут,good,run
 2026-07-01T09:00:00+05:00,wells,W-102,Q_liquid,2.1888,м3/сут,good,run
-2026-07-01T09:00:00+05:00,wells,W-102,water_cut,4.84847,%,good,run
-2026-07-01T09:00:00+05:00,wells,W-103,P_wellhead,7.90656,МПа,good,run
-2026-07-01T09:00:00+05:00,wells,W-103,P_bottomhole,9.98774,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-102,water_cut,,%,good,run
+2026-07-01T09:00:00+05:00,wells,W-103,P_wellhead,,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-103,P_bottomhole,,МПа,good,run
 2026-07-01T09:00:00+05:00,wells,W-103,Q_gas,506.345,тыс. м3/сут,good,run
-2026-07-01T09:00:00+05:00,wells,W-103,Q_liquid,,м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-103,Q_liquid,1.93347,м3/сут,good,run
 2026-07-01T09:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T09:00:00+05:00,wells,W-104,P_wellhead,9.22909,МПа,good,stop
-2026-07-01T09:00:00+05:00,wells,W-104,P_bottomhole,11.3527,МПа,good,stop
-2026-07-01T09:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T09:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T09:00:00+05:00,wells,W-104,water_cut,4.80323,%,good,stop
-2026-07-01T09:00:00+05:00,wells,W-105,P_wellhead,8.09562,МПа,good,run
-2026-07-01T09:00:00+05:00,wells,W-105,P_bottomhole,9.94725,МПа,good,run
-2026-07-01T09:00:00+05:00,wells,W-105,Q_gas,489.407,тыс. м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-104,P_wellhead,7.94419,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-104,P_bottomhole,9.90173,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-104,Q_gas,503.608,тыс. м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-104,Q_liquid,2.04688,м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-104,water_cut,4.80323,%,good,run
+2026-07-01T09:00:00+05:00,wells,W-105,P_wellhead,8.08245,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-105,P_bottomhole,9.90575,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-105,Q_gas,Bad,тыс. м3/сут,good,run
 2026-07-01T09:00:00+05:00,wells,W-105,Q_liquid,1.90921,м3/сут,good,run
-2026-07-01T09:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T09:00:00+05:00,wells,W-106,P_wellhead,9.34057,МПа,good,stop
-2026-07-01T09:00:00+05:00,wells,W-106,P_bottomhole,11.602,МПа,good,stop
-2026-07-01T09:00:00+05:00,wells,W-106,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T09:00:00+05:00,wells,W-106,Q_liquid,0,м3/сут,good,stop
-2026-07-01T09:00:00+05:00,wells,W-106,water_cut,5.28014,%,good,stop
-2026-07-01T10:00:00+05:00,wells,W-101,P_wellhead,7.98419,МПа,good,run
-2026-07-01T10:00:00+05:00,wells,W-101,P_bottomhole,---,МПа,bad,run
+2026-07-01T09:00:00+05:00,wells,W-105,water_cut,4.97009,%,good,run
+2026-07-01T09:00:00+05:00,wells,W-106,P_wellhead,7.79253,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-106,P_bottomhole,10.1079,МПа,good,run
+2026-07-01T09:00:00+05:00,wells,W-106,Q_gas,494.481,тыс. м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-106,Q_liquid,1.90426,м3/сут,good,run
+2026-07-01T09:00:00+05:00,wells,W-106,water_cut,,%,good,run
+2026-07-01T10:00:00+05:00,wells,W-101,P_wellhead,8.00558,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-101,P_bottomhole,9.89762,МПа,good,run
 2026-07-01T10:00:00+05:00,wells,W-101,Q_gas,506.162,тыс. м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-101,Q_liquid,1.90108,м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-101,water_cut,4.73522,%,good,run
-2026-07-01T10:00:00+05:00,wells,W-102,P_wellhead,8.0874,МПа,good,run
-2026-07-01T10:00:00+05:00,wells,W-102,P_bottomhole,9.88789,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-102,P_wellhead,8.097,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-102,P_bottomhole,9.93483,МПа,good,run
 2026-07-01T10:00:00+05:00,wells,W-102,Q_gas,505.38,тыс. м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-102,Q_liquid,1.85545,м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-102,water_cut,,%,good,run
 2026-07-01T10:00:00+05:00,wells,W-103,P_wellhead,,МПа,good,run
-2026-07-01T10:00:00+05:00,wells,W-103,P_bottomhole,,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-103,P_bottomhole,9.962,МПа,good,run
 2026-07-01T10:00:00+05:00,wells,W-103,Q_gas,511.504,тыс. м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-103,Q_liquid,1.92549,м3/сут,good,run
-2026-07-01T10:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T10:00:00+05:00,wells,W-104,P_wellhead,9.30582,МПа,good,stop
-2026-07-01T10:00:00+05:00,wells,W-104,P_bottomhole,11.4295,МПа,good,stop
-2026-07-01T10:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T10:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T10:00:00+05:00,wells,W-104,water_cut,4.50334,%,good,stop
-2026-07-01T10:00:00+05:00,wells,W-105,P_wellhead,8.51605,МПа,good,stop
-2026-07-01T10:00:00+05:00,wells,W-105,P_bottomhole,10.3393,МПа,good,stop
+2026-07-01T10:00:00+05:00,wells,W-103,water_cut,4.95728,%,good,run
+2026-07-01T10:00:00+05:00,wells,W-104,P_wellhead,7.90715,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-104,P_bottomhole,9.88656,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-104,Q_gas,489.597,тыс. м3/сут,good,run
+2026-07-01T10:00:00+05:00,wells,W-104,Q_liquid,1.83915,м3/сут,good,run
+2026-07-01T10:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T10:00:00+05:00,wells,W-105,P_wellhead,8.55565,МПа,good,stop
+2026-07-01T10:00:00+05:00,wells,W-105,P_bottomhole,10.3789,МПа,good,stop
 2026-07-01T10:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T10:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T10:00:00+05:00,wells,W-105,water_cut,4.27685,%,good,stop
-2026-07-01T10:00:00+05:00,wells,W-106,P_wellhead,7.80192,МПа,good,run
-2026-07-01T10:00:00+05:00,wells,W-106,P_bottomhole,10.1203,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-106,P_wellhead,7.78057,МПа,good,run
+2026-07-01T10:00:00+05:00,wells,W-106,P_bottomhole,10.1298,МПа,good,run
 2026-07-01T10:00:00+05:00,wells,W-106,Q_gas,491.858,тыс. м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-106,Q_liquid,1.97443,м3/сут,good,run
 2026-07-01T10:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T11:00:00+05:00,wells,W-101,P_wellhead,7.96852,МПа,good,run
-2026-07-01T11:00:00+05:00,wells,W-101,P_bottomhole,9.89313,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-101,P_wellhead,7.98255,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-101,P_bottomhole,9.9316,МПа,good,run
 2026-07-01T11:00:00+05:00,wells,W-101,Q_gas,510.865,тыс. м3/сут,good,run
 2026-07-01T11:00:00+05:00,wells,W-101,Q_liquid,1.88076,м3/сут,good,run
 2026-07-01T11:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T11:00:00+05:00,wells,W-102,P_wellhead,8.07851,МПа,good,run
-2026-07-01T11:00:00+05:00,wells,W-102,P_bottomhole,9.88897,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-102,P_wellhead,7.29191,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-102,P_bottomhole,9.88758,МПа,good,run
 2026-07-01T11:00:00+05:00,wells,W-102,Q_gas,491.78,тыс. м3/сут,good,run
 2026-07-01T11:00:00+05:00,wells,W-102,Q_liquid,1.99255,м3/сут,good,run
-2026-07-01T11:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T11:00:00+05:00,wells,W-103,P_wellhead,7.87908,МПа,good,run
-2026-07-01T11:00:00+05:00,wells,W-103,P_bottomhole,9.94804,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-102,water_cut,4.5129,%,good,run
+2026-07-01T11:00:00+05:00,wells,W-103,P_wellhead,7.83334,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-103,P_bottomhole,9.89614,МПа,good,run
 2026-07-01T11:00:00+05:00,wells,W-103,Q_gas,513.965,тыс. м3/сут,good,run
 2026-07-01T11:00:00+05:00,wells,W-103,Q_liquid,1.96662,м3/сут,good,run
 2026-07-01T11:00:00+05:00,wells,W-103,water_cut,5.16315,%,good,run
-2026-07-01T11:00:00+05:00,wells,W-104,P_wellhead,9.37445,МПа,good,stop
-2026-07-01T11:00:00+05:00,wells,W-104,P_bottomhole,11.4981,МПа,good,stop
-2026-07-01T11:00:00+05:00,wells,W-104,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T11:00:00+05:00,wells,W-104,Q_liquid,0,м3/сут,good,stop
-2026-07-01T11:00:00+05:00,wells,W-104,water_cut,4.79512,%,good,stop
-2026-07-01T11:00:00+05:00,wells,W-105,P_wellhead,8.76968,МПа,good,stop
-2026-07-01T11:00:00+05:00,wells,W-105,P_bottomhole,10.593,МПа,good,stop
+2026-07-01T11:00:00+05:00,wells,W-104,P_wellhead,7.93747,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-104,P_bottomhole,9.93439,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-104,Q_gas,508.637,тыс. м3/сут,good,run
+2026-07-01T11:00:00+05:00,wells,W-104,Q_liquid,1.7845,м3/сут,good,run
+2026-07-01T11:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T11:00:00+05:00,wells,W-105,P_wellhead,8.83245,МПа,good,stop
+2026-07-01T11:00:00+05:00,wells,W-105,P_bottomhole,10.6558,МПа,good,stop
 2026-07-01T11:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T11:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T11:00:00+05:00,wells,W-105,water_cut,4.18682,%,good,stop
-2026-07-01T11:00:00+05:00,wells,W-106,P_wellhead,8.5086,МПа,good,run
-2026-07-01T11:00:00+05:00,wells,W-106,P_bottomhole,10.0586,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-106,P_wellhead,7.7875,МПа,good,run
+2026-07-01T11:00:00+05:00,wells,W-106,P_bottomhole,10.1368,МПа,good,run
 2026-07-01T11:00:00+05:00,wells,W-106,Q_gas,495.311,тыс. м3/сут,good,run
 2026-07-01T11:00:00+05:00,wells,W-106,Q_liquid,1.9175,м3/сут,good,run
-2026-07-01T11:00:00+05:00,wells,W-106,water_cut,5.54815,%,good,run
-2026-07-01T12:00:00+05:00,wells,W-101,P_wellhead,8.00746,МПа,good,run
-2026-07-01T12:00:00+05:00,wells,W-101,P_bottomhole,#N/A,МПа,bad,run
+2026-07-01T11:00:00+05:00,wells,W-106,water_cut,,%,good,run
+2026-07-01T12:00:00+05:00,wells,W-101,P_wellhead,8.04033,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-101,P_bottomhole,9.90569,МПа,good,run
 2026-07-01T12:00:00+05:00,wells,W-101,Q_gas,506.359,тыс. м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-101,Q_liquid,1.94092,м3/сут,good,run
-2026-07-01T12:00:00+05:00,wells,W-101,water_cut,5.06207,%,good,run
-2026-07-01T12:00:00+05:00,wells,W-102,P_wellhead,7.23358,МПа,good,run
-2026-07-01T12:00:00+05:00,wells,W-102,P_bottomhole,9.94559,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-101,water_cut,,%,good,run
+2026-07-01T12:00:00+05:00,wells,W-102,P_wellhead,8.07752,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-102,P_bottomhole,9.88723,МПа,good,run
 2026-07-01T12:00:00+05:00,wells,W-102,Q_gas,492.52,тыс. м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-102,Q_liquid,1.95994,м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-102,water_cut,4.39546,%,good,run
-2026-07-01T12:00:00+05:00,wells,W-103,P_wellhead,7.86979,МПа,good,run
-2026-07-01T12:00:00+05:00,wells,W-103,P_bottomhole,9.94804,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-103,P_wellhead,7.87346,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-103,P_bottomhole,9.92291,МПа,good,run
 2026-07-01T12:00:00+05:00,wells,W-103,Q_gas,511.09,тыс. м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-103,Q_liquid,2.0443,м3/сут,good,run
-2026-07-01T12:00:00+05:00,wells,W-103,water_cut,4.64524,%,good,run
-2026-07-01T12:00:00+05:00,wells,W-104,P_wellhead,7.95872,МПа,good,run
-2026-07-01T12:00:00+05:00,wells,W-104,P_bottomhole,9.91984,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T12:00:00+05:00,wells,W-104,P_wellhead,7.91025,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-104,P_bottomhole,9.97978,МПа,good,run
 2026-07-01T12:00:00+05:00,wells,W-104,Q_gas,507.769,тыс. м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-104,Q_liquid,2.06652,м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T12:00:00+05:00,wells,W-105,P_wellhead,8.94964,МПа,good,stop
-2026-07-01T12:00:00+05:00,wells,W-105,P_bottomhole,10.7729,МПа,good,stop
+2026-07-01T12:00:00+05:00,wells,W-105,P_wellhead,9.02884,МПа,good,stop
+2026-07-01T12:00:00+05:00,wells,W-105,P_bottomhole,10.8521,МПа,good,stop
 2026-07-01T12:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T12:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T12:00:00+05:00,wells,W-105,water_cut,5.35108,%,good,stop
-2026-07-01T12:00:00+05:00,wells,W-106,P_wellhead,7.75282,МПа,good,run
-2026-07-01T12:00:00+05:00,wells,W-106,P_bottomhole,10.1122,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-106,P_wellhead,7.81415,МПа,good,run
+2026-07-01T12:00:00+05:00,wells,W-106,P_bottomhole,10.0432,МПа,good,run
 2026-07-01T12:00:00+05:00,wells,W-106,Q_gas,500.869,тыс. м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-106,Q_liquid,1.8845,м3/сут,good,run
 2026-07-01T12:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T13:00:00+05:00,wells,W-101,P_wellhead,8.07153,МПа,good,run
-2026-07-01T13:00:00+05:00,wells,W-101,P_bottomhole,9.84945,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-101,P_wellhead,8.00355,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-101,P_bottomhole,10.6992,МПа,good,run
 2026-07-01T13:00:00+05:00,wells,W-101,Q_gas,507.284,тыс. м3/сут,good,run
 2026-07-01T13:00:00+05:00,wells,W-101,Q_liquid,1.95651,м3/сут,good,run
-2026-07-01T13:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T13:00:00+05:00,wells,W-102,P_wellhead,8.07212,МПа,good,run
-2026-07-01T13:00:00+05:00,wells,W-102,P_bottomhole,9.88046,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-101,water_cut,5.04213,%,good,run
+2026-07-01T13:00:00+05:00,wells,W-102,P_wellhead,8.07113,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-102,P_bottomhole,9.88723,МПа,good,run
 2026-07-01T13:00:00+05:00,wells,W-102,Q_gas,483.37,тыс. м3/сут,good,run
 2026-07-01T13:00:00+05:00,wells,W-102,Q_liquid,1.98373,м3/сут,good,run
-2026-07-01T13:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T13:00:00+05:00,wells,W-103,P_wellhead,7.87972,МПа,good,run
-2026-07-01T13:00:00+05:00,wells,W-103,P_bottomhole,9.94804,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-102,water_cut,4.76286,%,good,run
+2026-07-01T13:00:00+05:00,wells,W-103,P_wellhead,7.86433,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-103,P_bottomhole,9.9503,МПа,good,run
 2026-07-01T13:00:00+05:00,wells,W-103,Q_gas,505.274,тыс. м3/сут,good,run
 2026-07-01T13:00:00+05:00,wells,W-103,Q_liquid,2.05358,м3/сут,good,run
-2026-07-01T13:00:00+05:00,wells,W-103,water_cut,4.99425,%,good,run
-2026-07-01T13:00:00+05:00,wells,W-104,P_wellhead,7.93684,МПа,good,run
-2026-07-01T13:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T13:00:00+05:00,wells,W-104,P_wellhead,8.01407,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-104,P_bottomhole,9.89511,МПа,good,run
 2026-07-01T13:00:00+05:00,wells,W-104,Q_gas,504.082,тыс. м3/сут,good,run
 2026-07-01T13:00:00+05:00,wells,W-104,Q_liquid,1.98525,м3/сут,good,run
-2026-07-01T13:00:00+05:00,wells,W-104,water_cut,4.65098,%,good,run
-2026-07-01T13:00:00+05:00,wells,W-105,P_wellhead,9.08923,МПа,good,stop
-2026-07-01T13:00:00+05:00,wells,W-105,P_bottomhole,10.9125,МПа,good,stop
+2026-07-01T13:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T13:00:00+05:00,wells,W-105,P_wellhead,9.18118,МПа,good,stop
+2026-07-01T13:00:00+05:00,wells,W-105,P_bottomhole,11.0045,МПа,good,stop
 2026-07-01T13:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T13:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T13:00:00+05:00,wells,W-105,water_cut,4.65092,%,good,stop
-2026-07-01T13:00:00+05:00,wells,W-106,P_wellhead,7.79209,МПа,good,run
-2026-07-01T13:00:00+05:00,wells,W-106,P_bottomhole,10.065,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-106,P_wellhead,7.77123,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-106,P_bottomhole,10.1562,МПа,good,run
 2026-07-01T13:00:00+05:00,wells,W-106,Q_gas,504.107,тыс. м3/сут,good,run
 2026-07-01T13:00:00+05:00,wells,W-106,Q_liquid,1.93822,м3/сут,good,run
-2026-07-01T13:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T14:00:00+05:00,wells,W-101,P_wellhead,8.02986,МПа,good,run
-2026-07-01T14:00:00+05:00,wells,W-101,P_bottomhole,9.87977,МПа,good,run
-2026-07-01T14:00:00+05:00,wells,W-101,Q_gas,519.308,тыс. м3/сут,good,run
-2026-07-01T14:00:00+05:00,wells,W-101,Q_liquid,2.13587,м3/сут,good,run
-2026-07-01T14:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T14:00:00+05:00,wells,W-102,P_wellhead,8.07534,МПа,good,run
-2026-07-01T14:00:00+05:00,wells,W-102,P_bottomhole,9.91786,МПа,good,run
+2026-07-01T13:00:00+05:00,wells,W-106,water_cut,5.79294,%,good,run
+2026-07-01T14:00:00+05:00,wells,W-101,P_wellhead,8.95466,МПа,good,stop
+2026-07-01T14:00:00+05:00,wells,W-101,P_bottomhole,10.8172,МПа,good,stop
+2026-07-01T14:00:00+05:00,wells,W-101,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T14:00:00+05:00,wells,W-101,Q_liquid,0,м3/сут,good,stop
+2026-07-01T14:00:00+05:00,wells,W-101,water_cut,5.20554,%,good,stop
+2026-07-01T14:00:00+05:00,wells,W-102,P_wellhead,7.30922,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-102,P_bottomhole,9.94375,МПа,good,run
 2026-07-01T14:00:00+05:00,wells,W-102,Q_gas,493.472,тыс. м3/сут,good,run
 2026-07-01T14:00:00+05:00,wells,W-102,Q_liquid,2.11016,м3/сут,good,run
-2026-07-01T14:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T14:00:00+05:00,wells,W-103,P_wellhead,7.93525,МПа,good,run
-2026-07-01T14:00:00+05:00,wells,W-103,P_bottomhole,9.94804,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-102,water_cut,4.62617,%,good,run
+2026-07-01T14:00:00+05:00,wells,W-103,P_wellhead,,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-103,P_bottomhole,9.97647,МПа,good,run
 2026-07-01T14:00:00+05:00,wells,W-103,Q_gas,513.244,тыс. м3/сут,good,run
-2026-07-01T14:00:00+05:00,wells,W-103,Q_liquid,2.02678,м3/сут,good,run
-2026-07-01T14:00:00+05:00,wells,W-103,water_cut,4.97063,%,good,run
-2026-07-01T14:00:00+05:00,wells,W-104,P_wellhead,7.9028,МПа,good,run
-2026-07-01T14:00:00+05:00,wells,W-104,P_bottomhole,9.15052,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-103,Q_liquid,,м3/сут,good,run
+2026-07-01T14:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T14:00:00+05:00,wells,W-104,P_wellhead,7.89059,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
 2026-07-01T14:00:00+05:00,wells,W-104,Q_gas,502.569,тыс. м3/сут,good,run
 2026-07-01T14:00:00+05:00,wells,W-104,Q_liquid,1.97327,м3/сут,good,run
-2026-07-01T14:00:00+05:00,wells,W-104,water_cut,5.04979,%,good,run
-2026-07-01T14:00:00+05:00,wells,W-105,P_wellhead,9.20328,МПа,good,stop
-2026-07-01T14:00:00+05:00,wells,W-105,P_bottomhole,11.0266,МПа,good,stop
+2026-07-01T14:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T14:00:00+05:00,wells,W-105,P_wellhead,9.30565,МПа,good,stop
+2026-07-01T14:00:00+05:00,wells,W-105,P_bottomhole,11.1289,МПа,good,stop
 2026-07-01T14:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T14:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T14:00:00+05:00,wells,W-105,water_cut,4.95309,%,good,stop
-2026-07-01T14:00:00+05:00,wells,W-106,P_wellhead,7.7539,МПа,good,run
-2026-07-01T14:00:00+05:00,wells,W-106,P_bottomhole,10.0695,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
+2026-07-01T14:00:00+05:00,wells,W-106,P_bottomhole,10.0331,МПа,good,run
 2026-07-01T14:00:00+05:00,wells,W-106,Q_gas,507.253,тыс. м3/сут,good,run
 2026-07-01T14:00:00+05:00,wells,W-106,Q_liquid,1.81928,м3/сут,good,run
 2026-07-01T14:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T15:00:00+05:00,wells,W-101,P_wellhead,8.01956,МПа,good,run
-2026-07-01T15:00:00+05:00,wells,W-101,P_bottomhole,9.84109,МПа,good,run
-2026-07-01T15:00:00+05:00,wells,W-101,Q_gas,516.978,тыс. м3/сут,good,run
-2026-07-01T15:00:00+05:00,wells,W-101,Q_liquid,2.01984,м3/сут,good,run
-2026-07-01T15:00:00+05:00,wells,W-101,water_cut,I/O Timeout,%,good,run
-2026-07-01T15:00:00+05:00,wells,W-102,P_wellhead,8.06736,МПа,good,run
-2026-07-01T15:00:00+05:00,wells,W-102,P_bottomhole,9.84226,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-101,P_wellhead,9.50827,МПа,good,stop
+2026-07-01T15:00:00+05:00,wells,W-101,P_bottomhole,11.3708,МПа,good,stop
+2026-07-01T15:00:00+05:00,wells,W-101,Q_gas,0,тыс. м3/сут,good,stop
+2026-07-01T15:00:00+05:00,wells,W-101,Q_liquid,0,м3/сут,good,stop
+2026-07-01T15:00:00+05:00,wells,W-101,water_cut,4.32062,%,good,stop
+2026-07-01T15:00:00+05:00,wells,W-102,P_wellhead,8.03084,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-102,P_bottomhole,9.8996,МПа,good,run
 2026-07-01T15:00:00+05:00,wells,W-102,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-102,Q_liquid,,м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T15:00:00+05:00,wells,W-103,P_wellhead,7.89445,МПа,good,run
-2026-07-01T15:00:00+05:00,wells,W-103,P_bottomhole,10.0022,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-103,P_wellhead,7.92424,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-103,P_bottomhole,9.89277,МПа
+2026-07-01T15:00:00+05:00,wells,W-103,P_bottomhole,9.89277,МПа,good,run
 2026-07-01T15:00:00+05:00,wells,W-103,Q_gas,520.106,тыс. м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-103,Q_liquid,2.16075,м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T15:00:00+05:00,wells,W-104,P_wellhead,7.85864,МПа,good,run
-2026-07-01T15:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-104,P_wellhead,7.88995,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-104,P_bottomhole,9.89122,МПа,good,run
 2026-07-01T15:00:00+05:00,wells,W-104,Q_gas,505.914,тыс. м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-104,Q_liquid,2.19569,м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-104,water_cut,5.09574,%,good,run
-2026-07-01T15:00:00+05:00,wells,W-105,P_wellhead,9.29971,МПа,good,stop
-2026-07-01T15:00:00+05:00,wells,W-105,P_bottomhole,11.123,МПа,good,stop
+2026-07-01T15:00:00+05:00,wells,W-105,P_wellhead,9.41088,МПа,good,stop
+2026-07-01T15:00:00+05:00,wells,W-105,P_bottomhole,11.2342,МПа,good,stop
 2026-07-01T15:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T15:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T15:00:00+05:00,wells,W-105,water_cut,5.3178,%,good,stop
-2026-07-01T15:00:00+05:00,wells,W-106,P_wellhead,7.78738,МПа,good,run
-2026-07-01T15:00:00+05:00,wells,W-106,P_bottomhole,,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-106,P_wellhead,7.7514,МПа,good,run
+2026-07-01T15:00:00+05:00,wells,W-106,P_bottomhole,10.0618,МПа,good,run
 2026-07-01T15:00:00+05:00,wells,W-106,Q_gas,507.752,тыс. м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-106,Q_liquid,1.64957,м3/сут,good,run
 2026-07-01T15:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T16:00:00+05:00,wells,W-101,P_wellhead,8.02171,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-101,P_bottomhole,9.91912,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-101,Q_gas,519.608,тыс. м3/сут,good,run
-2026-07-01T16:00:00+05:00,wells,W-101,Q_liquid,1.90113,м3/сут,good,run
+2026-07-01T16:00:00+05:00,wells,W-101,P_wellhead,8.01464,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-101,P_bottomhole,9.81337,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-101,Q_gas,,тыс. м3/сут,good,run
+2026-07-01T16:00:00+05:00,wells,W-101,Q_liquid,,м3/сут,good,run
 2026-07-01T16:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T16:00:00+05:00,wells,W-102,P_wellhead,8.05952,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-102,P_bottomhole,,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-102,P_wellhead,7.98717,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-102,P_bottomhole,9.86668,МПа,good,run
 2026-07-01T16:00:00+05:00,wells,W-102,Q_gas,478.583,тыс. м3/сут,good,run
 2026-07-01T16:00:00+05:00,wells,W-102,Q_liquid,2.10353,м3/сут,good,run
 2026-07-01T16:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T16:00:00+05:00,wells,W-103,P_wellhead,7.89504,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-103,P_bottomhole,9.96765,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-103,P_wellhead,7.95754,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-103,P_bottomhole,9.96976,МПа,good,run
 2026-07-01T16:00:00+05:00,wells,W-103,Q_gas,521.147,тыс. м3/сут,good,run
 2026-07-01T16:00:00+05:00,wells,W-103,Q_liquid,2.22059,м3/сут,good,run
-2026-07-01T16:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T16:00:00+05:00,wells,W-104,P_wellhead,7.84595,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-104,P_bottomhole,9.98075,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-103,water_cut,4.99168,%,good,run
+2026-07-01T16:00:00+05:00,wells,W-104,P_wellhead,7.85861,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
 2026-07-01T16:00:00+05:00,wells,W-104,Q_gas,500.437,тыс. м3/сут,good,run
 2026-07-01T16:00:00+05:00,wells,W-104,Q_liquid,2.11043,м3/сут,good,run
-2026-07-01T16:00:00+05:00,wells,W-104,water_cut,5.0006,%,good,run
-2026-07-01T16:00:00+05:00,wells,W-105,P_wellhead,9.38324,МПа,good,stop
-2026-07-01T16:00:00+05:00,wells,W-105,P_bottomhole,11.2065,МПа,good,stop
+2026-07-01T16:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T16:00:00+05:00,wells,W-105,P_wellhead,9.50204,МПа,good,stop
+2026-07-01T16:00:00+05:00,wells,W-105,P_bottomhole,11.3253,МПа,good,stop
 2026-07-01T16:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T16:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T16:00:00+05:00,wells,W-105,water_cut,5.4927,%,good,stop
-2026-07-01T16:00:00+05:00,wells,W-106,P_wellhead,7.75816,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-106,P_bottomhole,10.0088,МПа,good,run
-2026-07-01T16:00:00+05:00,wells,W-106,Q_gas,504.943,тыс. м3/сут,good,run
+2026-07-01T16:00:00+05:00,wells,W-106,P_wellhead,7.81401,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-106,P_bottomhole,,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-106,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T16:00:00+05:00,wells,W-106,Q_liquid,1.81617,м3/сут,good,run
-2026-07-01T16:00:00+05:00,wells,W-106,water_cut,5.03096,%,good,run
-2026-07-01T17:00:00+05:00,wells,W-101,P_wellhead,,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-101,P_bottomhole,9.87031,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-101,Q_gas,512.388,тыс. м3/сут,good,run
-2026-07-01T17:00:00+05:00,wells,W-101,Q_liquid,2.15477,м3/сут,good,run
-2026-07-01T17:00:00+05:00,wells,W-101,water_cut,4.44993,%,good,run
-2026-07-01T17:00:00+05:00,wells,W-102,P_wellhead,8.0483,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-102,P_bottomhole,9.90467,МПа,good,run
+2026-07-01T16:00:00+05:00,wells,W-106,water_cut,,%,good,run
+2026-07-01T17:00:00+05:00,wells,W-101,P_wellhead,7.93925,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-101,P_bottomhole,9.87249,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-101,Q_gas,,тыс. м3/сут,good,run
+2026-07-01T17:00:00+05:00,wells,W-101,Q_liquid,,м3/сут,good,run
+2026-07-01T17:00:00+05:00,wells,W-101,water_cut,,%,good,run
+2026-07-01T17:00:00+05:00,wells,W-102,P_wellhead,8.06278,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-102,P_bottomhole,9.91562,МПа,good,run
 2026-07-01T17:00:00+05:00,wells,W-102,Q_gas,492.371,тыс. м3/сут,good,run
 2026-07-01T17:00:00+05:00,wells,W-102,Q_liquid,1.82119,м3/сут,good,run
 2026-07-01T17:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T17:00:00+05:00,wells,W-103,P_wellhead,7.8877,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-103,P_bottomhole,9.88742,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-103,P_wellhead,7.87793,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-103,P_bottomhole,9.94671,МПа,good,run
 2026-07-01T17:00:00+05:00,wells,W-103,Q_gas,520.599,тыс. м3/сут,good,run
-2026-07-01T17:00:00+05:00,wells,W-103,Q_liquid,2.07904,м3/сут,good,run
+2026-07-01T17:00:00+05:00,wells,W-103,Q_liquid,#N/A,м3/сут,bad,run
 2026-07-01T17:00:00+05:00,wells,W-103,water_cut,4.62702,%,good,run
-2026-07-01T17:00:00+05:00,wells,W-104,P_wellhead,,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-104,P_bottomhole,9.88403,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-104,Q_gas,501.94,тыс. м3/сут,good,run
+2026-07-01T17:00:00+05:00,wells,W-104,P_wellhead,7.88555,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-104,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T17:00:00+05:00,wells,W-104,Q_liquid,2.00664,м3/сут,good,run
-2026-07-01T17:00:00+05:00,wells,W-104,water_cut,5.25893,%,good,run
-2026-07-01T17:00:00+05:00,wells,W-105,P_wellhead,9.45692,МПа,good,stop
-2026-07-01T17:00:00+05:00,wells,W-105,P_bottomhole,11.2802,МПа,good,stop
+2026-07-01T17:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T17:00:00+05:00,wells,W-105,P_wellhead,9.58245,МПа,good,stop
+2026-07-01T17:00:00+05:00,wells,W-105,P_bottomhole,11.4058,МПа,good,stop
 2026-07-01T17:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
 2026-07-01T17:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
 2026-07-01T17:00:00+05:00,wells,W-105,water_cut,5.66676,%,good,stop
-2026-07-01T17:00:00+05:00,wells,W-106,P_wellhead,7.77507,МПа,good,run
-2026-07-01T17:00:00+05:00,wells,W-106,P_bottomhole,,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-106,P_wellhead,7.80154,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-106,P_bottomhole,10.0181,МПа,good,run
 2026-07-01T17:00:00+05:00,wells,W-106,Q_gas,504.749,тыс. м3/сут,good,run
 2026-07-01T17:00:00+05:00,wells,W-106,Q_liquid,1.73326,м3/сут,good,run
-2026-07-01T17:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T18:00:00+05:00,wells,W-101,P_wellhead,7.97141,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-101,P_bottomhole,9.06477,МПа,good,run
+2026-07-01T17:00:00+05:00,wells,W-106,water_cut,4.45558,%,good,run
+2026-07-01T18:00:00+05:00,wells,W-101,P_wellhead,7.97322,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-101,P_bottomhole,,МПа,good,run
 2026-07-01T18:00:00+05:00,wells,W-101,Q_gas,511.761,тыс. м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-101,Q_liquid,2.13523,м3/сут,good,run
-2026-07-01T18:00:00+05:00,wells,W-101,water_cut,4.62807,%,good,run
-2026-07-01T18:00:00+05:00,wells,W-102,P_wellhead,7.99932,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-102,P_bottomhole,9.90352,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-101,water_cut,,%,good,run
+2026-07-01T18:00:00+05:00,wells,W-102,P_wellhead,8.02302,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-102,P_bottomhole,9.90679,МПа,good,run
 2026-07-01T18:00:00+05:00,wells,W-102,Q_gas,495.025,тыс. м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-102,Q_liquid,1.77226,м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T18:00:00+05:00,wells,W-103,P_wellhead,7.92488,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-103,P_bottomhole,9.94597,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-103,Q_gas,,тыс. м3/сут,good,run
+2026-07-01T18:00:00+05:00,wells,W-103,P_wellhead,7.91821,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-103,P_bottomhole,9.97567,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-103,Q_gas,520.124,тыс. м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-103,Q_liquid,2.15068,м3/сут,good,run
-2026-07-01T18:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T18:00:00+05:00,wells,W-104,P_wellhead,7.88037,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-104,P_bottomhole,9.91328,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-103,water_cut,4.93023,%,good,run
+2026-07-01T18:00:00+05:00,wells,W-104,P_wellhead,7.07531,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-104,P_bottomhole,9.86351,МПа,good,run
 2026-07-01T18:00:00+05:00,wells,W-104,Q_gas,494.209,тыс. м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-104,Q_liquid,2.32439,м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-104,water_cut,5.46422,%,good,run
-2026-07-01T18:00:00+05:00,wells,W-105,P_wellhead,9.52283,МПа,good,stop
-2026-07-01T18:00:00+05:00,wells,W-105,P_bottomhole,11.3461,МПа,good,stop
-2026-07-01T18:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T18:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
-2026-07-01T18:00:00+05:00,wells,W-105,water_cut,5.46818,%,good,stop
-2026-07-01T18:00:00+05:00,wells,W-106,P_wellhead,7.79929,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-106,P_bottomhole,9.32019,МПа,good,run
-2026-07-01T18:00:00+05:00,wells,W-106,Q_gas,517.543,тыс. м3/сут,good,run
+2026-07-01T18:00:00+05:00,wells,W-105,P_wellhead,8.12228,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-105,P_bottomhole,9.91961,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-105,Q_gas,511.314,тыс. м3/сут,good,run
+2026-07-01T18:00:00+05:00,wells,W-105,Q_liquid,2.15567,м3/сут,good,run
+2026-07-01T18:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T18:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-106,P_bottomhole,9.99166,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-106,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T18:00:00+05:00,wells,W-106,Q_liquid,1.89935,м3/сут,good,run
-2026-07-01T18:00:00+05:00,wells,W-106,water_cut,4.98757,%,good,run
-2026-07-01T19:00:00+05:00,wells,W-101,P_wellhead,7.9847,МПа,good,run
-2026-07-01T19:00:00+05:00,wells,W-101,P_bottomhole,9.83996,МПа,good,run
+2026-07-01T18:00:00+05:00,wells,W-106,water_cut,,%,good,run
+2026-07-01T19:00:00+05:00,wells,W-101,P_wellhead,7.98931,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-101,P_bottomhole,9.84535,МПа,good,run
 2026-07-01T19:00:00+05:00,wells,W-101,Q_gas,518.377,тыс. м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-101,Q_liquid,2.10889,м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T19:00:00+05:00,wells,W-102,P_wellhead,8.00756,МПа,good,run
-2026-07-01T19:00:00+05:00,wells,W-102,P_bottomhole,9.92818,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-102,P_wellhead,8.02068,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-102,P_bottomhole,9.97037,МПа,good,run
 2026-07-01T19:00:00+05:00,wells,W-102,Q_gas,495.78,тыс. м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-102,Q_liquid,1.93312,м3/сут,good,run
-2026-07-01T19:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T19:00:00+05:00,wells,W-103,P_wellhead,7.87865,МПа,good,run
-2026-07-01T19:00:00+05:00,wells,W-103,P_bottomhole,9.8923,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-102,water_cut,5.42706,%,good,run
+2026-07-01T19:00:00+05:00,wells,W-103,P_wellhead,7.88272,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-103,P_bottomhole,9.90288,МПа,good,run
 2026-07-01T19:00:00+05:00,wells,W-103,Q_gas,512.501,тыс. м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-103,Q_liquid,1.98064,м3/сут,good,run
-2026-07-01T19:00:00+05:00,wells,W-103,water_cut,5.09497,%,good,run
-2026-07-01T19:00:00+05:00,wells,W-104,P_wellhead,7.84791,МПа,good,run
-2026-07-01T19:00:00+05:00,wells,W-104,P_bottomhole,9.92644,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T19:00:00+05:00,wells,W-104,P_wellhead,7.83912,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-104,P_bottomhole,9.92288,МПа,good,run
 2026-07-01T19:00:00+05:00,wells,W-104,Q_gas,491.283,тыс. м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-104,Q_liquid,1.95768,м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T19:00:00+05:00,wells,W-105,P_wellhead,9.58245,МПа,good,stop
-2026-07-01T19:00:00+05:00,wells,W-105,P_bottomhole,11.4058,МПа,good,stop
-2026-07-01T19:00:00+05:00,wells,W-105,Q_gas,0,тыс. м3/сут,good,stop
-2026-07-01T19:00:00+05:00,wells,W-105,Q_liquid,0,м3/сут,good,stop
-2026-07-01T19:00:00+05:00,wells,W-105,water_cut,5.11437,%,good,stop
-2026-07-01T19:00:00+05:00,wells,W-106,P_wellhead,7.87115,МПа,good,run
-2026-07-01T19:00:00+05:00,wells,W-106,P_bottomhole,,МПа,good,run
-2026-07-01T19:00:00+05:00,wells,W-106,Q_gas,,тыс. м3/сут,good,run
+2026-07-01T19:00:00+05:00,wells,W-105,P_wellhead,8.06297,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-105,P_bottomhole,9.9461,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-105,Q_gas,502.505,тыс. м3/сут,good,run
+2026-07-01T19:00:00+05:00,wells,W-105,Q_liquid,2.16376,м3/сут,good,run
+2026-07-01T19:00:00+05:00,wells,W-105,water_cut,5.11437,%,good,run
+2026-07-01T19:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-106,P_bottomhole,10.0665,МПа,good,run
+2026-07-01T19:00:00+05:00,wells,W-106,Q_gas,504.022,тыс. м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-106,Q_liquid,1.94976,м3/сут,good,run
 2026-07-01T19:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T20:00:00+05:00,wells,W-101,P_wellhead,7.91874,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-101,P_bottomhole,9.84816,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-101,P_wellhead,7.97073,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-101,P_bottomhole,9.85024,МПа,good,run
 2026-07-01T20:00:00+05:00,wells,W-101,Q_gas,511.145,тыс. м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-101,Q_liquid,2.2527,м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T20:00:00+05:00,wells,W-102,P_wellhead,8.01805,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-102,P_bottomhole,9.89753,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-102,Q_gas,488.498,тыс. м3/сут,good,run
+2026-07-01T20:00:00+05:00,wells,W-102,P_wellhead,,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-102,P_bottomhole,9.92321,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-102,Q_gas,,тыс. м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-102,Q_liquid,1.95082,м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T20:00:00+05:00,wells,W-103,P_wellhead,7.9438,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-103,P_bottomhole,9.96243,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-103,P_wellhead,7.95876,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-103,P_bottomhole,9.92271,МПа,good,run
 2026-07-01T20:00:00+05:00,wells,W-103,Q_gas,509.693,тыс. м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-103,Q_liquid,2.2123,м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T20:00:00+05:00,wells,W-104,P_wellhead,7.84964,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-104,P_bottomhole,9.89738,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-104,P_wellhead,7.86663,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-104,P_bottomhole,9.89615,МПа,good,run
 2026-07-01T20:00:00+05:00,wells,W-104,Q_gas,509.818,тыс. м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-104,Q_liquid,2.08872,м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T20:00:00+05:00,wells,W-105,P_wellhead,8.0167,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-105,P_bottomhole,9.98423,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-105,P_wellhead,7.26066,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-105,P_bottomhole,9.95937,МПа,good,run
 2026-07-01T20:00:00+05:00,wells,W-105,Q_gas,506.815,тыс. м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-105,Q_liquid,2.19854,м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-105,water_cut,5.64172,%,good,run
-2026-07-01T20:00:00+05:00,wells,W-106,P_wellhead,7.81254,МПа,good,run
-2026-07-01T20:00:00+05:00,wells,W-106,P_bottomhole,9.97831,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-106,P_wellhead,7.81984,МПа,good,run
+2026-07-01T20:00:00+05:00,wells,W-106,P_bottomhole,9.96431,МПа,good,run
 2026-07-01T20:00:00+05:00,wells,W-106,Q_gas,499.37,тыс. м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-106,Q_liquid,1.67931,м3/сут,good,run
 2026-07-01T20:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T21:00:00+05:00,wells,W-101,P_wellhead,7.99004,МПа,good,run
-2026-07-01T21:00:00+05:00,wells,W-101,P_bottomhole,10.6673,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-101,P_wellhead,7.97176,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-101,P_bottomhole,9.84904,МПа,good,run
 2026-07-01T21:00:00+05:00,wells,W-101,Q_gas,507.864,тыс. м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-101,Q_liquid,1.87246,м3/сут,good,run
-2026-07-01T21:00:00+05:00,wells,W-101,water_cut,4.44658,%,good,run
-2026-07-01T21:00:00+05:00,wells,W-102,P_wellhead,8.02599,МПа,good,run
-2026-07-01T21:00:00+05:00,wells,W-102,P_bottomhole,9.88495,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-101,water_cut,,%,good,run
+2026-07-01T21:00:00+05:00,wells,W-102,P_wellhead,8.02841,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-102,P_bottomhole,9.85599,МПа,good,run
 2026-07-01T21:00:00+05:00,wells,W-102,Q_gas,500.072,тыс. м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-102,Q_liquid,1.94266,м3/сут,good,run
-2026-07-01T21:00:00+05:00,wells,W-102,water_cut,5.65423,%,good,run
-2026-07-01T21:00:00+05:00,wells,W-103,P_wellhead,7.97681,МПа,good,run
-2026-07-01T21:00:00+05:00,wells,W-103,P_bottomhole,9.95165,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-102,water_cut,,%,good,run
+2026-07-01T21:00:00+05:00,wells,W-103,P_wellhead,7.98994,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-103,P_bottomhole,9.93985,МПа,good,run
 2026-07-01T21:00:00+05:00,wells,W-103,Q_gas,513.86,тыс. м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-103,Q_liquid,2.26271,м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T21:00:00+05:00,wells,W-104,P_wellhead,7.01885,МПа,good,run
-2026-07-01T21:00:00+05:00,wells,W-104,P_bottomhole,9.92887,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-104,P_wellhead,7.80904,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-104,P_bottomhole,9.96082,МПа,good,run
 2026-07-01T21:00:00+05:00,wells,W-104,Q_gas,496.523,тыс. м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-104,Q_liquid,1.87932,м3/сут,good,run
-2026-07-01T21:00:00+05:00,wells,W-104,water_cut,5.58654,%,good,run
-2026-07-01T21:00:00+05:00,wells,W-105,P_wellhead,8.00427,МПа,good,run
-2026-07-01T21:00:00+05:00,wells,W-105,P_bottomhole,0,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-104,water_cut,,%,good,run
+2026-07-01T21:00:00+05:00,wells,W-105,P_wellhead,8.01039,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-105,P_bottomhole,9.98395,МПа,good,run
 2026-07-01T21:00:00+05:00,wells,W-105,Q_gas,506.404,тыс. м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-105,Q_liquid,2.22306,м3/сут,good,run
-2026-07-01T21:00:00+05:00,wells,W-105,water_cut,5.6152,%,good,run
-2026-07-01T21:00:00+05:00,wells,W-106,P_wellhead,7.76858,МПа,good,run
-2026-07-01T21:00:00+05:00,wells,W-106,P_bottomhole,10.0121,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-105,water_cut,,%,good,run
+2026-07-01T21:00:00+05:00,wells,W-106,P_wellhead,7.03571,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-106,P_bottomhole,9.98218,МПа,good,run
 2026-07-01T21:00:00+05:00,wells,W-106,Q_gas,496.254,тыс. м3/сут,good,run
 2026-07-01T21:00:00+05:00,wells,W-106,Q_liquid,1.85322,м3/сут,good,run
-2026-07-01T21:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T22:00:00+05:00,wells,W-101,P_wellhead,7.89213,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-101,P_bottomhole,9.88808,МПа,good,run
+2026-07-01T21:00:00+05:00,wells,W-106,water_cut,4.6593,%,good,run
+2026-07-01T22:00:00+05:00,wells,W-101,P_wellhead,7.99241,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-101,P_bottomhole,9.8689,МПа,good,run
 2026-07-01T22:00:00+05:00,wells,W-101,Q_gas,504.552,тыс. м3/сут,good,run
 2026-07-01T22:00:00+05:00,wells,W-101,Q_liquid,2.27896,м3/сут,good,run
 2026-07-01T22:00:00+05:00,wells,W-101,water_cut,,%,good,run
-2026-07-01T22:00:00+05:00,wells,W-102,P_wellhead,8.06325,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-102,P_bottomhole,9.94841,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-102,P_wellhead,8.00351,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-102,P_bottomhole,9.98326,МПа,good,run
 2026-07-01T22:00:00+05:00,wells,W-102,Q_gas,498.161,тыс. м3/сут,good,run
 2026-07-01T22:00:00+05:00,wells,W-102,Q_liquid,1.82815,м3/сут,good,run
-2026-07-01T22:00:00+05:00,wells,W-102,water_cut,5.28276,%,good,run
-2026-07-01T22:00:00+05:00,wells,W-103,P_wellhead,7.90974,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-103,P_bottomhole,9.82622,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-102,water_cut,,%,good,run
+2026-07-01T22:00:00+05:00,wells,W-103,P_wellhead,8.01303,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-103,P_bottomhole,9.88708,МПа,good,run
 2026-07-01T22:00:00+05:00,wells,W-103,Q_gas,508.97,тыс. м3/сут,good,run
 2026-07-01T22:00:00+05:00,wells,W-103,Q_liquid,2.09208,м3/сут,good,run
-2026-07-01T22:00:00+05:00,wells,W-103,water_cut,4.43968,%,good,run
-2026-07-01T22:00:00+05:00,wells,W-104,P_wellhead,,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-104,P_bottomhole,9.9899,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-103,water_cut,,%,good,run
+2026-07-01T22:00:00+05:00,wells,W-104,P_wellhead,8.67278,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-104,P_bottomhole,9.90152,МПа,good,run
 2026-07-01T22:00:00+05:00,wells,W-104,Q_gas,495.295,тыс. м3/сут,good,run
-2026-07-01T22:00:00+05:00,wells,W-104,Q_liquid,,м3/сут,good,run
-2026-07-01T22:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T22:00:00+05:00,wells,W-105,P_wellhead,7.9934,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-105,P_bottomhole,,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-105,Q_gas,,тыс. м3/сут,good,run
+2026-07-01T22:00:00+05:00,wells,W-104,Q_liquid,2.06041,м3/сут,good,run
+2026-07-01T22:00:00+05:00,wells,W-104,water_cut,5.62764,%,good,run
+2026-07-01T22:00:00+05:00,wells,W-105,P_wellhead,,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-105,P_bottomhole,9.90843,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-105,Q_gas,502.58,тыс. м3/сут,good,run
 2026-07-01T22:00:00+05:00,wells,W-105,Q_liquid,1.9999,м3/сут,good,run
-2026-07-01T22:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T22:00:00+05:00,wells,W-106,P_wellhead,7.776,МПа,good,run
-2026-07-01T22:00:00+05:00,wells,W-106,P_bottomhole,9.99848,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-105,water_cut,4.79438,%,good,run
+2026-07-01T22:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-106,P_bottomhole,10.0784,МПа,good,run
 2026-07-01T22:00:00+05:00,wells,W-106,Q_gas,500.987,тыс. м3/сут,good,run
 2026-07-01T22:00:00+05:00,wells,W-106,Q_liquid,2.00378,м3/сут,good,run
-2026-07-01T22:00:00+05:00,wells,W-106,water_cut,,%,good,run
-2026-07-01T23:00:00+05:00,wells,W-101,P_wellhead,7.93031,МПа,good,run
-2026-07-01T23:00:00+05:00,wells,W-101,P_bottomhole,9.84605,МПа,good,run
+2026-07-01T22:00:00+05:00,wells,W-106,water_cut,4.60998,%,good,run
+2026-07-01T23:00:00+05:00,wells,W-101,P_wellhead,7.91304,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-101,P_bottomhole,9.86729,МПа,good,run
 2026-07-01T23:00:00+05:00,wells,W-101,Q_gas,504.624,тыс. м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-101,Q_liquid,2.19524,м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-101,water_cut,4.85944,%,good,run
-2026-07-01T23:00:00+05:00,wells,W-102,P_wellhead,7.95167,МПа,good,run
-2026-07-01T23:00:00+05:00,wells,W-102,P_bottomhole,9.95337,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-102,P_wellhead,7.96381,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-102,P_bottomhole,9.98676,МПа,good,run
 2026-07-01T23:00:00+05:00,wells,W-102,Q_gas,503.027,тыс. м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-102,Q_liquid,1.98904,м3/сут,good,run
-2026-07-01T23:00:00+05:00,wells,W-102,water_cut,,%,good,run
-2026-07-01T23:00:00+05:00,wells,W-103,P_wellhead,7.89324,МПа,good,run
-2026-07-01T23:00:00+05:00,wells,W-103,P_bottomhole,9.97844,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-102,water_cut,5.25486,%,good,run
+2026-07-01T23:00:00+05:00,wells,W-103,P_wellhead,7.96633,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-103,P_bottomhole,9.88787,МПа,good,run
 2026-07-01T23:00:00+05:00,wells,W-103,Q_gas,512.697,тыс. м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-103,Q_liquid,2.10106,м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-103,water_cut,,%,good,run
-2026-07-01T23:00:00+05:00,wells,W-104,P_wellhead,7.84696,МПа,good,run
-2026-07-01T23:00:00+05:00,wells,W-104,P_bottomhole,9.97352,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-104,P_wellhead,7.82799,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-104,P_bottomhole,,МПа,good,run
 2026-07-01T23:00:00+05:00,wells,W-104,Q_gas,492.341,тыс. м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-104,Q_liquid,1.93092,м3/сут,good,run
-2026-07-01T23:00:00+05:00,wells,W-104,water_cut,,%,good,run
-2026-07-01T23:00:00+05:00,wells,W-105,P_wellhead,8.0321,МПа,good,run
-2026-07-01T23:00:00+05:00,wells,W-105,P_bottomhole,9.98686,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-104,water_cut,5.94213,%,good,run
+2026-07-01T23:00:00+05:00,wells,W-105,P_wellhead,8.05597,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-105,P_bottomhole,10.0038,МПа,good,run
 2026-07-01T23:00:00+05:00,wells,W-105,Q_gas,503.498,тыс. м3/сут,good,run
-2026-07-01T23:00:00+05:00,wells,W-105,Q_liquid,1.97651,м3/сут,good,run
-2026-07-01T23:00:00+05:00,wells,W-105,water_cut,,%,good,run
-2026-07-01T23:00:00+05:00,wells,W-106,P_wellhead,7.86653,МПа,good,run
-2026-07-01T23:00:00+05:00,wells,W-106,P_bottomhole,,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-105,Q_liquid,,м3/сут,good,run
+2026-07-01T23:00:00+05:00,wells,W-105,water_cut,5.68077,%,good,run
+2026-07-01T23:00:00+05:00,wells,W-106,P_wellhead,,МПа,good,run
+2026-07-01T23:00:00+05:00,wells,W-106,P_bottomhole,10.1123,МПа,good,run
 2026-07-01T23:00:00+05:00,wells,W-106,Q_gas,505.563,тыс. м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-106,Q_liquid,1.86671,м3/сут,good,run
 2026-07-01T23:00:00+05:00,wells,W-106,water_cut,4.86453,%,good,run
