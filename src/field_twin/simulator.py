@@ -562,9 +562,14 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--days", type=float, default=None, help="длительность, суток")
     p.add_argument("--seed", type=int, default=None)
     p.add_argument("--start", default=None, help="начало, ISO 8601 с часовым поясом")
+    p.add_argument("--hydrate-episodes", type=int, default=None, help="число эпизодов гидратов (для обучения М3)")
     p.add_argument("--config", default=None)
     args = p.parse_args(argv)
     ov = {k: v for k, v in {"days": args.days, "seed": args.seed, "start": args.start}.items() if v is not None}
+    if args.hydrate_episodes is not None:
+        defects = config.simulator(args.config)["defects"]
+        defects["hydrates"]["episodes"] = args.hydrate_episodes
+        ov["defects"] = defects
     res = generate(args.out, args.config, **ov)
     counts: dict[str, int] = {}
     for d in res.truth["defects"]:

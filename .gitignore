@@ -8,3 +8,4 @@ dist/
 data/*.sqlite
 data/*.csv
 wheels/
+data/models/

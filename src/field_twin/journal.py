@@ -91,6 +91,22 @@ class Journal:
         self.conn.commit()
         return int(cur.lastrowid)
 
+    def log_many(self, events: list[dict[str, Any]]) -> None:
+        """Пакетная запись событий (например, всех положительных выходов модели)."""
+        rows = []
+        for e in events:
+            kind, source = e["kind"], e.get("source", "twin")
+            if kind not in EVENT_KINDS or source not in SOURCES:
+                raise ValueError(f"Недопустимое событие: {kind!r}/{source!r}")
+            payload = e.get("payload")
+            rows.append((_iso(e.get("ts")), kind, e.get("code"), source, e.get("stream"), e.get("object_id"),
+                         e.get("message", ""), json.dumps(payload, ensure_ascii=False) if payload is not None else None,
+                         int(e.get("shadow", False)), _now()))
+        self.conn.executemany(
+            """INSERT INTO journal_events(ts_utc, kind, code, source, stream, object_id, message,
+                   payload_json, shadow, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)""", rows)
+        self.conn.commit()
+
     def record_decision(
         self,
         event_id: int,

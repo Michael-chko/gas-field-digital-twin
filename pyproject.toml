@@ -9,6 +9,9 @@ description = "Прототип цифрового двойника газово
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "catboost>=1.2",
+    "optuna>=3.6",
+    "scikit-learn>=1.4",
     "numpy>=1.26",
     "pandas>=2.2",
     "pyyaml>=6.0",
@@ -24,6 +27,7 @@ field-twin-ingest = "field_twin.ingest:main"
 field-twin-journal = "field_twin.journal:main"
 field-twin-quality = "field_twin.quality:main"
 field-twin-run = "field_twin.cycle:main"
+field-twin-hydrates = "field_twin.hydrates:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
