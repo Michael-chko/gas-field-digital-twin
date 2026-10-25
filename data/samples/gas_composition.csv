@@ -9,11 +9,11 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T03:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.0936,% мол.,good,run
 2026-07-01T04:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,0.947877,г/м3,good,run
 2026-07-01T04:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,97.9152,% мол.,good,run
-2026-07-01T05:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,0.917908,г/м3,good,run
+2026-07-01T05:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.8,г/м3,good,run
 2026-07-01T05:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.2383,% мол.,good,run
-2026-07-01T06:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.0058,г/м3,good,run
+2026-07-01T06:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.8,г/м3,good,run
 2026-07-01T06:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.1787,% мол.,good,run
-2026-07-01T07:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,0.945732,г/м3,good,run
+2026-07-01T07:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.8,г/м3,good,run
 2026-07-01T07:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.2744,% мол.,good,run
 2026-07-01T08:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,0.820977,г/м3,good,run
 2026-07-01T08:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.2035,% мол.,good,run
@@ -25,11 +25,11 @@ timestamp,stream,object_id,parameter,value,unit,quality,equipment_state
 2026-07-01T11:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.2337,% мол.,good,run
 2026-07-01T12:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.06024,г/м3,good,run
 2026-07-01T12:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.3914,% мол.,good,run
-2026-07-01T13:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.8,г/м3,good,run
+2026-07-01T13:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,0.985381,г/м3,good,run
 2026-07-01T13:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.4708,% мол.,good,run
-2026-07-01T14:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.8,г/м3,good,run
+2026-07-01T14:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.06933,г/м3,good,run
 2026-07-01T14:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.3625,% мол.,good,run
-2026-07-01T15:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.8,г/м3,good,run
+2026-07-01T15:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.09649,г/м3,good,run
 2026-07-01T15:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.2087,% мол.,good,run
 2026-07-01T16:00:00+05:00,gas_composition,UKPG-1V-OUT,C5plus,1.08704,г/м3,good,run
 2026-07-01T16:00:00+05:00,gas_composition,UKPG-1V-OUT,methane,98.2089,% мол.,good,run

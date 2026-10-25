@@ -33,3 +33,9 @@
 
 Сверх ТЗ: адаптер Aspen HYSYS для заводской части — `tests/test_cores.py::test_hysys_*`
 (проверка на модели-заменителе; реальная связь — под Windows с лицензией HYSYS, `docs/hysys.md`).
+
+Сверх ТЗ: модель КРН участков газопроводов (Мирзоев, Иващенко, Маршаков, 2016) — `tests/test_scc.py`:
+архитектура 10–13–2 и деление 55 / 55 как в статье (`test_architecture_from_article`,
+`test_split_like_article`), классы риска рис. 4 (`test_risk_classes`), применимость по шурфам
+(`test_applicability_by_pits`), П17 чуть ниже и чуть выше порога (`test_p17_below_above`), пометки
+о синтетике и о промысловых газопроводах (`test_p17_caveats_synthetic_and_field`).

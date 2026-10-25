@@ -13,7 +13,7 @@ from typing import Any
 
 import pandas as pd
 
-from field_twin import chudin_models, config, geotech, hydrates, notify, plant_link, quality, rules, stops, storage
+from field_twin import chudin_models, config, geotech, hydrates, notify, plant_link, quality, rules, scc, stops, storage
 from field_twin.config import ROOT
 from field_twin.cores import base as cores_base
 from field_twin.gateway.tag_dictionary import TagDictionary
@@ -31,6 +31,7 @@ class CycleResult:
     core_results: list[Any] = field(default_factory=list)
     well_stops: list[Any] = field(default_factory=list)
     plant_message: Any = None
+    scc_risks: list[Any] = field(default_factory=list)
     run_id: int | None = None
     journal_ids: list[int] = field(default_factory=list)
 
@@ -39,7 +40,8 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
               config_dir: str | Path | None = None, log: bool = True, save: bool = True,
               hydrate_model: hydrates.HydrateModel | str | Path | None = None,
               chudin_model: chudin_models.ChudinModels | str | Path | None = None,
-              cores: list[cores_base.CoreAdapter] | None = None) -> CycleResult:
+              cores: list[cores_base.CoreAdapter] | None = None,
+              scc_model: scc.SccModel | str | Path | None = None) -> CycleResult:
     tags = TagDictionary.load(config_dir)
     th = config.thresholds(config_dir)
     pipe = quality.QualityPipeline(tags=tags, thresholds=th, config_dir=config_dir)
@@ -77,6 +79,16 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
     # М10: технологические остановки скважин; М11: сообщение для завода.
     res.well_stops = stops.find_stops(q.data, tags, stops.settings(config_dir))
     res.plant_message = plant_link.build_message(q.data, now, config_dir)
+    # Модель КРН и П17: если обучена.
+    ss = scc.settings(config_dir)
+    sm = scc_model
+    if sm is None and (ROOT / ss["model_path"]).exists():
+        sm = ROOT / ss["model_path"]
+    if sm is not None and sm is not False:
+        if not isinstance(sm, scc.SccModel):
+            sm = scc.SccModel.load(sm)
+        res.scc_risks = scc.segment_risks(q.data, sm, tags, ss, scc.applicability(conn, ss, tags))
+        res.events = events = sorted(events + scc.check_p17(res.scc_risks, th, ss, now), key=lambda e: (e.ts, e.code))
     # М9 и П12: внешние расчётные ядра из config/cores.yaml.
     if cores is None:
         cores = cores_base.load_cores(config.load_yaml("cores.yaml", config_dir))
@@ -96,7 +108,7 @@ def run_cycle(conn: sqlite3.Connection, now: pd.Timestamp | None = None, shadow:
     return res
 
 
-STATE_RULES = {"П2", "П3", "П4", "П11", "П12", "П13", "П15"}   # срабатывают на состояние «сейчас», а не на эпизод
+STATE_RULES = {"П2", "П3", "П4", "П11", "П12", "П13", "П15", "П17"}   # срабатывают на состояние «сейчас», а не на эпизод
 
 
 def _event_key(e: rules.RuleEvent) -> tuple:
@@ -115,8 +127,10 @@ class CycleRunner:
 
     def __init__(self, conn: sqlite3.Connection, config_dir: str | Path | None = None, shadow: bool = False,
                  hydrate_model: hydrates.HydrateModel | str | Path | None = None,
-                 chudin_model: chudin_models.ChudinModels | str | Path | None = None):
+                 chudin_model: chudin_models.ChudinModels | str | Path | None = None,
+                 scc_model: scc.SccModel | str | Path | None = None):
         self.chudin = chudin_model
+        self.scc = scc_model
         self.cores = cores_base.load_cores(config.load_yaml("cores.yaml", config_dir))
         self.conn, self.config_dir, self.shadow = conn, config_dir, shadow
         self.model = hydrate_model   # False — без модели гидратов
@@ -133,7 +147,8 @@ class CycleRunner:
     def step(self, now: pd.Timestamp | None = None) -> CycleResult:
         res = run_cycle(self.conn, now=now, shadow=self.shadow, config_dir=self.config_dir, log=False,
                         save=False, hydrate_model=self.model if self.model is not None else False,
-                        chudin_model=self.chudin if self.chudin is not None else False, cores=self.cores)
+                        chudin_model=self.chudin if self.chudin is not None else False, cores=self.cores,
+                        scc_model=self.scc if self.scc is not None else False)
         new_events, active = [], set()
         for e in res.events:
             k = _event_key(e)
@@ -269,6 +284,13 @@ def main(argv: list[str] | None = None) -> int:
     for w in res.well_stops:
         print(f"  {w.object_id} {w.start:%Y-%m-%d %H:%M}–{w.end:%H:%M} UTC, {w.hours:g} ч (мин. {w.min_hours:g}), "
               f"рост давления {'монотонный' if w.monotonic else 'нет'}{' — кандидат' if w.candidate else ''}")
+    if res.scc_risks:
+        print("\nРиск КРН участков газопроводов:")
+        for r in res.scc_risks:
+            cav = r.caveats(3)
+            print(f"  {r.segment_id} ({'магистральный' if r.pipeline_class == 'trunk' else 'промысловый'}): "
+                  f"{r.probability:.2f} — {r.risk_class}; применимость: {r.applicability}"
+                  + (" [синтетическая модель]" if r.synthetic_model else ""))
     print(f"\nСрабатывания правил: {len(res.events)}")
     for e in res.events:
         print(f"  {e.code:4} {e.ts:%Y-%m-%d %H:%M} → {e.recipient}: {e.message}")

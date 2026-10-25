@@ -76,6 +76,8 @@ class Generator:
     # ---------- базовые ряды ----------
 
     def _times(self, stream: str, obj: str, attrs: dict[str, Any]) -> list[datetime]:
+        if stream == "pipeline_segments":
+            return [self.start]             # результаты обследования на начало периода
         # Радар и ручные замеры ЭХЗ редки: для тренда осадки и проверки П11 нужна история.
         hist = timedelta(days=float(self.cfg.get("history_days", {}).get(stream, 0)))
         if stream == "geotech_radar":
@@ -118,6 +120,13 @@ class Generator:
                 hours = np.array([(t - self.start).total_seconds() / 3600 for t in times])
                 sd.state[obj] = np.array(["run"] * n, dtype=object)
                 sd.busy[obj] = np.zeros(n, dtype=bool)
+                if stream == "pipeline_segments":
+                    # Факторы КРН — разовое обследование участка (синтетика модуля scc).
+                    from field_twin.scc import synthetic_factors
+                    f = synthetic_factors(n, self.rng, sigs[0].object_attrs.get("pipeline_class", "field"))
+                    for sig in sigs:
+                        sd.values[(obj, sig.parameter)] = f[sig.parameter].to_numpy(dtype=float)
+                    continue
                 for sig in sigs:
                     base, noise = self.cfg["baselines"][f"{stream}.{sig.parameter}"]
                     base = base * (1 + self.rng.normal(0, 0.01))

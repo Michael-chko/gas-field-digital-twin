@@ -123,6 +123,19 @@ CREATE TABLE IF NOT EXISTS well_stops (
     UNIQUE (object_id, start_utc)
 );
 
+-- Модель КРН: результаты шурфования — проверка применимости модели на газопроводе.
+CREATE TABLE IF NOT EXISTS scc_pits (
+    id INTEGER PRIMARY KEY,
+    segment_id TEXT NOT NULL,
+    pipeline TEXT NOT NULL,
+    dug_at TEXT NOT NULL,
+    scc_found INTEGER NOT NULL,       -- 1 — обнаружено КРН глубиной от 0,3 мм, 0 — нет
+    depth_mm REAL,
+    predicted_probability REAL,       -- прогноз модели на момент шурфования
+    user_name TEXT NOT NULL,
+    comment TEXT
+);
+
 -- Снимок состояния для экранов (М7): пишется циклом двойника, читается сервером.
 CREATE TABLE IF NOT EXISTS screen_state (
     id INTEGER PRIMARY KEY,

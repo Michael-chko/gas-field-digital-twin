@@ -9,7 +9,7 @@ from field_twin.gateway.tag_dictionary import TagDictionary
 def test_thresholds_have_all_rules():
     th = config.thresholds()
     rules = {k: v for k, v in th.items() if k.startswith("П")}
-    assert [f"П{i}" for i in range(1, 17)] == list(rules)
+    assert [f"П{i}" for i in range(1, 18)] == list(rules)    # П1–П16 из ТЗ и П17 (модель КРН)
     assert th["configurable_recipient"] in ("operator", "chief_engineer")
     for code, rule in rules.items():
         assert rule.get("source"), f"у {code} нет источника"

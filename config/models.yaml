@@ -47,3 +47,31 @@ stops:                          # М10, Савченко и соавторы
   pressure_parameter: P_wellhead
   min_hours: {high: 4, low: 12} # минимальная длительность остановки по проницаемости — Савченко и соавторы
   use_smoothed: true            # брать сглаженное давление М2, если сглаживание включено
+
+scc:                            # модель КРН участков газопроводов — Мирзоев, Иващенко, Маршаков, 2016
+  stream: pipeline_segments
+  # 10 входов (9 факторов табл. 1; последний разложен на два — допущение прототипа)
+  inputs: [soil_resistivity, soil_ph, sulfides, carbonates, hydrogen_permeation, o2_limit_current,
+           anodic_current, distance_from_cs, watercourse, off_design_groundwater]
+  log_inputs: [soil_resistivity, sulfides, carbonates, hydrogen_permeation, o2_limit_current, anodic_current]
+  hidden_layers: [13]           # 1 скрытый слой из 13 нейронов — статья
+  activation: logistic          # сигмоида в скрытом слое, линейный выходной слой (2 выхода) — статья
+  solver: lbfgs                 # в статье — настройки Statistica 10 по умолчанию; lbfgs ближе всего к BFGS
+  alpha: 1.0                    # L2-регуляризация против переобучения на 258 примерах — решение прототипа
+  samples: 368                  # объём выборки статьи; синтетика того же объёма
+  test_examples: 55             # тестовая и перекрёстная выборки по 55 примеров, случайно — статья
+  validation_examples: 55
+  seed: 0
+  # Ориентиры статьи (табл. 2), не критерии приёмки: верно без КРН 80,43 %, с КРН 81,52 %, всего 80,98 %.
+  reference: {no_scc_pct: 80.43, scc_pct: 81.52, total_pct: 80.98}
+  risk_classes:                 # рис. 4 статьи — сверить
+    - {name: низкий, from: 0.0}
+    - {name: умеренный, from: 0.1}
+    - {name: средний, from: 0.23}
+    - {name: высокий, from: 0.3}
+    - {name: критичный, from: 0.4}
+  applicability:                # на других участках — шурфы; модель адекватна при совпадении ≥ 75 % — статья
+    min_pits: 10
+    min_match: 0.75
+  domain_class: trunk           # область исходной модели — магистральные газопроводы
+  model_path: data/models/scc.joblib

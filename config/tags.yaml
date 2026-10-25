@@ -175,3 +175,34 @@ streams:
     parameters:
       C5plus:  {unit: г/м3,  kind: other, title: Остаток тяжёлых углеводородов C5+}
       methane: {unit: '% мол.', kind: other, title: Метан}
+
+  pipeline_segments:
+    title: Участки газопроводов — факторы стресс-коррозии (КРН)
+    interval: null            # по графику обследований и лабораторных анализов грунта, не из АСУ ТП
+    source: Мирзоев, Иващенко, Маршаков, 2016 (табл. 1)
+    # pipeline_class: trunk — магистральный (область исходной модели статьи), field — промысловый
+    # (вне области исходной модели: перенос не проверен). Участки и километры — УСЛОВНЫЕ.
+    objects:
+      - {id: MG-1-034, attrs: {pipeline: MG-1, pipeline_class: trunk, km_from: 34, km_to: 35}}
+      - {id: MG-1-035, attrs: {pipeline: MG-1, pipeline_class: trunk, km_from: 35, km_to: 36}}
+      - {id: MG-1-036, attrs: {pipeline: MG-1, pipeline_class: trunk, km_from: 36, km_to: 37}}
+      - {id: MG-1-037, attrs: {pipeline: MG-1, pipeline_class: trunk, km_from: 37, km_to: 38}}
+      - {id: PL-01-001, attrs: {pipeline: PL-01, pipeline_class: field, km_from: 0, km_to: 1}}
+      - {id: PL-01-002, attrs: {pipeline: PL-01, pipeline_class: field, km_from: 1, km_to: 2}}
+      - {id: PL-02-001, attrs: {pipeline: PL-02, pipeline_class: field, km_from: 0, km_to: 1}}
+    parameters:
+      soil_resistivity:   {unit: Ом·м,    kind: other, title: Удельное электрическое сопротивление грунта}
+      soil_ph:            {unit: '-',     kind: other, title: Величина pH грунта}
+      sulfides:           {unit: моль,    kind: other, title: Концентрация сульфидсодержащих соединений}
+      carbonates:         {unit: моль,    kind: other, title: Концентрация карбонатсодержащих соединений}
+      hydrogen_permeation: {unit: мкА/см2, kind: other, title: Скорость проникновения водорода в сталь}
+      o2_limit_current:   {unit: мкА/см2, kind: other, title: Плотность предельного тока катодного восстановления кислорода}
+      anodic_current:     {unit: мкА/см2, kind: other, title: Плотность анодного тока растворения стали при фиксированном потенциале}
+      # Для магистрального — расстояние от компрессорной станции (статья); для промыслового в
+      # прототипе — от ДКС или УКПГ: смысл фактора другой, это одна из причин «перенос не проверен».
+      distance_from_cs:   {unit: м,       kind: other, title: Расстояние от компрессорной станции (для промыслового — от ДКС/УКПГ)}
+      # В статье один фактор «наличие водотоков, участков в непроектном положении, уровень грунтовых
+      # вод — да/нет» при 10 входных нейронах на 9 факторов. Допущение прототипа: фактор разложен
+      # на два входа — водотоки и непроектное положение / грунтовые воды.
+      watercourse:        {unit: да/нет,  kind: other, title: Подземные и наземные водотоки}
+      off_design_groundwater: {unit: да/нет, kind: other, title: Непроектное положение или высокий уровень грунтовых вод}
