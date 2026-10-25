@@ -8,7 +8,7 @@
 Исходные материалы — в [`docs/`](docs/): ТЗ, отчёт «Датчики, модели и уведомления цифрового
 месторождения» и ссылка на продольный разбор. Соответствие критериям приёмки ТЗ и тестам —
 [`docs/acceptance.md`](docs/acceptance.md); что осталось без ответа в источниках —
-[`docs/open_questions.md`](docs/open_questions.md).
+[`docs/open_questions.md`](docs/open_questions.md). Продолжение работы в новой сессии — [`docs/HANDOFF.md`](docs/HANDOFF.md).
 
 ## Состояние работ
 
