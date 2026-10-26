@@ -299,19 +299,22 @@ class QualityPipeline:
         return stats
 
     def _smoothing(self, df: pd.DataFrame, usable: pd.Series) -> bool:
-        """Полином по окнам; точки дальше порога удаляются, полином перестраивается (Савченко и соавторы)."""
+        """Полином по окнам (или по всему ряду); точки дальше порога удаляются, полином перестраивается
+        (Савченко и соавторы, 2024, с. 149). Порог абсолютный (в единицах параметра) или в σ остатков."""
         sm = self.s.get("smoothing") or {}
         df["f_smooth_removed"] = False
         df["value_smooth"] = np.nan
         deg, thr, win = sm.get("degree"), sm.get("threshold"), sm.get("window")
-        if deg is None or thr is None or win is None:
+        absolute = sm.get("threshold_mode", "sigma") == "absolute"
+        if not sm.get("enabled", True) or deg is None or thr is None:
             return False
         key = df["stream"] + "." + df["parameter"]
         for series in sm.get("series") or []:
             for _, idx in df[(key == series) & usable].groupby("object_id").groups.items():
                 sub = df.loc[idx].sort_values("ts")
-                for start in range(0, len(sub), int(win)):
-                    w = sub.iloc[start : start + int(win)]
+                size = int(win) if win else len(sub)
+                for start in range(0, len(sub), size):
+                    w = sub.iloc[start : start + size]
                     if len(w) <= deg + 1:
                         continue
                     t = (w["ts"] - w["ts"].iloc[0]).dt.total_seconds().to_numpy() / 3600.0
@@ -321,7 +324,10 @@ class QualityPipeline:
                         coef = np.polyfit(t[keep], y[keep], int(deg))
                         resid = y - np.polyval(coef, t)
                         sd = resid[keep].std()
-                        new = keep & (np.abs(resid) <= thr * sd) if sd > 0 else keep
+                        if absolute:
+                            new = keep & (np.abs(resid) <= thr)
+                        else:
+                            new = keep & (np.abs(resid) <= thr * sd) if sd > 0 else keep
                         if new.sum() == keep.sum() or new.sum() <= deg + 1:
                             break
                         keep = new

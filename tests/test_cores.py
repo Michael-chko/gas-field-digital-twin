@@ -20,7 +20,7 @@ NOW = pd.Timestamp("2026-07-01T12:00:00Z")
 
 
 def inp(**kw):
-    m = {"absorber.A-1.Q_gas": 450.0, "absorber.A-2.Q_gas": 451.0, "absorber.A-2.L_cube": 50.0,
+    m = {"absorber.A-1.Q_gas": 450.0, "absorber.A-2.Q_gas": 451.0, "absorber.A-2.L_cube": 280.0,
          "methanol.M-2.Q_methanol": 150.0}
     m.update({k.replace("__", "."): v for k, v in kw.items()})
     return base.CoreInput(NOW, m)
@@ -63,7 +63,7 @@ def test_stub_recommendations():
     r = StubCore({"imbalance_pct": 3}).calculate(inp(**{"absorber__A-1__Q_gas": 480.0}))
     assert [x.key for x in r.recommendations] == ["redistribute:A-1->A-2"]
     assert r.recommendations[0].changes[0].proposed == pytest.approx((480 + 451) / 2)
-    r = StubCore({}).calculate(inp(**{"absorber__A-2__L_cube": 40.0}))
+    r = StubCore({}).calculate(inp(**{"absorber__A-2__L_cube": 240.0}))
     assert [x.key for x in r.recommendations] == ["methanol:A-2"]
 
 

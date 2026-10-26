@@ -146,7 +146,7 @@ def test_monthly_means(cleaned):
     assert set(m[m.stream == "absorber"].month) == {"2026-06", "2026-07"}
     assert len(set(m[m.stream == "geotech_radar"].month)) > 3   # история радарных замеров
     row = m[(m.stream == "absorber") & (m.object_id == "A-1") & (m.parameter == "Q_gas") & (m.month == "2026-07")].iloc[0]
-    assert 400 < row["mean"] < 500 and row["n"] > 1000
+    assert 200 < row["mean"] < 240 and row["n"] > 1000   # база 219,8 (табл. 3 Сафроновой)
 
 
 def test_duplicates_dropped(ingested_db, samples, tmp_path):
@@ -186,7 +186,7 @@ def test_smoothing_disabled_without_parameters(cleaned):
 
 def test_smoothing_removes_points_off_polynomial(ingested_db, truth):
     s = copy.deepcopy(config.quality())
-    s["smoothing"].update({"degree": 2, "threshold": 3, "window": 12})
+    s["smoothing"].update({"enabled": True, "degree": 2, "threshold_mode": "sigma", "threshold": 3, "window": 12})
     c = storage.connect(ingested_db)
     res = quality.QualityPipeline(settings=s).run(quality.load_measurements(c))
     assert res.report.smoothing_enabled
@@ -206,9 +206,30 @@ def test_smoothing_on_noisy_series():
         rows.append(((t0 + pd.Timedelta(hours=i)).isoformat(), f"{v:.5f}"))
     df = _frame(rows, parameter="P_wellhead", stream="wells", obj="W-101")
     s = copy.deepcopy(config.quality())
-    s["smoothing"].update({"degree": 2, "threshold": 3, "window": 24})
+    s["smoothing"].update({"enabled": True, "degree": 2, "threshold_mode": "sigma", "threshold": 3, "window": 24})
     res = quality.QualityPipeline(settings=s).run(df).data.sort_values("ts")
     assert res["f_smooth_removed"].tolist() == [i == 10 for i in range(24)]
+
+
+def test_smoothing_savchenko_mode_absolute_threshold_whole_series():
+    # Режим статьи Савченко и соавторов: полином 5-й степени по всему ряду, порог 0,5 (абсолютный).
+    s = copy.deepcopy(config.quality())
+    assert s["smoothing"]["degree"] == 5 and s["smoothing"]["threshold_mode"] == "absolute"
+    assert s["smoothing"]["window"] is None and s["smoothing"]["enabled"] is False
+    rng = np.random.default_rng(1)
+    t0 = pd.Timestamp("2026-07-01T00:00:00Z")
+    rows = []
+    for i in range(60):
+        v = 9 + 0.02 * i + rng.normal(0, 0.05)
+        if i in (20, 41):
+            v += 0.8 if i == 20 else -0.7
+        rows.append(((t0 + pd.Timedelta(hours=i)).isoformat(), f"{v:.5f}"))
+    df = _frame(rows, parameter="P_bottomhole", stream="wells", obj="W-101")
+    s["smoothing"]["enabled"] = True
+    res = quality.QualityPipeline(settings=s).run(df)
+    assert res.report.smoothing_enabled
+    flags = res.data.sort_values("ts")["f_smooth_removed"].tolist()
+    assert flags == [i in (20, 41) for i in range(60)]
 
 
 # ---- настройки без правки кода ----

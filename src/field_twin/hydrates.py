@@ -1,8 +1,10 @@
 """М3. Классификатор гидратов в абсорбере (Сафронова).
 
-- вход: параметры абсорбера и их изменения за 2 минуты (1 шаг) и за 400 минут (200 шагов);
+- вход: параметры абсорбера, их изменение за последние 2 минуты (1 шаг, приставка d1) и отклонение
+  от среднего за 200 предыдущих значений (400 минут, приставка d) — Сафронова, 2026, с. 112–113;
   если есть расход метанола по точкам — добавляется в признаки (оценка целостности данных);
-- модель — классификатор CatBoost, параметры подбираются инструментом Optuna;
+- модель — классификатор CatBoost; Optuna подбирает depth, subsample, colsample_bylevel,
+  min_data_in_leaf и learning_rate по минимуму среднеквадратической ошибки (там же, с. 115);
 - выход каждые около 2 минут: 1 — признак гидрата, 0 — нет;
 - обучение на периодах, которые пользователь разметил как гидратообразование, и на причинах
   аномалий из журнала (М8);
@@ -68,7 +70,12 @@ def build_features(data: pd.DataFrame, s: dict[str, Any]) -> pd.DataFrame:
         feats = {c: base[c] for c in base.columns}
         for lag in s["lags"]:
             for c in base.columns:
-                feats[f"{c}.d{lag}"] = base[c] - base[c].shift(lag)
+                if lag == 1:
+                    # изменение за последний шаг (d1)
+                    feats[f"{c}.d{lag}"] = base[c] - base[c].shift(1)
+                else:
+                    # относительно среднего за lag предыдущих значений (dQ_gas у Сафроновой, с. 113)
+                    feats[f"{c}.d{lag}"] = base[c] - base[c].shift(1).rolling(lag, min_periods=1).mean()
         f = pd.DataFrame(feats)
         f.insert(0, "object_id", obj)
         f.index.name = "ts"
@@ -245,23 +252,29 @@ def train(feats: pd.DataFrame, y: pd.Series, s: dict[str, Any], trials: int | No
         fit_idx, val_idx = tr, tr
     seed = s.get("seed", 42)
 
+    # Подбираемые параметры и критерий — Сафронова, с. 115; диапазоны, число деревьев и фиксированные
+    # bootstrap_type / grow_policy (без них CatBoost не принимает subsample и min_data_in_leaf) —
+    # решения прототипа.
+    fixed = {"iterations": s.get("iterations", 300), "bootstrap_type": "Bernoulli", "grow_policy": "Depthwise"}
+
     def objective(trial):
         params = {
             "depth": trial.suggest_int("depth", 3, 8),
+            "subsample": trial.suggest_float("subsample", 0.5, 1.0),
+            "colsample_bylevel": trial.suggest_float("colsample_bylevel", 0.3, 1.0),
+            "min_data_in_leaf": trial.suggest_int("min_data_in_leaf", 1, 100, log=True),
             "learning_rate": trial.suggest_float("learning_rate", 0.02, 0.3, log=True),
-            "iterations": trial.suggest_int("iterations", 100, 400, step=50),
-            "l2_leaf_reg": trial.suggest_float("l2_leaf_reg", 1.0, 10.0, log=True),
         }
-        m = CatBoostClassifier(**params, random_seed=seed, verbose=False, allow_writing_files=False,
+        m = CatBoostClassifier(**params, **fixed, random_seed=seed, verbose=False, allow_writing_files=False,
                                auto_class_weights="Balanced")
         m.fit(x.iloc[fit_idx], yv[fit_idx])
-        pred = (m.predict_proba(x.iloc[val_idx])[:, 1] >= s["threshold"]).astype(int)
-        return metrics(yv[val_idx], pred).f1
+        # минимальная среднеквадратическая ошибка вероятности на валидации
+        return float(np.mean((m.predict_proba(x.iloc[val_idx])[:, 1] - yv[val_idx]) ** 2))
 
     optuna.logging.set_verbosity(optuna.logging.WARNING)
-    study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler(seed=seed))
+    study = optuna.create_study(direction="minimize", sampler=optuna.samplers.TPESampler(seed=seed))
     study.optimize(objective, n_trials=trials or s.get("optuna_trials", 15))
-    best = study.best_params
+    best = {**study.best_params, **fixed}
     model = CatBoostClassifier(**best, random_seed=seed, verbose=False, allow_writing_files=False,
                                auto_class_weights="Balanced")
     model.fit(x.iloc[tr], yv[tr])

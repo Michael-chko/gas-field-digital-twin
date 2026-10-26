@@ -121,19 +121,33 @@ def test_p10_near_zero_configurable():
 
 
 @pytest.mark.parametrize("drop,fires", [(3.9, False), (4.1, True)])
-def test_p7_power_drop(drop, fires):
-    base = [32.0] * 24 + [32.0 * (1 - drop / 100)] * 48
-    data = clean(frame("gtu", "GTU-T32-1", "N_power", base))
+def test_p7_power_drop_from_nominal(drop, fires):
+    # Снижение по сравнению с номиналом 31,2 МВт (Поярков, Филиппов, Юн, табл. 1).
+    nom = TH["П7"]["nominal"]["N_power"]
+    data = clean(frame("gtu", "GTU-T32-1", "N_power", [nom * (1 - drop / 100)] * 48))
     evs = rules.check_p7(data, TH)
     assert bool(evs) == fires
     if fires:
         assert evs[0].payload["drop_pct"] == pytest.approx(drop, rel=1e-6)
+        assert evs[0].payload["baseline"] == nom and "от номинала" in evs[0].message
 
 
 @pytest.mark.parametrize("drop,fires", [(1.9, False), (2.1, True)])
-def test_p7_efficiency_drop(drop, fires):
-    data = clean(frame("gtu", "GTU-T32-1", "efficiency", [36.0] * 24 + [36.0 * (1 - drop / 100)] * 48))
+def test_p7_efficiency_drop_from_nominal(drop, fires):
+    nom = TH["П7"]["nominal"]["efficiency"]
+    data = clean(frame("gtu", "GTU-T32-1", "efficiency", [nom * (1 - drop / 100)] * 48))
     assert bool(rules.check_p7(data, TH)) == fires
+
+
+@pytest.mark.parametrize("drop,fires", [(3.9, False), (4.1, True)])
+def test_p7_period_start_mode(drop, fires):
+    th = copy.deepcopy(TH)
+    th["П7"]["baseline"] = "period_start"
+    base = [32.0] * 24 + [32.0 * (1 - drop / 100)] * 48
+    evs = rules.check_p7(clean(frame("gtu", "GTU-T32-1", "N_power", base)), th)
+    assert bool(evs) == fires
+    if fires:
+        assert evs[0].payload["drop_pct"] == pytest.approx(drop, rel=1e-6)
 
 
 @pytest.mark.parametrize("obj,days,fires", [

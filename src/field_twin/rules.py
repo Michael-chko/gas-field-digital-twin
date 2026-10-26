@@ -209,9 +209,16 @@ def check_p10(data, th):
 
 
 def check_p7(data, th):
-    """Ухудшение ГТУ за межремонтный период: мощность −4 %, КПД −2 % (Невский завод)."""
+    """Ухудшение ГТУ за межремонтный период: мощность −4 %, КПД −2 % по сравнению с номинальными
+    значениями (Поярков, Филиппов, Юн, табл. 1, с. 165).
+
+    baseline: nominal — от номинала из паспорта (как в источнике); period_start — от среднего
+    за первые baseline_hours ряда (прежний режим прототипа, если номинал не задан).
+    """
     rule = th["П7"]
     win = pd.Timedelta(hours=rule.get("baseline_hours", 24))
+    mode = rule.get("baseline", "nominal")
+    nominal = rule.get("nominal") or {}
     events = []
     for param, lim, title in (("N_power", rule["max_power_drop_pct"], "мощность"),
                               ("efficiency", rule["max_efficiency_drop_pct"], "КПД")):
@@ -219,20 +226,24 @@ def check_p7(data, th):
         for obj, s in sub.groupby("object_id"):
             s = s.set_index("ts")["value_clean"]
             step = s.index.to_series().diff().median() if len(s) > 1 else pd.Timedelta(0)
-            # текущее окно не должно перекрываться с базовым
-            first_cur = s.index.min() + 2 * win - step
+            if mode == "nominal" and nominal.get(param) is not None:
+                base, ref = float(nominal[param]), "от номинала"
+                first_cur = s.index.min() + win - step
+            else:
+                # текущее окно не должно перекрываться с базовым
+                base, ref = s[s.index < s.index.min() + win].mean(), "от начала периода"
+                first_cur = s.index.min() + 2 * win - step
             if s.index.max() < first_cur:
                 continue
-            base = s[s.index < s.index.min() + win].mean()
             cur = s.rolling(win).mean()
             cur = cur[cur.index >= first_cur]
             drop = (base - cur) / base * 100
             for a, b in episodes(drop > lim):
                 t = drop.index[a]
                 events.append(RuleEvent(
-                    "П7", t, "gtu", obj, f"ГТУ {obj}: {title} снизилась на {drop.iloc[a]:.1f} % > {lim} % от начала периода",
+                    "П7", t, "gtu", obj, f"ГТУ {obj}: {title} снизилась на {drop.iloc[a]:.1f} % > {lim} % {ref}",
                     recipient("П7", th), {"parameter": param, "drop_pct": float(drop.iloc[a]), "baseline": float(base),
-                                          "current": float(cur.iloc[a])}))
+                                          "baseline_mode": mode, "current": float(cur.iloc[a])}))
     return events
 
 

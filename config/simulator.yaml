@@ -38,19 +38,24 @@ rule_events:
   ecp_overdue: {object_id: ECP-D1, last_days_before_end: 20}   # П11: дренажная, норма 4 раза в месяц
   c5plus: {value: 1.8, hours: 3}                           # П16: остаток C5+, г/м³ (порог задаёт пользователь)
 
-# Базовые значения и шум: "<stream>.<parameter>": [base, sd]
+# Базовые значения и шум: "<stream>.<parameter>": [base, sd]. СИНТЕТИКА.
+# Где в источниках есть рабочие значения, база взята по ним (ссылки ниже); шум и прочие
+# величины — решения прототипа.
 baselines:
-  absorber.Q_gas: [450, 3]
-  absorber.KRU: [50, 1]
-  absorber.L_cube: [50, 0.8]
-  absorber.T_gas_absorber: [-25, 0.2]
+  # Абсорбер — средние без гидратов, табл. 3 Сафроновой (2026, с. 113): Q_gas 219,8 тыс. м³/ч,
+  # KRU 42,4 %, T_gas_absorber −31,7 °C, L_cube 280 мм, L_E101 1241 мм; газ −34…−32 °C,
+  # конденсат орошения −20…−6 °C (с. 111).
+  absorber.Q_gas: [219.8, 1.5]
+  absorber.KRU: [42.4, 1]
+  absorber.L_cube: [280, 2.4]
+  absorber.T_gas_absorber: [-31.7, 0.2]
   absorber.Q_cond: [20, 0.3]
-  absorber.T_cond_irrigation: [-28, 0.2]
+  absorber.T_cond_irrigation: [-13, 0.2]
   absorber.T_heat_exchanger_1: [-10, 0.2]
   absorber.T_heat_exchanger_2: [-18, 0.2]
   absorber.T_heat_exchanger_3: [-25, 0.2]
-  absorber.L_E101.1: [55, 0.5]
-  absorber.L_E101.2: [55, 0.5]
+  absorber.L_E101.1: [1241, 11]
+  absorber.L_E101.2: [1241, 11]
   absorber.Q_sikgk: [35, 0.4]
   methanol.Q_methanol: [150, 3]
   gathering.P: [7.5, 0.03]
@@ -74,13 +79,15 @@ baselines:
   dks.Q: [300, 3]
   dks.N_power: [16, 0.2]
   dks.n_speed: [5000, 20]
+  # ГТУ Т-32 — номинал в станционных условиях: 31,2 МВт, КПД 36 %, 510 °C за турбиной
+  # (Поярков, Филиппов, Юн, 2026, табл. 1, с. 165).
   gtu.T_exhaust: [510, 3]
-  gtu.N_power: [32, 0.2]
+  gtu.N_power: [31.2, 0.2]
   gtu.efficiency: [36, 0.2]
   gtu.surge_margin: [17, 0.3]
   geotech.settlement: [10, 0.2]
   geotech.settlement_unevenness: [0.5, 0.02]
-  geotech.horizontal_shift: [3, 0.1]
+  geotech.horizontal_shift: [0.3, 0.01]
   geotech.tilt: [0.3, 0.01]
   geotech_radar.settlement: [10, 0.5]
   pipelines.safe_life_years: [12, 0]

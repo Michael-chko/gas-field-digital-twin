@@ -33,12 +33,12 @@ class StubCore(CoreAdapter):
                              Change(f"absorber.{lo}.Q_gas", min(q1, q2), total / 2, "тыс. м³/ч")],
                     expected_effect={"imbalance_pct": 0.0}))
         level, meth = inp.get("absorber.A-2.L_cube"), inp.get("methanol.M-2.Q_methanol")
-        nominal = self.options.get("nominal_level", 50.0)
+        nominal = self.options.get("nominal_level", 280.0)
         if level is not None and meth is not None and level < nominal * (1 - self.options.get("level_drop_pct", 10) / 100):
             res.recommendations.append(Recommendation(
                 key="methanol:A-2",
                 title="Увеличить подачу метанола перед абсорбером А-2",
-                message=f"Уровень в кубе А-2 {level:.1f} % ниже рабочего — увеличить расход метанола "
+                message=f"Уровень в кубе А-2 {level:.0f} мм ниже рабочего — увеличить расход метанола "
                         f"в точке М-2 на 10 % (Сафронова: подача ингибитора перед абсорбером А-2)",
                 object_id="A-2",
                 changes=[Change("methanol.M-2.Q_methanol", meth, meth * 1.1, "кг/ч")]))

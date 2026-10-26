@@ -227,7 +227,7 @@ class Generator:
             sd = self.streams[stream]
             for i in range(d["per_stream"]):
                 obj = str(self.rng.choice(list(sd.signals)))
-                params = [p for p in sd.params(obj) if self._kind(sd, obj, p) in ("pressure", "temperature", "level")]
+                params = [p for p in sd.params(obj) if self._kind(sd, obj, p) in ("pressure", "temperature", "level", "level_mm")]
                 if not params:
                     continue
                 p = str(self.rng.choice(params))
@@ -262,8 +262,10 @@ class Generator:
                 self._rec("non_numeric", sd, obj, parameter=p, ts=sd.times[obj][s], token=token)
 
     # Нефизичное значение по роли параметра: нули давления (Савченко и соавторы),
-    # уровень и открытие клапана вне 0–100 %, отрицательный расход, температура ниже абсолютного нуля.
-    NONPHYSICAL = {"pressure": 0.0, "level": 130.0, "valve": -5.0, "flow": -10.0, "temperature": -300.0}
+    # уровень и открытие клапана вне 0–100 %, отрицательный уровень в мм и расход,
+    # температура ниже абсолютного нуля.
+    NONPHYSICAL = {"pressure": 0.0, "level": 130.0, "level_mm": -50.0, "valve": -5.0, "flow": -10.0,
+                   "temperature": -300.0}
 
     def add_nonphysical(self) -> None:
         d = self.cfg["defects"]["nonphysical"]
@@ -363,13 +365,13 @@ class Generator:
             # Признаки при ручном контроле (Сафронова): уровень в кубе снижается, клапан-регулятор
             # закрывается; расход газа растёт спустя несколько часов; снижаются расход через СИКГК,
             # уровень в Е-101 и температура газа на выходе. Величины — синтетика.
-            sd.values[(obj, "L_cube")][sl] -= 10 * ramp
+            sd.values[(obj, "L_cube")][sl] -= 30 * ramp
             sd.values[(obj, "KRU")][sl] -= 15 * ramp
             sd.values[(obj, "Q_gas")][sl] += 0.04 * sd.values[(obj, "Q_gas")][sl] * delayed
             sd.values[(obj, "T_gas_absorber")][sl] -= 1.5 * ramp
             sd.values[(plant, "Q_sikgk")][sl] -= 0.2 * sd.values[(plant, "Q_sikgk")][sl] * ramp
-            sd.values[(plant, "L_E101.1")][sl] -= 8 * ramp
-            sd.values[(plant, "L_E101.2")][sl] -= 8 * ramp
+            sd.values[(plant, "L_E101.1")][sl] -= 180 * ramp
+            sd.values[(plant, "L_E101.2")][sl] -= 180 * ramp
             t = sd.times[obj]
             self._rec("hydrate_episode", sd, obj, start=t[s], end=t[s + length - 1], recovered=t[s + length + recover - 1])
 

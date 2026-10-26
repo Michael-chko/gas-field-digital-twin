@@ -45,7 +45,7 @@ def url():
 
 
 def samples(minutes, base=None, tags=SIGNALS):
-    base = base or {"absorber.A-1.Q_gas": 450.0, "absorber.A-2.L_cube": 50.0, "gathering.SEP-1.P_out": 7.2,
+    base = base or {"absorber.A-1.Q_gas": 450.0, "absorber.A-2.L_cube": 280.0, "gathering.SEP-1.P_out": 7.2,
                     "methanol.M-2.Q_methanol": 150.0}
     return [Sample(t, T0 + timedelta(minutes=m), base[t] + 0.01 * m) for m in minutes for t in tags]
 
@@ -126,7 +126,7 @@ def test_records_bound_to_twin_objects(tmp_path):
     conn = asyncio.run(scenario())
     rows = conn.execute("SELECT stream, object_id, parameter, value, quality, ingest_status FROM measurements "
                         "WHERE parameter = 'L_cube'").fetchall()
-    assert [tuple(r) for r in rows] == [("absorber", "A-2", "L_cube", 50.0, "good", "ok")]
+    assert [tuple(r) for r in rows] == [("absorber", "A-2", "L_cube", 280.0, "good", "ok")]
 
 
 # ---- обрыв связи и буфер ----
@@ -252,7 +252,7 @@ def test_asu_alarms_separate_on_operator_screen(tmp_path):
         await svc.connect()
         await svc.subscribe_alarms()
         await asyncio.sleep(0.3)
-        await sim.publish([Sample("absorber.A-2.L_cube", T0 + timedelta(minutes=2), 25.0)])   # ниже LL = 30
+        await sim.publish([Sample("absorber.A-2.L_cube", T0 + timedelta(minutes=2), 190.0)])   # ниже LL = 200 мм
         for _ in range(30):
             if svc.alarms:
                 break
