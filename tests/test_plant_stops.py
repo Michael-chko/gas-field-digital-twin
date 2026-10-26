@@ -106,7 +106,7 @@ def test_p16_disabled_without_threshold():
 
 def test_p16_on_synthetic(cleaned, truth):
     d = next(x for x in truth["defects"] if x["defect"] == "rule_event" and x["rule"] == "П16")
-    ev = rules.check_p16(cleaned.data, th16(1.5))
+    ev = rules.check_p16(cleaned.data, th16(6.0))   # база 4 г/м³, событие 8 г/м³ — синтетика
     assert [e.ts for e in ev] == [pd.Timestamp(d["start"])]
 
 

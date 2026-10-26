@@ -36,7 +36,7 @@ rule_events:
   safe_life: {object_id: PL-03, value: 4}                  # П9, лет
   ecp_zero: {object_id: ECP-C2, parameter: current}        # П10: ток равен нулю
   ecp_overdue: {object_id: ECP-D1, last_days_before_end: 20}   # П11: дренажная, норма 4 раза в месяц
-  c5plus: {value: 1.8, hours: 3}                           # П16: остаток C5+, г/м³ (порог задаёт пользователь)
+  c5plus: {value: 8.0, hours: 3}                           # П16: остаток C5+, г/м³ (порог задаёт пользователь)
 
 # Базовые значения и шум: "<stream>.<parameter>": [base, sd]. СИНТЕТИКА.
 # Где в источниках есть рабочие значения, база взята по ним (ссылки ниже); шум и прочие
@@ -60,7 +60,9 @@ baselines:
   methanol.Q_methanol: [150, 3]
   gathering.P: [7.5, 0.03]
   gathering.Q: [120, 1.5]
-  gathering.T: [12, 0.2]
+  # Вход сепаратора −4…+8 °C (Истомин и соавторы, 2025, с. 100, ПХГ); газ в газопроводе
+  # Бованенково — Ухта: расчётные варианты +3 и +7 °C (Кузьбожев и соавторы, 2020, с. 194).
+  gathering.T: [5, 0.2]
   gathering.P_in: [7.4, 0.03]
   gathering.P_out: [7.2, 0.03]
   gathering.Q_sep: [300, 3]
@@ -72,7 +74,8 @@ baselines:
   cluster.Q_plume_total: [2000, 20]
   cluster.P_zpa_inlet: [7.6, 0.03]
   cluster.P_buffer: [8.0, 0.03]
-  cluster.T_buffer: [15, 0.3]
+  # Устьевые температуры скважин ПК1 и Т1–2 от −2 до +9 °C (Аксютин и соавторы, Южно-Русское, с. 19).
+  cluster.T_buffer: [6, 0.3]
   cluster.Q_well: [500, 5]
   dks.P_in: [3.0, 0.02]
   dks.P_out: [7.5, 0.03]
@@ -92,10 +95,14 @@ baselines:
   geotech_radar.settlement: [10, 0.5]
   pipelines.safe_life_years: [12, 0]
   pipelines.gas_velocity: [12, 0.5]
-  ecp.current: [5, 0.2]
+  # ЭХЗ — городские сети газораспределения, не промысел (Запевалов и соавторы, 2026, с. 79–80):
+  # ток СКЗ 6…9 А, напряжение 11…29 В, потенциал в КИП −1,2…−2,0 В.
+  ecp.current: [7, 0.3]
   ecp.voltage: [20, 0.5]
-  ecp.potential: [-1.1, 0.03]
-  gas_composition.C5plus: [1.0, 0.05]
+  ecp.potential: [-1.5, 0.05]
+  # Остаток C5+: в товарном газе 2…6 г/м³, на УКПГ-8В Уренгоя 3,2…7,0 г/м³ (Прокопов, Истомин,
+  # 2016, с. 165, 170). Метан: сеноман Харасавэя 98,5 %, апт 96,5 % (Скоробогатова, 2025, с. 85).
+  gas_composition.C5plus: [4.0, 0.2]
   gas_composition.methane: [97, 0.1]
 
 # Связанные датчики: "<stream>.<object>.<parameter>" повторяет follows с поправкой offset и шумом sd.
